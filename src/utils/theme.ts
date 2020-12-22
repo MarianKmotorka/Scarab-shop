@@ -1,5 +1,10 @@
 import { DefaultTheme } from 'styled-components'
 
+export const XS = 479
+export const SM = 480
+export const MD = 839
+export const LG = 1024
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     black: string
@@ -9,6 +14,8 @@ declare module 'styled-components' {
     white: string
     white2: string
     white3: string
+
+    primary: string
   }
 }
 
@@ -20,4 +27,6 @@ export const theme: DefaultTheme = {
   white: '#FFFFFF',
   white2: '#F3F3F3',
   white3: '#E1E1E1',
+
+  primary: '#3FA0EF',
 }
