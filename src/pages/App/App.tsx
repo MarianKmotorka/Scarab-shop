@@ -1,13 +1,18 @@
+import { Route, Switch } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
+import Home from '../Home/Home'
 import { GlobalStyles } from './App.styled'
 
 const App = () => {
   return (
-    <div>
+    <div style={{ height: '100vh' }}>
       <GlobalStyles />
 
       <Navbar />
-      <div style={{ height: 10000 }}>SHOP</div>
+
+      <Switch>
+        <Route path='/' component={Home} />
+      </Switch>
     </div>
   )
 }

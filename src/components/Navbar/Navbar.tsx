@@ -24,6 +24,7 @@ const Navbar = () => {
 
   const isSmallScreen = width <= MD
   const showMenu = (isSmallScreen && isOpen) || !isSmallScreen
+  const close = () => setIsOpen(false)
 
   return (
     <Wrapper>
@@ -38,17 +39,17 @@ const Navbar = () => {
               exit={{ right: -400 }}
               transition={{ type: 'spring', mass: 0.1 }}
             >
-              <StyledLink to='/butterflies'>
+              <StyledLink to='/butterflies' onClick={close}>
                 <GiButterfly />
                 <p>Motýle</p>
               </StyledLink>
 
-              <StyledLink to='/bugs'>
+              <StyledLink to='/bugs' onClick={close}>
                 <FaBug />
                 <p>Chrobáky</p>
               </StyledLink>
 
-              <StyledLink to='/cart'>
+              <StyledLink to='/cart' onClick={close}>
                 <FaShoppingCart />
                 <p>Košík</p>
               </StyledLink>

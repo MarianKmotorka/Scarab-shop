@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { MD } from '../../utils/theme'
+import { MD, SM } from '../../utils/theme'
 
 export const NAVBAR_HEIGHT = 65
 export const NAVBAR_HEIGHT_STRING = '65px'
@@ -26,19 +26,25 @@ export const Wrapper = styled.div`
 
 export const Logo = styled.h1`
   color: ${({ theme }) => theme.white};
-  margin-left: 10px;
   font-weight: 500;
   font-size: 1.5rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
+
+  @media screen and (max-width: ${SM}px) {
+    margin-left: 15px;
+    font-size: 1.2rem;
+  }
 `
 
 export const MenuButton = styled.div`
   color: ${({ theme }) => theme.primary};
   font-size: 1.8rem;
-  margin-right: 30px;
+  margin-right: 20px;
   cursor: pointer;
+  display: grid;
+  place-items: center;
 `
 
 export const StyledLink = styled(NavLink)`
@@ -78,15 +84,14 @@ export const StyledLink = styled(NavLink)`
     padding: 20px;
 
     svg {
-      font-size: 1.7rem;
-      padding: 0 0 0 40px;
-      flex: 1;
-      text-align: right;
+      font-size: 1.5rem;
+      width: 80px;
     }
 
     p {
       font-size: 1.3rem;
-      flex: 1;
+      text-align: start;
+      width: 28%;
     }
 
     &.active,
@@ -113,7 +118,7 @@ export const ResponsiveMenuLinks = styled(motion.div)`
     bottom: 0;
     right: 0;
     padding-top: 100px;
-    background-color: ${({ theme }) => theme.black3};
+    background-color: ${({ theme }) => theme.black};
     flex-direction: column;
   }
 `
