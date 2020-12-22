@@ -1,19 +1,25 @@
 import { Route, Switch } from 'react-router-dom'
-import Navbar from '../../components/Navbar/Navbar'
+
+import Bugs from '../Bugs/Bugs'
 import Home from '../Home/Home'
+import Navbar from '../../components/Navbar/Navbar'
+import Butterflies from '../Butterflies/Butterflies'
+
 import { GlobalStyles } from './App.styled'
 
 const App = () => {
   return (
-    <div style={{ height: '100vh' }}>
+    <>
       <GlobalStyles />
 
       <Navbar />
 
       <Switch>
+        <Route path='/butterflies' exact component={Butterflies} />
+        <Route path='/bugs' exact component={Bugs} />
         <Route path='/' component={Home} />
       </Switch>
-    </div>
+    </>
   )
 }
 

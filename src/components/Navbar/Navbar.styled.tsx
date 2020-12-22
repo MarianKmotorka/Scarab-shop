@@ -33,7 +33,6 @@ export const Logo = styled.h1`
   cursor: pointer;
 
   @media screen and (max-width: ${SM}px) {
-    margin-left: 15px;
     font-size: 1.2rem;
   }
 `
@@ -41,7 +40,6 @@ export const Logo = styled.h1`
 export const MenuButton = styled.div`
   color: ${({ theme }) => theme.primary};
   font-size: 1.8rem;
-  margin-right: 20px;
   cursor: pointer;
   display: grid;
   place-items: center;

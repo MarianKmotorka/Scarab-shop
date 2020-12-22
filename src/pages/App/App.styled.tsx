@@ -9,12 +9,12 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    height:100vh;
-    overflow:auto;
-    background-color:${({ theme }) => theme.white};
+#root{
+  height:100vh;
+  overflow:auto;
+  background-color:${({ theme }) => theme.white};
 
-    ::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 10px;
     background: transparent;
     }
@@ -24,7 +24,7 @@ body{
     }
 
     ::-webkit-scrollbar-track {
-    background: transparent;
+    background: ${({ theme }) => theme.white3};
     border-radius: 5px;
   }
 
