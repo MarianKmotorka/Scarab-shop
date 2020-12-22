@@ -9,28 +9,30 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
 }
 
+a, p{
+  text-decoration:none;
+  color:${({ theme }) => theme.black};
+}
+
 #root{
   height:100vh;
   overflow:auto;
   background-color:${({ theme }) => theme.white};
 
-  ::-webkit-scrollbar {
-    width: 10px;
-    background: transparent;
-    }
+  @media screen and (min-width: ${MD}px){
+      ::-webkit-scrollbar {
+        width: 8px;
+        background: transparent;
+      }
 
-    ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.black};
-    }
+      ::-webkit-scrollbar-thumb {
+        background: #bababa;
+        border-radius:300px;
+      }
 
-    ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.white3};
-    border-radius: 5px;
-  }
-
-  @media screen and (max-width: ${MD}px){
-    ::-webkit-scrollbar {
-      width: 3px;
+      ::-webkit-scrollbar-track {
+        background: ${({ theme }) => theme.white};
+        border-radius: 5px;
     }
   }
 }
