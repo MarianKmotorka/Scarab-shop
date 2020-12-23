@@ -14,13 +14,17 @@ import {
   Wrapper,
   StyledLink,
   MenuButton,
+  Center,
 } from './Navbar.styled'
 import { AnimatePresence } from 'framer-motion'
+import Badge from '../Badge'
+import { useCart } from '../../contextProviders/CartProvider'
 
 const Navbar = () => {
   const history = useHistory()
   const { width } = useWindowSize()
   const [isOpen, setIsOpen] = useState(false)
+  const { count } = useCart()
 
   const isSmallScreen = width <= MD
   const showMenu = (isSmallScreen && isOpen) || !isSmallScreen
@@ -50,7 +54,12 @@ const Navbar = () => {
               </StyledLink>
 
               <StyledLink to='/cart' onClick={close}>
-                <FaShoppingCart />
+                <Center>
+                  <Badge value={count}>
+                    <FaShoppingCart />
+                  </Badge>
+                </Center>
+
                 <p>Košík</p>
               </StyledLink>
             </ResponsiveMenuLinks>

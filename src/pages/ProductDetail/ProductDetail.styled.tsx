@@ -4,7 +4,7 @@ import { SM } from '../../utils/theme'
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 30px;
 `
 
@@ -14,6 +14,7 @@ export const ImagesContainer = styled.div`
 
   max-width: 595px;
   width: 100%;
+  min-width: 300px;
 
   margin-bottom: 30px;
 `
@@ -62,17 +63,17 @@ export const ProductInfo = styled.div`
   margin-bottom: 30px;
   min-width: 300px;
   height: auto;
-  align-self: flex-start;
 `
 
 export const SectionTitle = styled.p`
   color: ${({ theme }) => theme.primary};
-  padding: 30px;
+  padding: 25px 30px;
   background-color: ${({ theme }) => theme.black3};
 `
 
 export const Section = styled.p<{ spaceBetween?: boolean }>`
   padding: 30px;
+  white-space: pre-line;
 
   ${({ spaceBetween }) =>
     spaceBetween &&

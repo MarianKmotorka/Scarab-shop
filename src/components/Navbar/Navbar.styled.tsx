@@ -82,7 +82,8 @@ export const StyledLink = styled(NavLink)`
   @media screen and (max-width: ${MD}px) {
     padding: 20px;
 
-    svg {
+    > svg,
+    > span {
       font-size: 1.5rem;
       width: 80px;
     }
@@ -120,4 +121,9 @@ export const ResponsiveMenuLinks = styled(motion.div)`
     background-color: ${({ theme }) => theme.black};
     flex-direction: column;
   }
+`
+
+export const Center = styled.span`
+  display: grid;
+  place-items: center;
 `

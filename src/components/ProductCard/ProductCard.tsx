@@ -18,7 +18,7 @@ const ProductCard = ({ product }: IProductCardProps) => {
           {isOutOfStock ? (
             <p style={{ color: 'red' }}>Vypredané</p>
           ) : (
-            <p>{product.numberInStock} kusov</p>
+            <p>{product.numberInStock} ks</p>
           )}
 
           <Price>
