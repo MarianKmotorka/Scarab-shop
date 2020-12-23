@@ -4,8 +4,8 @@ import { SM } from '../../utils/theme'
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 30px;
-  justify-content: center;
 `
 
 export const ImagesContainer = styled.div`
@@ -62,6 +62,7 @@ export const ProductInfo = styled.div`
   margin-bottom: 30px;
   min-width: 300px;
   height: auto;
+  align-self: flex-start;
 `
 
 export const SectionTitle = styled.p`
@@ -70,8 +71,9 @@ export const SectionTitle = styled.p`
   background-color: ${({ theme }) => theme.black3};
 `
 
-export const Section = styled.p`
+export const Section = styled.p<{ pullRight?: boolean }>`
   padding: 30px;
+  ${({ pullRight }) => pullRight && 'text-align: end'};
 `
 
 export const Money = styled.span<{ fontSize: string }>`

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Button from '../../components/Button/Button'
 
 import { Container } from '../../components/Container'
 import Loader from '../../components/Loader/Loader'
@@ -7,6 +8,7 @@ import { PageTitle } from '../../components/PageTitle'
 import { IProduct } from '../../domain'
 import { useFirestoreDoc } from '../../hooks'
 import ErrorPage from '../ErrorPage'
+import Price from './Price'
 
 import {
   Section,
@@ -17,7 +19,6 @@ import {
   SmallImage,
   SmallImagesGrid,
   Wrapper,
-  Money,
 } from './ProductDetail.styled'
 
 const ProductDetail = () => {
@@ -54,23 +55,12 @@ const ProductDetail = () => {
             <Price product={product} />
           </Section>
 
-          <Section>
-            <button>Do KOSIKA</button>
+          <Section pullRight>
+            <Button>DO KOŠÍKA</Button>
           </Section>
         </ProductInfo>
       </Wrapper>
     </Container>
-  )
-}
-
-const Price = ({ product }: { product: IProduct }) => {
-  if (!product.maxPrice) return <Money fontSize='1.5rem'>{product.minPrice}€</Money>
-
-  return (
-    <div>
-      Od <Money fontSize='1.5rem'>{product.minPrice}€</Money> do{' '}
-      <Money fontSize='inherit'>{product.maxPrice}€</Money>
-    </div>
   )
 }
 

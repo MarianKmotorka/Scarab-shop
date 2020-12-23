@@ -2,10 +2,8 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Wrapper = styled(Link)`
-  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
 `
 
