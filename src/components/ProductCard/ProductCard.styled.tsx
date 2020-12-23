@@ -3,7 +3,10 @@ import styled from 'styled-components'
 
 export const Wrapper = styled(Link)`
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
 `
 
 export const Image = styled.img<{ isOutOfStock: boolean }>`
@@ -18,9 +21,12 @@ export const Image = styled.img<{ isOutOfStock: boolean }>`
 
 export const Body = styled.div`
   padding: 15px 13px;
-  border: 1px solid ${({ theme }) => theme.black};
   border-radius: 0 0 15px 15px;
-  border-top: none;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   h1 {
     font-size: 1.4rem;

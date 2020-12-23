@@ -1,83 +1,41 @@
-import { Container } from '../../components/Container'
+import { useCallback } from 'react'
+
+import { useFirestoreQuery } from '../../hooks'
+import { propertyOf } from '../../utils/utils'
+import Loader from '../../components/Loader/Loader'
 import { PageTitle } from '../../components/PageTitle'
+import { Container } from '../../components/Container'
+import { IProduct, ProductCategory } from '../../domain'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import { IProduct } from '../../domain'
+
 import { Grid, Wrapper } from './Butterflies.styled'
 
-const fakeProducts: IProduct[] = [
-  {
-    category: 'butterfly',
-    name: 'Babocka zvaruhodna zkundy dikna',
-    description: 'awdawd',
-    id: 'awdawd',
-    minPrice: 50.25,
-    maxPrice: 60,
-    numberInStock: 6,
-    imageUrls: [
-      'https://firebasestorage.googleapis.com/v0/b/makm-firegram.appspot.com/o/HKi3dLuNZgZGo4bqBgFFGvOviIf21605699785866IMG_20201002_153630_1.jpg?alt=media&token=43c40221-22c7-492f-9592-680bcf8166ac',
-    ],
-  },
-  {
-    category: 'butterfly',
-    name: 'Babocka zvaruhodna',
-    description: 'awdawd',
-    id: 'awdawaaawd',
-    minPrice: 50.25,
-    numberInStock: 6,
-    maxPrice: 60,
-    imageUrls: [
-      'https://firebasestorage.googleapis.com/v0/b/makm-firegram.appspot.com/o/HKi3dLuNZgZGo4bqBgFFGvOviIf21605699785866IMG_20201002_153630_1.jpg?alt=media&token=43c40221-22c7-492f-9592-680bcf8166ac',
-    ],
-  },
-  {
-    category: 'butterfly',
-    name: 'Babocka zvaruhodna',
-    description: 'awdawd',
-    id: 'awdafffwd',
-    minPrice: 50.25,
-    numberInStock: 6,
-    maxPrice: 60,
-    imageUrls: [
-      'https://firebasestorage.googleapis.com/v0/b/makm-firegram.appspot.com/o/HKi3dLuNZgZGo4bqBgFFGvOviIf21605699785866IMG_20201002_153630_1.jpg?alt=media&token=43c40221-22c7-492f-9592-680bcf8166ac',
-    ],
-  },
-  {
-    category: 'butterfly',
-    name: 'Babocka zvaruhodna',
-    description: 'awdawd',
-    id: 'awdeafsrawd',
-    numberInStock: 0,
-    minPrice: 50.25,
-    maxPrice: 60,
-    imageUrls: [
-      'https://firebasestorage.googleapis.com/v0/b/makm-firegram.appspot.com/o/HKi3dLuNZgZGo4bqBgFFGvOviIf21605699785866IMG_20201002_153630_1.jpg?alt=media&token=43c40221-22c7-492f-9592-680bcf8166ac',
-    ],
-  },
-  {
-    category: 'butterfly',
-    name: 'Babocka zvaruhodna mengeloidna',
-    description: 'awdawd',
-    id: 'awdaawdwd',
-    numberInStock: 0,
-    minPrice: 50.25,
-    maxPrice: 60,
-    imageUrls: [
-      'https://firebasestorage.googleapis.com/v0/b/makm-firegram.appspot.com/o/HKi3dLuNZgZGo4bqBgFFGvOviIf21605699785866IMG_20201002_153630_1.jpg?alt=media&token=43c40221-22c7-492f-9592-680bcf8166ac',
-    ],
-  },
-]
-
 const Butterflies = () => {
+  const butterflyCategory: ProductCategory = 'butterfly'
+  const [butterflies, loading] = useFirestoreQuery<IProduct>(
+    useCallback(
+      x =>
+        x
+          .collection('products')
+          .where(propertyOf<IProduct>('category'), '==', butterflyCategory),
+      []
+    )
+  )
+
   return (
     <Wrapper>
       <Container>
         <PageTitle>Motýle</PageTitle>
 
+        {!loading && butterflies.length === 0 && <h2>Nothing found</h2>}
+
         <Grid>
-          {fakeProducts.map(x => (
+          {butterflies.map(x => (
             <ProductCard key={x.id} product={x} />
           ))}
         </Grid>
+
+        {loading && <Loader />}
       </Container>
     </Wrapper>
   )

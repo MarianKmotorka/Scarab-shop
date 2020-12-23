@@ -22,7 +22,7 @@ const ProductCard = ({ product }: IProductCardProps) => {
           )}
 
           <Price>
-            od <span>{product.minPrice.toPrecision(2)}€</span>
+            od <span>{product.minPrice}€</span>
           </Price>
         </Info>
       </Body>
