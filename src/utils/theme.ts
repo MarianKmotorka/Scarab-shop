@@ -28,5 +28,5 @@ export const theme: DefaultTheme = {
   white2: '#F3F3F3',
   white3: '#E1E1E1',
 
-  primary: '#3FA0EF',
+  primary: '#FB3640',
 }

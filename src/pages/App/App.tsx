@@ -6,6 +6,8 @@ import Navbar from '../../components/Navbar/Navbar'
 import Butterflies from '../Butterflies/Butterflies'
 
 import { GlobalStyles } from './App.styled'
+import NotFoundPage from '../NotFoundPage'
+import ProductDetail from '../ProductDetail/ProductDetail'
 
 const App = () => {
   return (
@@ -17,7 +19,9 @@ const App = () => {
       <Switch>
         <Route path='/butterflies' exact component={Butterflies} />
         <Route path='/bugs' exact component={Bugs} />
-        <Route path='/' component={Home} />
+        <Route path='/products/:productId' exact component={ProductDetail} />
+        <Route path='/' exact component={Home} />
+        <Route path='/' component={NotFoundPage} />
       </Switch>
     </>
   )

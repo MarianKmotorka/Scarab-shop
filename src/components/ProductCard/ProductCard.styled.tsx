@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Wrapper = styled(Link)`
-  border-radius: 15px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -13,7 +13,6 @@ export const Image = styled.img<{ isOutOfStock: boolean }>`
   max-height: 250px;
   width: 100%;
   object-fit: cover;
-  border-radius: 15px 15px 0 0;
   display: block;
 
   ${({ isOutOfStock }) => isOutOfStock && 'filter: grayscale(100%)'};
@@ -21,7 +20,6 @@ export const Image = styled.img<{ isOutOfStock: boolean }>`
 
 export const Body = styled.div`
   padding: 15px 13px;
-  border-radius: 0 0 15px 15px;
   flex: 1;
 
   display: flex;

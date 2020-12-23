@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
 `
 
 export const Logo = styled.h1`
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.primary};
   font-weight: 500;
   font-size: 1.5rem;
   letter-spacing: 3px;

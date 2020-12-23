@@ -33,7 +33,7 @@ const useFirestoreDoc = <T>(
       setState(x => ({
         ...x,
         loading: false,
-        error: { message: 'Data not found' } as FirestoreError,
+        error: { message: 'Data not found', code: 'not-found', name: 'NotFound' },
       }))
   }
 
