@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { SM } from '../../utils/theme'
 
 export const Wrapper = styled.div`
@@ -71,9 +71,17 @@ export const SectionTitle = styled.p`
   background-color: ${({ theme }) => theme.black3};
 `
 
-export const Section = styled.p<{ pullRight?: boolean }>`
+export const Section = styled.p<{ spaceBetween?: boolean }>`
   padding: 30px;
-  ${({ pullRight }) => pullRight && 'text-align: end'};
+
+  ${({ spaceBetween }) =>
+    spaceBetween &&
+    css`
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      }
+    `};
 `
 
 export const Money = styled.span<{ fontSize: string }>`

@@ -55,7 +55,10 @@ const ProductDetail = () => {
             <Price product={product} />
           </Section>
 
-          <Section pullRight>
+          <Section spaceBetween>
+            <>{product.numberInStock} ks</>
+
+            {/* TODO: Add amount picker*/}
             <Button>DO KOŠÍKA</Button>
           </Section>
         </ProductInfo>
