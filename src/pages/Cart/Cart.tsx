@@ -1,14 +1,15 @@
 import { useCallback, useState } from 'react'
 
-import { Container } from '../../components/Container'
-import Loader from '../../components/Loader/Loader'
-import { PageTitle } from '../../components/PageTitle'
-import { useCart } from '../../contextProviders/CartProvider'
+import ErrorPage from '../ErrorPage'
 import { IProduct } from '../../domain'
-import { FieldPath } from '../../firebase/config'
+import CartItem from './CartItem/CartItem'
 import { useFirestoreQuery } from '../../hooks'
 import { isValidEmail } from '../../utils/utils'
-import CartItem from './CartItem/CartItem'
+import { FieldPath } from '../../firebase/config'
+import Loader from '../../components/Loader/Loader'
+import { PageTitle } from '../../components/PageTitle'
+import { Container } from '../../components/Container'
+import { useCart } from '../../contextProviders/CartProvider'
 
 import {
   OrderDirections,
@@ -31,7 +32,7 @@ const Cart = () => {
 
   const isCartEmpty = productIds.length === 0
 
-  const [productsDb, loading] = useFirestoreQuery<IProduct>(
+  const [productsDb, loading, fetchError] = useFirestoreQuery<IProduct>(
     useCallback(
       db => db.collection('products').where(FieldPath.documentId(), 'in', productIds),
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,6 +40,8 @@ const Cart = () => {
     ),
     { startFetching: !isCartEmpty }
   )
+
+  if (fetchError) return <ErrorPage error={fetchError} />
 
   const filteredProducts = productsDb.filter(x => productIds.includes(x.id))
 

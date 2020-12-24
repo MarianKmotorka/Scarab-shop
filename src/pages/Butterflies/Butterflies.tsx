@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
 
-import { useFirestoreQuery } from '../../hooks'
+import ErrorPage from '../ErrorPage'
 import { propertyOf } from '../../utils/utils'
+import { useFirestoreQuery } from '../../hooks'
 import Loader from '../../components/Loader/Loader'
 import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
@@ -12,7 +13,7 @@ import { Grid, Wrapper } from './Butterflies.styled'
 
 const Butterflies = () => {
   const butterflyCategory: ProductCategory = 'butterfly'
-  const [butterflies, loading] = useFirestoreQuery<IProduct>(
+  const [butterflies, loading, error] = useFirestoreQuery<IProduct>(
     useCallback(
       x =>
         x
@@ -21,6 +22,8 @@ const Butterflies = () => {
       []
     )
   )
+
+  if (error) return <ErrorPage error={error} />
 
   return (
     <Wrapper>
