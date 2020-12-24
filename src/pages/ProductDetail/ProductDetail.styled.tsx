@@ -71,7 +71,7 @@ export const SectionTitle = styled.p`
   background-color: ${({ theme }) => theme.black3};
 `
 
-export const Section = styled.p<{ spaceBetween?: boolean }>`
+export const Section = styled.section<{ spaceBetween?: boolean }>`
   padding: 30px;
   white-space: pre-line;
 

@@ -1,3 +1,5 @@
+import firebase from 'firebase/app'
+
 export type ProductCategory = 'bug' | 'butterfly'
 
 export interface IEntity {
@@ -12,4 +14,15 @@ export interface IProduct extends IEntity {
   maxPrice: number | null
   description: string | null
   numberInStock: number
+}
+
+export interface IOrder extends IEntity {
+  placed: firebase.firestore.Timestamp
+  /**
+   * { productId: amount}
+   */
+  products: Record<string, number>
+  cutomerName: string
+  customerEmail: string
+  customerMessage: string
 }

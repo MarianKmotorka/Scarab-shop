@@ -20,15 +20,18 @@ import {
   ValidationError,
   SuccessMessage,
 } from './Cart.styled'
+import { createOrder } from '../../services/OrderService'
+import { useApiError } from '../../contextProviders/ApiErrorProvider'
 
 const Cart = () => {
-  const { productIds, removeAll } = useCart()
+  const { productIds, products, removeAll } = useCart()
   const [error, setError] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [note, setNote] = useState('')
+  const [message, setMessage] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
+  const { setError: setApiError } = useApiError()
 
   const isCartEmpty = productIds.length === 0
 
@@ -50,7 +53,15 @@ const Cart = () => {
     if (!isValidEmail(email)) return setError('Neplatný email')
 
     setSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 3000))
+    await createOrder(
+      {
+        products,
+        cutomerName: name,
+        customerEmail: email,
+        customerMessage: message,
+      },
+      setApiError
+    )
     setSubmitting(false)
 
     setSuccess(true)
@@ -89,7 +100,14 @@ const Cart = () => {
 
             <StyledInput value={name} onChange={setName} label='Meno' />
             <StyledInput value={email} onChange={setEmail} label='Email' />
-            <StyledTextArea rows={4} value={note} onChange={setNote} label='Poznamka' />
+
+            {/* TODO: Remove for logged in user*/}
+            <StyledTextArea
+              rows={4}
+              value={message}
+              onChange={setMessage}
+              label='Poznamka'
+            />
 
             <StyledButton onClick={handleSubmitted} isLoading={submitting} reversed>
               ODOSLAŤ

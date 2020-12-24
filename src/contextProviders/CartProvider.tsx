@@ -33,7 +33,7 @@ const CartProvider: FC = ({ children }) => {
     [setProducts]
   )
 
-  const removeAll = useCallback(() => setProducts({}), [])
+  const removeAll = useCallback(() => setProducts({}), [setProducts])
 
   const addOrUpdateProduct = useCallback(
     (productId: string, amount: number = 1) => {

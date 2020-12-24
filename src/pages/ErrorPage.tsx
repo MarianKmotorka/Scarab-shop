@@ -1,10 +1,12 @@
 import firebase from 'firebase/app'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
+import { FaTimes } from 'react-icons/fa'
 import { NAVBAR_HEIGHT_STRING } from '../components/Navbar/Navbar.styled'
 
 interface IErrorPageProps {
   error: firebase.firestore.FirestoreError
+  removeError?: () => void
 }
 
 const Wrapper = styled.div`
@@ -15,25 +17,37 @@ const Wrapper = styled.div`
   * + * {
     margin-top: 15px;
   }
+`
 
-  > div {
-    width: 80%;
-    padding: 50px;
-    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
+const Card = styled.div`
+  width: 80%;
+  padding: 50px;
+  position: relative;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
+
+  svg {
+    top: 10px;
+    right: 10px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
   }
 `
 
-const ErrorPage = ({ error }: IErrorPageProps) => {
+const ErrorPage = ({ error, removeError }: IErrorPageProps) => {
   if (error.code === 'not-found') return <Redirect to='/not-found' />
 
   return (
     <Wrapper>
-      <div>
+      <Card>
         <h1>{error.name}</h1>
         <p>{error.message}</p>
         <p>Developer info:</p>
         <pre>{JSON.stringify(error, null, 2)}</pre>
-      </div>
+
+        {removeError && <FaTimes onClick={removeError} />}
+      </Card>
     </Wrapper>
   )
 }
