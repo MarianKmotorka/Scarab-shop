@@ -11,6 +11,7 @@ interface ICartContextValue {
   productIds: string[]
   addOrUpdateProduct: (productId: string, amount?: number) => void
   removeProduct: (productId: string) => void
+  removeAll: () => void
   isInCart: (productId: string) => boolean
 }
 
@@ -32,6 +33,8 @@ const CartProvider: FC = ({ children }) => {
     [setProducts]
   )
 
+  const removeAll = useCallback(() => setProducts({}), [])
+
   const addOrUpdateProduct = useCallback(
     (productId: string, amount: number = 1) => {
       setProducts(prev => ({ ...prev, [productId]: amount }))
@@ -50,6 +53,7 @@ const CartProvider: FC = ({ children }) => {
     products,
     productIds,
     isInCart,
+    removeAll,
     removeProduct,
     addOrUpdateProduct,
   }

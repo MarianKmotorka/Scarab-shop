@@ -1,13 +1,10 @@
 import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 
-interface IStyledProps {
-  width?: string
-}
-
 const Wrapper = styled.div`
   label {
-    margin-right: 5px;
+    margin-bottom: 5px;
+    display: block;
 
     ::after {
       content: ':';
@@ -15,24 +12,26 @@ const Wrapper = styled.div`
   }
 `
 
-const StyledInput = styled.input<IStyledProps>`
-  width: ${({ width }) => width || 'auto'};
+const StyledInput = styled.input`
+  width: 100%;
   padding: 5px;
   border: 2px solid ${({ theme }) => theme.black};
   outline: none;
   font-size: inherit;
 `
 
-interface IProps extends IStyledProps, InputHTMLAttributes<HTMLInputElement> {
+interface IProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   label: string
   width?: string
+  onChange?: (value: string) => void
+  className?: string
 }
 
-const Input = ({ label, name, ...rest }: IProps) => {
+const Input = ({ label, name, onChange, className, ...rest }: IProps) => {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <label htmlFor={name}>{label}</label>
-      <StyledInput {...rest} />
+      <StyledInput {...rest} onChange={e => onChange && onChange(e.target.value)} />
     </Wrapper>
   )
 }

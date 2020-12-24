@@ -16,6 +16,7 @@ declare module 'styled-components' {
     white3: string
 
     primary: string
+    red: string
   }
 }
 
@@ -29,4 +30,5 @@ export const theme: DefaultTheme = {
   white3: '#E1E1E1',
 
   primary: '#FB3640',
+  red: '#FB3640',
 }

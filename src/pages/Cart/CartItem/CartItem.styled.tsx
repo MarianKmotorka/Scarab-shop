@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { MD } from '../../../utils/theme'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.li`
   padding: 12px 30px;
   border-top: solid 1px ${({ theme }) => theme.black};
 
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  :last-child {
+  :last-of-type {
     border-bottom: solid 1px ${({ theme }) => theme.black};
   }
 
