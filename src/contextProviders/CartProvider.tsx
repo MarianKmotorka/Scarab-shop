@@ -1,11 +1,14 @@
 import { createContext, FC, useCallback, useContext, useMemo } from 'react'
+import keys from 'lodash/keys'
 import omit from 'lodash/omit'
 import reduce from 'lodash/reduce'
+
 import { useLocalStorage } from '../hooks'
 
 interface ICartContextValue {
   count: number
   products: Record<string, number> // Note: productId: amount
+  productIds: string[]
   addOrUpdateProduct: (productId: string, amount?: number) => void
   removeProduct: (productId: string) => void
   isInCart: (productId: string) => boolean
@@ -40,9 +43,12 @@ const CartProvider: FC = ({ children }) => {
     products,
   ])
 
+  const productIds = useMemo(() => keys(products), [products])
+
   const value: ICartContextValue = {
-    products,
     count,
+    products,
+    productIds,
     isInCart,
     removeProduct,
     addOrUpdateProduct,

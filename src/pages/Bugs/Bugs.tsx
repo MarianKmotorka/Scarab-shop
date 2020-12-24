@@ -27,7 +27,7 @@ const Bugs = () => {
       <Container>
         <PageTitle>Chrobáky</PageTitle>
 
-        {!loading && bugs.length === 0 && <h2>Nothing found</h2>}
+        {!loading && bugs.length === 0 && <p>Nothing found</p>}
 
         <Grid>
           {bugs.map(x => (

@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { MD } from '../../utils/theme'
 
 export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
+
+  @media screen and (min-width: ${MD}px) {
+    transition: transform 0.3s;
+    :hover {
+      transform: translateY(-7px);
+    }
+  }
 `
 
 export const Image = styled.img<{ isOutOfStock: boolean }>`

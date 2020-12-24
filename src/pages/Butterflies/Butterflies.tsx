@@ -27,7 +27,7 @@ const Butterflies = () => {
       <Container>
         <PageTitle>Motýle</PageTitle>
 
-        {!loading && butterflies.length === 0 && <h2>Nothing found</h2>}
+        {!loading && butterflies.length === 0 && <p>Nothing found</p>}
 
         <Grid>
           {butterflies.map(x => (

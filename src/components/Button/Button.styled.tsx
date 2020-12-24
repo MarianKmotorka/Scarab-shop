@@ -38,6 +38,7 @@ export const StyledPrimaryButton = styled.button<IStyledButtonProps>`
       color: ${colorHex};
 
       ${hover &&
+      !disabled &&
       css`
         :hover {
           color: ${bgHex};
