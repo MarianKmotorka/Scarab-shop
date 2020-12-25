@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { SM } from '../../utils/theme'
 import { NAVBAR_HEIGHT_STRING } from '../../components/Navbar/Navbar.styled'
 
 export const Wrapper = styled.div`
@@ -11,7 +12,6 @@ export const Wrapper = styled.div`
     box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 100%;
-    background: ${({ theme }) => theme.white2};
 
     > * + * {
       margin-top: 10px;
@@ -22,11 +22,16 @@ export const Wrapper = styled.div`
       margin-top: 30px;
       display: block;
     }
+
+    @media screen and (max-width: ${SM}px) {
+      box-shadow: none;
+      padding: 0;
+    }
   }
 `
 
 export const FormTitle = styled.h1`
   font-size: 1.4rem;
   font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 `

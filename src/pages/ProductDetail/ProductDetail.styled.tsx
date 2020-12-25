@@ -57,21 +57,23 @@ export const MainImage = styled.img`
 `
 
 export const ProductInfo = styled.div`
-  border-radius: 5px;
   flex: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  margin-bottom: 30px;
   min-width: 300px;
-  height: auto;
+`
+
+export const Section = styled.section`
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
 `
 
 export const SectionTitle = styled.p`
-  color: ${({ theme }) => theme.primary};
-  padding: 25px 30px;
-  background-color: ${({ theme }) => theme.black3};
+  color: ${({ theme }) => theme.black};
+  padding: 20px 30px;
+  background-color: ${({ theme }) => theme.white3};
+  font-size: 0.9rem;
 `
 
-export const Section = styled.section<{ spaceBetween?: boolean }>`
+export const SectionBody = styled.div<{ spaceBetween?: boolean }>`
   padding: 30px;
   white-space: pre-line;
 

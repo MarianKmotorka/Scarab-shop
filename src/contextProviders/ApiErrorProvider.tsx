@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useState } from 'react'
+import { createContext, FC, useCallback, useContext, useState } from 'react'
 import firebase from 'firebase/app'
 
 export type SetError = (err: firebase.firestore.FirestoreError) => void
@@ -17,8 +17,8 @@ const ApiErrorProvider: FC = ({ children }) => {
 
   const value: IApiErrorContextValue = {
     error,
-    setError,
     removeError: () => setError(undefined),
+    setError: useCallback(error => setError(error), []),
   }
 
   return <ApiErrorContext.Provider value={value}>{children}</ApiErrorContext.Provider>

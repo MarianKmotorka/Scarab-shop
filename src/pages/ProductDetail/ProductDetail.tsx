@@ -12,7 +12,7 @@ import ErrorPage from '../ErrorPage'
 import Price from './Price'
 
 import {
-  Section,
+  SectionBody,
   ImagesContainer,
   SectionTitle,
   MainImage,
@@ -20,6 +20,7 @@ import {
   SmallImage,
   SmallImagesGrid,
   Wrapper,
+  Section,
 } from './ProductDetail.styled'
 
 const ProductDetail = () => {
@@ -55,26 +56,32 @@ const ProductDetail = () => {
         </ImagesContainer>
 
         <ProductInfo>
-          <SectionTitle>INFO:</SectionTitle>
-          <Section>{product.description || '-'}</Section>
+          {product.description && (
+            <Section>
+              <SectionTitle>INFO:</SectionTitle>
+              <SectionBody>{product.description}</SectionBody>
+            </Section>
+          )}
 
-          <SectionTitle>CENA:</SectionTitle>
           <Section>
-            <Price product={product} />
-          </Section>
+            <SectionTitle>CENA:</SectionTitle>
+            <SectionBody>
+              <Price product={product} />
+            </SectionBody>
 
-          <Section spaceBetween>
-            {isOutOfStock ? (
-              <p style={{ color: 'red' }}>Vypredané</p>
-            ) : (
-              <p>{product.numberInStock} ks</p>
-            )}
+            <SectionBody spaceBetween>
+              {isOutOfStock ? (
+                <p style={{ color: 'red' }}>Vypredané</p>
+              ) : (
+                <p>{product.numberInStock} ks</p>
+              )}
 
-            {!isOutOfStock && (
-              <Button onClick={handleAddOrRemoveFromCart}>
-                {isInCart(product.id) ? 'ODOBRAT' : 'DO KOŠÍKA'}
-              </Button>
-            )}
+              {!isOutOfStock && (
+                <Button onClick={handleAddOrRemoveFromCart}>
+                  {isInCart(product.id) ? 'ODOBRAT' : 'DO KOŠÍKA'}
+                </Button>
+              )}
+            </SectionBody>
           </Section>
         </ProductInfo>
       </Wrapper>

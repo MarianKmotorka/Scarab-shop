@@ -1,3 +1,5 @@
+import { useHistory } from 'react-router-dom'
+
 import Button from '../../components/Button/Button'
 import { projectAuth } from '../../firebase/config'
 import { Container } from '../../components/Container'
@@ -6,7 +8,6 @@ import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
 import { firebaseErrorToFieldError } from './utils'
 import { FormTitle, Wrapper } from './Login.styled'
-import { useHistory } from 'react-router-dom'
 
 export interface ILoginFormData {
   email: string
@@ -21,7 +22,7 @@ const Login = () => {
     password,
   }) => {
     try {
-      await projectAuth.signInWithEmailAndPassword(email, password)
+      await projectAuth.signInWithEmailAndPassword(email.trim(), password)
       return history.replace('/')
     } catch (err) {
       return [firebaseErrorToFieldError(err)]
