@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export interface IStyledButtonProps {
   hover?: boolean
   reversed?: boolean
+  colorInverted?: boolean
   scale?: number
   top?: string
   left?: string
@@ -20,13 +21,13 @@ export const StyledPrimaryButton = styled.button<IStyledButtonProps>`
   right: ${({ right }) => right};
   bottom: ${({ bottom }) => bottom};
 
-  ${({ hover = true, scale = 1, reversed, disabled, theme }) => {
+  ${({ hover = true, scale = 1, reversed, colorInverted, disabled, theme }) => {
     const bgHex = reversed ? theme.black : theme.white
     const colorHex = reversed ? theme.white : theme.black
 
     return css`
       outline: none;
-      border: 2px solid ${theme.black};
+      border: 2px solid ${colorInverted ? theme.white : theme.black};
 
       font-size: 1rem;
       cursor: ${disabled ? 'auto' : 'pointer'};
@@ -47,9 +48,7 @@ export const StyledPrimaryButton = styled.button<IStyledButtonProps>`
             color: inherit;
           }
         }
-      `}
-
-      * {
+      `} * {
         color: inherit;
       }
     `

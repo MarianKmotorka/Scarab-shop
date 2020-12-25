@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { MD, SM } from '../../utils/theme'
+import { LG, MD, SM } from '../../utils/theme'
 
-export const NAVBAR_HEIGHT = 65
-export const NAVBAR_HEIGHT_STRING = '65px'
+export const NAVBAR_HEIGHT = 70
+export const NAVBAR_HEIGHT_STRING = `${NAVBAR_HEIGHT}px`
 
 export const Wrapper = styled.div`
   height: ${NAVBAR_HEIGHT_STRING};
@@ -101,7 +101,45 @@ export const StyledLink = styled(NavLink)`
   }
 `
 
-export const ResponsiveMenuLinks = styled(motion.div)`
+export const Menu = styled(motion.div)`
+  @media screen and (max-width: ${LG}px) {
+    position: fixed;
+    max-width: 400px;
+    width: 100vw;
+    top: ${NAVBAR_HEIGHT_STRING};
+    bottom: 0;
+    right: 0;
+    padding-top: 100px;
+    background-color: ${({ theme }) => theme.black};
+  }
+`
+
+export const Center = styled.span`
+  display: grid;
+  place-items: center;
+`
+
+export const AuthLinksContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  button {
+    max-width: 120px;
+    margin: 10px 0;
+  }
+
+  @media screen and (max-width: ${LG}px) {
+    padding: 0 10px;
+  }
+
+  @media screen and (max-width: ${MD}px) {
+    margin-top: 50px;
+  }
+`
+
+export const ProductLinks = styled.div`
   display: flex;
 
   @media screen and (min-width: ${MD + 1}px) {
@@ -111,19 +149,20 @@ export const ResponsiveMenuLinks = styled(motion.div)`
   }
 
   @media screen and (max-width: ${MD}px) {
-    position: fixed;
-    max-width: 400px;
-    width: 100vw;
-    top: ${NAVBAR_HEIGHT_STRING};
-    bottom: 0;
-    right: 0;
-    padding-top: 100px;
-    background-color: ${({ theme }) => theme.black};
     flex-direction: column;
   }
 `
 
-export const Center = styled.span`
-  display: grid;
-  place-items: center;
+export const UserName = styled(NavLink)`
+  color: ${({ theme }) => theme.white};
+  margin: 10px;
+  font-size: 1.1rem;
+
+  &.active {
+    color: ${({ theme }) => theme.primary};
+  }
+
+  :hover {
+    text-decoration: underline;
+  }
 `
