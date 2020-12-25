@@ -1,5 +1,5 @@
 import { Route, Redirect } from 'react-router-dom'
-import { RouteProps } from 'react-router'
+import { RouteProps, useHistory } from 'react-router'
 import { useAuth } from '../../../contextProviders/AuthProvider'
 
 interface IProps extends RouteProps {
@@ -9,6 +9,7 @@ interface IProps extends RouteProps {
 
 const AuthRoute = ({ component: Component, location, adminRoute, ...rest }: IProps) => {
   const auth = useAuth()
+  const history = useHistory()
 
   const redirect = (
     <Redirect
@@ -23,7 +24,10 @@ const AuthRoute = ({ component: Component, location, adminRoute, ...rest }: IPro
 
   const isAdminCompliant = auth.currentUser.isAdmin || !adminRoute
 
-  if (!isAdminCompliant) return redirect
+  if (!isAdminCompliant) {
+    history.replace('/login')
+    return <></>
+  }
 
   return <Route {...rest} render={props => <Component {...props} />} />
 }
