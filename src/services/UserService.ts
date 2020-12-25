@@ -7,7 +7,8 @@ export const createUser = async (
   setError: SetError
 ) => {
   const data: Omit<IUser, 'id'> = {
-    ...newUser,
+    name: newUser.name,
+    email: newUser.email,
     lastLogin: getTimestamp(),
     registered: getTimestamp(),
     isAdmin: false,

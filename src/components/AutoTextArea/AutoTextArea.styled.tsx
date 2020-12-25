@@ -23,3 +23,9 @@ export const StyledTextArea = styled.textarea`
     display: none;
   }
 `
+
+export const Error = styled.p`
+  color: ${({ theme }) => theme.red};
+  font-size: 0.75rem;
+  margin-top: 3px;
+`

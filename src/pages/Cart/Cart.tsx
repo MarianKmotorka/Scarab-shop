@@ -10,28 +10,32 @@ import Loader from '../../components/Loader/Loader'
 import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
 import { useCart } from '../../contextProviders/CartProvider'
+import { createOrder } from '../../services/OrderService'
+import { useApiError } from '../../contextProviders/ApiErrorProvider'
+import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
 import {
-  OrderDirections,
+  Directions,
   InputsContainer,
   StyledInput,
   StyledTextArea,
   StyledButton,
-  ValidationError,
   SuccessMessage,
 } from './Cart.styled'
-import { createOrder } from '../../services/OrderService'
-import { useApiError } from '../../contextProviders/ApiErrorProvider'
+import { useAuth } from '../../contextProviders/AuthProvider'
+import { Link } from 'react-router-dom'
+
+interface IOrderFormData {
+  name: string
+  email: string
+  message: string
+}
 
 const Cart = () => {
   const { productIds, products, removeAll } = useCart()
-  const [error, setError] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const { setError: setApiError } = useApiError()
+  const auth = useAuth()
 
   const isCartEmpty = productIds.length === 0
 
@@ -48,21 +52,26 @@ const Cart = () => {
 
   const filteredProducts = productsDb.filter(x => productIds.includes(x.id))
 
-  const handleSubmitted = async () => {
-    setError('')
-    if (!isValidEmail(email)) return setError('Neplatný email')
+  const formDefaultValues = {
+    name: auth.isLoggedIn ? auth.currentUser.name : '',
+    email: auth.isLoggedIn ? auth.currentUser.email : '',
+  }
 
-    setSubmitting(true)
+  const handleSubmitted: IHookFormProps<IOrderFormData>['handleSubmit'] = async ({
+    name,
+    email,
+    message,
+  }) => {
     await createOrder(
       {
         products,
         cutomerName: name,
         customerEmail: email,
         customerMessage: message,
+        userId: auth.isLoggedIn ? auth.currentUser.id : null,
       },
       setApiError
     )
-    setSubmitting(false)
 
     setSuccess(true)
     removeAll()
@@ -87,32 +96,48 @@ const Cart = () => {
         <CartItem key={x.id} product={x} />
       ))}
 
+      {!auth.isLoggedIn && (
+        <Directions>
+          <strong>Nie ste prihlásený/á. </strong> Prihláseným používateľom sa ukladá
+          história objednávok.
+          <Link to={{ pathname: '/login', state: { returnUrl: '/cart' } }}>
+            PRIHLÁSIŤ SA
+          </Link>
+        </Directions>
+      )}
+
       {!isCartEmpty && (
         <>
-          <OrderDirections>
+          <Directions>
             <strong>Toto nie je reálna objednávka. </strong>Zadajte svoj email a ja sa Vám
             ozvem. Cena taktiež závisí od jednotlivého kusu, takže na tej sa tiež ešte
             dohodneme.
-          </OrderDirections>
+          </Directions>
 
-          <InputsContainer>
-            {error && <ValidationError>{error}</ValidationError>}
+          <HookForm handleSubmit={handleSubmitted} defaultValues={formDefaultValues}>
+            {({ submitting }) => (
+              <InputsContainer>
+                <StyledInput name='name' label='Meno' />
 
-            <StyledInput value={name} onChange={setName} label='Meno' />
-            <StyledInput value={email} onChange={setEmail} label='Email' />
+                <StyledInput
+                  name='email'
+                  label='Email'
+                  options={{ validate: x => isValidEmail(x) || 'Neplatný email.' }}
+                />
 
-            {/* TODO: Remove for logged in user*/}
-            <StyledTextArea
-              rows={4}
-              value={message}
-              onChange={setMessage}
-              label='Poznamka'
-            />
+                <StyledTextArea
+                  name='message'
+                  label='Poznamka'
+                  rows={4}
+                  options={{ maxLength: { value: 300, message: 'Max 300 znakov.' } }}
+                />
 
-            <StyledButton onClick={handleSubmitted} isLoading={submitting} reversed>
-              ODOSLAŤ
-            </StyledButton>
-          </InputsContainer>
+                <StyledButton isLoading={submitting} reversed type='submit'>
+                  ODOSLAŤ
+                </StyledButton>
+              </InputsContainer>
+            )}
+          </HookForm>
         </>
       )}
     </Container>

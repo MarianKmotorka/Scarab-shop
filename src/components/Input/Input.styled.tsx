@@ -22,6 +22,8 @@ export const StyledInput = styled.input<{ colorInverted?: boolean }>`
   background-color: ${({ theme, colorInverted }) =>
     colorInverted ? theme.black3 : theme.white};
 
+  ${({ theme, disabled }) => disabled && `background-color: ${theme.white3}`};
+
   outline: none;
   font-size: inherit;
 `

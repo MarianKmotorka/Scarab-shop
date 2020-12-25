@@ -16,6 +16,7 @@ export interface ILoginFormData {
 
 const Login = () => {
   const history = useHistory()
+  const returnUrl = history.location?.state && (history.location.state as any).returnUrl
 
   const handleLogin: IHookFormProps<ILoginFormData>['handleSubmit'] = async ({
     email,
@@ -23,7 +24,7 @@ const Login = () => {
   }) => {
     try {
       await projectAuth.signInWithEmailAndPassword(email.trim(), password)
-      return history.replace('/')
+      return history.replace(returnUrl || '/')
     } catch (err) {
       return [firebaseErrorToFieldError(err)]
     }

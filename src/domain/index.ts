@@ -25,6 +25,7 @@ export interface IOrder extends IEntity {
   cutomerName: string
   customerEmail: string
   customerMessage: string
+  userId: string | null
 }
 
 export interface IUser extends IEntity {

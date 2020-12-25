@@ -1,59 +1,73 @@
-import React, { useState, useEffect, TextareaHTMLAttributes, useRef } from 'react'
-import { StyledTextArea, Wrapper } from './AutoTextArea.styled'
+import React, {
+  useState,
+  useEffect,
+  TextareaHTMLAttributes,
+  useRef,
+  forwardRef,
+} from 'react'
+import { mergeRefs } from '../../utils/utils'
+import { StyledTextArea, Wrapper, Error } from './AutoTextArea.styled'
 
-interface IProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'onChange'> {
+export interface IAutoTextAreaProps
+  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'onChange'> {
   label: string
   className?: string
+  error?: string
   onChange?: (value: string) => void
 }
 
-const AutoTextArea = ({ onChange, label, rows, className, ...rest }: IProps) => {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null!)
-  const [textAreaHeight, setTextAreaHeight] = useState('auto')
-  const [parentHeight, setParentHeight] = useState('auto')
+const AutoTextArea = forwardRef<HTMLTextAreaElement, IAutoTextAreaProps>(
+  ({ onChange, label, rows, className, error, ...rest }, forwardRef) => {
+    const textAreaRef = useRef<HTMLTextAreaElement>(null!)
+    const [textAreaHeight, setTextAreaHeight] = useState('auto')
+    const [parentHeight, setParentHeight] = useState('auto')
 
-  const text = textAreaRef.current?.value
+    const text = textAreaRef.current?.value
 
-  useEffect(() => {
-    if (!text) {
-      setParentHeight('auto')
+    useEffect(() => {
+      if (!text) {
+        setParentHeight('auto')
+        setTextAreaHeight('auto')
+        return
+      }
+
+      setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
+      setTextAreaHeight(`${textAreaRef.current!.scrollHeight}px`)
+    }, [text, textAreaRef])
+
+    const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setTextAreaHeight('auto')
-      return
+      setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
+
+      if (onChange) {
+        onChange(e.target.value)
+      }
     }
 
-    setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
-    setTextAreaHeight(`${textAreaRef.current!.scrollHeight}px`)
-  }, [text, textAreaRef])
+    return (
+      <Wrapper className={className}>
+        <label>{label}</label>
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextAreaHeight('auto')
-    setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
-
-    if (onChange) {
-      onChange(e.target.value)
-    }
-  }
-
-  return (
-    <Wrapper className={className}>
-      <label>{label}</label>
-      <div
-        style={{
-          minHeight: parentHeight,
-        }}
-      >
-        <StyledTextArea
-          {...rest}
-          ref={textAreaRef}
-          rows={rows || 1}
+        <div
           style={{
-            height: textAreaHeight,
+            minHeight: parentHeight,
           }}
-          onChange={onChangeHandler}
-        />
-      </div>
-    </Wrapper>
-  )
-}
+        >
+          <StyledTextArea
+            {...rest}
+            ref={mergeRefs(textAreaRef, forwardRef)}
+            rows={rows || 1}
+            style={{
+              height: textAreaHeight,
+            }}
+            onChange={onChangeHandler}
+          />
+        </div>
+
+        {error && <Error>{error}</Error>}
+      </Wrapper>
+    )
+  }
+)
 
 export default AutoTextArea

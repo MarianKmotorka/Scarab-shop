@@ -48,9 +48,27 @@ const Register = () => {
             <>
               <FormTitle>REGISTRUJ SA</FormTitle>
 
-              <HookFormInput name='name' label='Meno' />
-              <HookFormInput name='email' label='Email' />
-              <HookFormInput name='password' label='Heslo' type='password' />
+              <HookFormInput
+                name='name'
+                label='Meno'
+                options={{
+                  minLength: { value: 3, message: 'Minimalne 3 znaky.' },
+                  required: 'Povinne.',
+                }}
+              />
+
+              <HookFormInput
+                name='email'
+                label='Email'
+                options={{ required: 'Povinne.' }}
+              />
+
+              <HookFormInput
+                name='password'
+                label='Heslo'
+                type='password'
+                options={{ required: 'Povinne.' }}
+              />
 
               <Button type='submit' isLoading={submitting} reversed>
                 REGISTROVAŤ SA
