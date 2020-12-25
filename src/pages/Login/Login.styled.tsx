@@ -6,14 +6,8 @@ export const Wrapper = styled.div`
   place-items: center;
   height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
 
-  button {
-    margin-left: auto;
-    margin-top: 20px;
-    display: block;
-  }
-
   form {
-    padding: 30px 30px 50px;
+    padding: 30px;
     box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 100%;
@@ -22,6 +16,12 @@ export const Wrapper = styled.div`
     > * + * {
       margin-top: 10px;
     }
+
+    button {
+      margin-left: auto;
+      margin-top: 30px;
+      display: block;
+    }
   }
 `
 
@@ -29,5 +29,4 @@ export const FormTitle = styled.h1`
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 40px;
-  /* color: ${({ theme }) => theme.white}; */
 `

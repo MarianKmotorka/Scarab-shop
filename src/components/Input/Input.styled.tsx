@@ -28,6 +28,6 @@ export const StyledInput = styled.input<{ colorInverted?: boolean }>`
 
 export const Error = styled.p`
   color: ${({ theme }) => theme.red};
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   margin-top: 3px;
 `

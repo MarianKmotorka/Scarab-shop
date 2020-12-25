@@ -37,7 +37,7 @@ const Login = () => {
               <FormTitle>PRIHLÁS SA</FormTitle>
 
               <HookFormInput name='email' label='Email' />
-              <HookFormInput name='password' label='Heslo' />
+              <HookFormInput name='password' label='Heslo' type='password' />
 
               <Button type='submit' isLoading={submitting} reversed>
                 PRIHLÁSIŤ SA
