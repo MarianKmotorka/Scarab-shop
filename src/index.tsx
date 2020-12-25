@@ -7,15 +7,18 @@ import App from './pages/App/App'
 import { theme } from './utils/theme'
 import CartProvider from './contextProviders/CartProvider'
 import ApiErrorProvider from './contextProviders/ApiErrorProvider'
+import AuthProvider from './contextProviders/AuthProvider'
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Router>
         <ApiErrorProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
+          <AuthProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </AuthProvider>
         </ApiErrorProvider>
       </Router>
     </ThemeProvider>

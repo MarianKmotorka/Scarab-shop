@@ -1,4 +1,4 @@
-import Routes from './Routes'
+import Routes from './Routes/Routes'
 import ErrorPage from '../ErrorPage'
 import Navbar from '../../components/Navbar/Navbar'
 import { useApiError } from '../../contextProviders/ApiErrorProvider'

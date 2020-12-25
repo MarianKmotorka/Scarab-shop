@@ -11,6 +11,7 @@ import { Container } from '../Container'
 import { LG, MD } from '../../utils/theme'
 import { useWindowSize } from '../../hooks'
 import { useCart } from '../../contextProviders/CartProvider'
+import { useAuth } from '../../contextProviders/AuthProvider'
 
 import {
   Menu,
@@ -25,10 +26,11 @@ import {
 } from './Navbar.styled'
 
 const Navbar = () => {
+  const auth = useAuth()
+  const { count } = useCart()
   const history = useHistory()
   const { width } = useWindowSize()
   const [isOpen, setIsOpen] = useState(false)
-  const { count } = useCart()
 
   const isLessThanMD = width <= MD
   const isLessThanLG = width <= LG
@@ -40,17 +42,36 @@ const Navbar = () => {
 
   const authLinks = (
     <AuthLinksContainer>
-      <Button reversed>PRIHLÁS SA</Button>
-      <Button colorInverted reversed>
-        REGISTRUJ SA
-      </Button>
+      {!auth.isLoggedIn && (
+        <>
+          <Button reversed onClick={() => close(() => history.push('/login'))}>
+            PRIHLÁS SA
+          </Button>
 
-      {/* <UserName to='profile' onClick={() => close()}>
-        katarina.magala@gmail.com
-      </UserName>
-      <Button colorInverted reversed onClick={() => close(() => history.push('/logout'))}>
-        ODHLÁS SA
-      </Button> */}
+          <Button
+            colorInverted
+            reversed
+            onClick={() => close(() => history.push('/register'))}
+          >
+            REGISTRUJ SA
+          </Button>
+        </>
+      )}
+
+      {auth.isLoggedIn && (
+        <>
+          <UserName to='profile' onClick={() => close()}>
+            {auth.currentUser.email}
+          </UserName>
+          <Button
+            colorInverted
+            reversed
+            onClick={() => close(() => history.push('/logout'))}
+          >
+            ODHLÁS SA
+          </Button>
+        </>
+      )}
     </AuthLinksContainer>
   )
 

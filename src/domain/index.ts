@@ -26,3 +26,11 @@ export interface IOrder extends IEntity {
   customerEmail: string
   customerMessage: string
 }
+
+export interface IUser extends IEntity {
+  name: string
+  email: string
+  isAdmin: boolean // TODO: set firebase rule -> reject create user with isAdmin:true
+  registered: firebase.firestore.Timestamp
+  lastLogin: firebase.firestore.Timestamp
+}
