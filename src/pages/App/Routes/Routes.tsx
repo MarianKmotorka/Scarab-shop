@@ -9,6 +9,8 @@ import ProductDetail from '../../ProductDetail/ProductDetail'
 import NoAuthRoute from './NoAuthRoute'
 import Login from '../../Login/Login'
 import Register from '../../Register/Register'
+import AuthRoute from './AuthRoute'
+import Logout from '../../Login/Logout'
 
 const Routes = () => (
   <Switch>
@@ -19,6 +21,8 @@ const Routes = () => (
 
     <NoAuthRoute path='/login' exact component={Login} />
     <NoAuthRoute path='/register' exact component={Register} />
+
+    <AuthRoute path='/logout' exact component={Logout} />
 
     <Route path='/' exact component={Home} />
     <Route path='/' component={NotFoundPage} />

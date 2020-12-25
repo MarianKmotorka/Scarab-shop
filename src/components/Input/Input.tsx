@@ -1,39 +1,32 @@
-import { InputHTMLAttributes } from 'react'
-import styled from 'styled-components'
+import { InputHTMLAttributes, forwardRef } from 'react'
+import { Error, StyledInput, Wrapper } from './Input.styled'
 
-const Wrapper = styled.div`
-  label {
-    margin-bottom: 5px;
-    display: block;
-
-    ::after {
-      content: ':';
-    }
-  }
-`
-
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 5px;
-  border: 2px solid ${({ theme }) => theme.black};
-  outline: none;
-  font-size: inherit;
-`
-
-interface IProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+export interface IInputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   label: string
-  width?: string
-  onChange?: (value: string) => void
+  error?: string
   className?: string
+  colorInverted?: boolean
+  onChange?: (value: string) => void
 }
 
-const Input = ({ label, name, onChange, className, ...rest }: IProps) => {
-  return (
-    <Wrapper className={className}>
-      <label htmlFor={name}>{label}</label>
-      <StyledInput {...rest} onChange={e => onChange && onChange(e.target.value)} />
-    </Wrapper>
-  )
-}
+const Input = forwardRef<HTMLInputElement, IInputProps>(
+  ({ className, name, label, error, onChange, ...rest }, forwardRef) => {
+    return (
+      <Wrapper className={className} {...rest}>
+        <label htmlFor={name}>{label}</label>
+
+        <StyledInput
+          {...rest}
+          name={name}
+          onChange={e => onChange && onChange(e.target.value)}
+          ref={forwardRef}
+        />
+
+        {error && <Error>{error}</Error>}
+      </Wrapper>
+    )
+  }
+)
 
 export default Input
