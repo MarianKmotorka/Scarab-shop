@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import ErrorPage from '../ErrorPage'
 import { propertyOf } from '../../utils/utils'
@@ -8,9 +9,9 @@ import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
 import { IProduct, ProductCategory } from '../../domain'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
-import { Grid, Wrapper } from './Bugs.styled'
-import { useTranslation } from 'react-i18next'
+import { Grid } from './Bugs.styled'
 
 const Bugs = () => {
   const { t } = useTranslation()
@@ -28,7 +29,7 @@ const Bugs = () => {
   if (error) return <ErrorPage error={error} />
 
   return (
-    <Wrapper>
+    <PageMinHeightWrapper>
       <Container>
         <PageTitle>{t('scarabeus.bugs')}</PageTitle>
 
@@ -42,7 +43,7 @@ const Bugs = () => {
 
         {loading && <Loader />}
       </Container>
-    </Wrapper>
+    </PageMinHeightWrapper>
   )
 }
 

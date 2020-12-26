@@ -25,6 +25,7 @@ import {
   StyledButton,
   SuccessMessage,
 } from './Cart.styled'
+import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
 interface IOrderFormData {
   name: string
@@ -87,70 +88,72 @@ const Cart = () => {
     )
 
   return (
-    <Container>
-      <PageTitle>Košík</PageTitle>
+    <PageMinHeightWrapper>
+      <Container>
+        <PageTitle>Košík</PageTitle>
 
-      {loading && !isCartEmpty && <Loader />}
+        {loading && !isCartEmpty && <Loader />}
 
-      {isCartEmpty && <p>{t('scarabeus.cartIsEmpty')}</p>}
+        {isCartEmpty && <p>{t('scarabeus.cartIsEmpty')}</p>}
 
-      {filteredProducts.map(x => (
-        <CartItem key={x.id} product={x} />
-      ))}
+        {filteredProducts.map(x => (
+          <CartItem key={x.id} product={x} />
+        ))}
 
-      {!auth.isLoggedIn && (
-        <Directions>
-          <strong>{t('scarabeus.youAreNotLoggedIn')} </strong>{' '}
-          {t('scarabeus.ordersAreSavedToHistoryForLoggedinUsers')}
-          <Link to={{ pathname: '/login', state: { returnUrl: '/cart' } }}>
-            {t('scarabeus.login')}
-          </Link>
-        </Directions>
-      )}
-
-      {!isCartEmpty && (
-        <>
+        {!auth.isLoggedIn && (
           <Directions>
-            <strong>{t('scarabeus.thisIsNotRealOrder')}</strong>
-            {t('scarabeus.enterYourEmailAndIContactYou')}
+            <strong>{t('scarabeus.youAreNotLoggedIn')} </strong>{' '}
+            {t('scarabeus.ordersAreSavedToHistoryForLoggedinUsers')}
+            <Link to={{ pathname: '/login', state: { returnUrl: '/cart' } }}>
+              {t('scarabeus.login')}
+            </Link>
           </Directions>
+        )}
 
-          <HookForm handleSubmit={handleSubmitted} defaultValues={formDefaultValues}>
-            {({ submitting }) => (
-              <InputsContainer>
-                <StyledInput name='name' label={t('scarabeus.name')} />
+        {!isCartEmpty && (
+          <>
+            <Directions>
+              <strong>{t('scarabeus.thisIsNotRealOrder')}</strong>
+              {t('scarabeus.enterYourEmailAndIContactYou')}
+            </Directions>
 
-                <StyledInput
-                  name='email'
-                  label={t('scarabeus.email')}
-                  options={{
-                    validate: x =>
-                      isValidEmail(x) ||
-                      (t('scarabeus.validation.invalidEmail') as string),
-                  }}
-                />
+            <HookForm handleSubmit={handleSubmitted} defaultValues={formDefaultValues}>
+              {({ submitting }) => (
+                <InputsContainer>
+                  <StyledInput name='name' label={t('scarabeus.name')} />
 
-                <StyledTextArea
-                  name='message'
-                  label={t('scarabeus.message')}
-                  rows={4}
-                  options={{
-                    maxLength: {
-                      value: 300,
-                      message: t('scarabeus.validation.maxChars', { max: 300 }),
-                    },
-                  }}
-                />
+                  <StyledInput
+                    name='email'
+                    label={t('scarabeus.email')}
+                    options={{
+                      validate: x =>
+                        isValidEmail(x) ||
+                        (t('scarabeus.validation.invalidEmail') as string),
+                    }}
+                  />
 
-                <StyledButton isLoading={submitting} reversed type='submit'>
-                  {t('scarabeus.makeOrder')}
-                </StyledButton>
-              </InputsContainer>
-            )}
-          </HookForm>
-        </>
-      )}
-    </Container>
+                  <StyledTextArea
+                    name='message'
+                    label={t('scarabeus.message')}
+                    rows={4}
+                    options={{
+                      maxLength: {
+                        value: 300,
+                        message: t('scarabeus.validation.maxChars', { max: 300 }),
+                      },
+                    }}
+                  />
+
+                  <StyledButton isLoading={submitting} reversed type='submit'>
+                    {t('scarabeus.makeOrder')}
+                  </StyledButton>
+                </InputsContainer>
+              )}
+            </HookForm>
+          </>
+        )}
+      </Container>
+    </PageMinHeightWrapper>
   )
 }
 

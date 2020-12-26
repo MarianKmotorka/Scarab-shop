@@ -3,8 +3,6 @@ import Button from '../../components/Button/Button'
 import HookFormInput from '../../components/HookForm/HookFormInput'
 import HookFormTextArea from '../../components/HookForm/HookFormTextArea'
 
-export const Wrapper = styled.div``
-
 export const Directions = styled.p`
   margin-top: 50px;
   line-height: 1.4rem;

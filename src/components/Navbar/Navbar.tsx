@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence } from 'framer-motion'
 import { FaBug, FaShoppingCart, FaTimes } from 'react-icons/fa'
-import { BsFillCaretDownFill } from 'react-icons/bs'
 
 import Badge from '../Badge'
 import Button from '../Button/Button'

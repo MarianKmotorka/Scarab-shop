@@ -19,7 +19,12 @@
     "from": "od",
     "to": "do",
     "price": "Cena",
+    "profil": "Profil",
+    "registered": "Registorovaný",
+    "yes": "Áno",
+    "no": "Nie",
     "addToCart": "Do košíka",
+    "cartIsEmpty": "Košík je prázdny",
     "youAreNotLoggedIn": "Nie ste prihlásený.",
     "ordersAreSavedToHistoryForLoggedinUsers": "Objednávky sa ukladajú do histórie len pre prihlásených používateľov.",
     "validation": {

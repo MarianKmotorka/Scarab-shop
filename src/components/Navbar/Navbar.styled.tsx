@@ -130,6 +130,7 @@ export const AuthLinksContainer = styled.div`
   button {
     max-width: 120px;
     margin: 10px 0;
+    text-transform: uppercase;
   }
 
   @media screen and (max-width: ${LG}px) {
@@ -170,6 +171,7 @@ export const UserName = styled(NavLink)`
 `
 
 export const LoginButton = styled(Button)`
+  transition: all 0.3s;
   :hover {
     border: solid 2px ${({ theme }) => theme.white};
   }

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 
 import { Container } from '../../components/Container'
-import Loader from '../../components/Loader/Loader'
+import { FullPageLoader } from '../../components/Loader/Loader'
 import { PageTitle } from '../../components/PageTitle'
 import { useCart } from '../../contextProviders/CartProvider'
 import { IProduct } from '../../domain'
@@ -31,7 +31,7 @@ const ProductDetail = () => {
   const [mainImage, setMainImage] = useState('')
   const { addOrUpdateProduct, isInCart, removeProduct } = useCart()
 
-  if (response.loading) return <Loader />
+  if (response.loading) return <FullPageLoader />
   if (response.error) return <ErrorPage error={response.error} />
 
   const product = response.data

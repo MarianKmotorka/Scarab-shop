@@ -9,8 +9,9 @@ import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
 import { IProduct, ProductCategory } from '../../domain'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
-import { Grid, Wrapper } from './Butterflies.styled'
+import { Grid } from './Butterflies.styled'
 
 const Butterflies = () => {
   const { t } = useTranslation()
@@ -28,7 +29,7 @@ const Butterflies = () => {
   if (error) return <ErrorPage error={error} />
 
   return (
-    <Wrapper>
+    <PageMinHeightWrapper>
       <Container>
         <PageTitle>{t('scarabeus.butterflies')}</PageTitle>
 
@@ -42,7 +43,7 @@ const Butterflies = () => {
 
         {loading && <Loader />}
       </Container>
-    </Wrapper>
+    </PageMinHeightWrapper>
   )
 }
 
