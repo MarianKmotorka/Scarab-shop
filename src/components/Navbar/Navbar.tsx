@@ -87,7 +87,7 @@ const Navbar = () => {
 
       <StyledLink to='/bugs' onClick={() => close()}>
         <FaBug />
-        <p>{t('scarabeus.bugs')}</p>
+        <p>{t('scarabeus.beetles')}</p>
       </StyledLink>
 
       <StyledLink to='/cart' onClick={() => close()}>

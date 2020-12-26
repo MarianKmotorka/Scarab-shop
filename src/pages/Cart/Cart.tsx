@@ -90,7 +90,7 @@ const Cart = () => {
   return (
     <PageMinHeightWrapper>
       <Container>
-        <PageTitle>Košík</PageTitle>
+        <PageTitle>{t('scarabeus.cart')}</PageTitle>
 
         {loading && !isCartEmpty && <Loader />}
 

@@ -9,13 +9,15 @@ export const Wrapper = styled.span`
 export const StyledBadge = styled.div`
   background: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.white};
-  border-radius: 50%;
-  height: 15px;
-  width: 15px;
+  border-radius: 999px;
+  border: solid 1px ${({ theme }) => theme.black};
+  padding: 0 4px;
+  min-width: 17px;
+  height: 17px;
 
   position: absolute;
   top: -7px;
-  right: -10px;
+  left: 75%;
 
   display: grid;
   place-items: center;

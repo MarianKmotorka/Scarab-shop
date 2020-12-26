@@ -11,7 +11,7 @@ import { IProduct, ProductCategory } from '../../domain'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
-import { Grid } from './Bugs.styled'
+import { Grid } from './Beetles.styled'
 
 const Bugs = () => {
   const { t } = useTranslation()
@@ -31,7 +31,7 @@ const Bugs = () => {
   return (
     <PageMinHeightWrapper>
       <Container>
-        <PageTitle>{t('scarabeus.bugs')}</PageTitle>
+        <PageTitle>{t('scarabeus.beetles')}</PageTitle>
 
         {!loading && bugs.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
 

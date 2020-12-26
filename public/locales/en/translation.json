@@ -1,7 +1,7 @@
 {
   "scarabeus": {
     "butterflies": "Butterflies",
-    "bugs": "Bugs",
+    "beetles": "Beetles",
     "cart": "Cart",
     "pcs": "pcs",
     "name": "Name",
@@ -26,7 +26,7 @@
     "youAreNotLoggedIn": "You are not logged in.",
     "ordersAreSavedToHistoryForLoggedinUsers": "Orders are saved to history only for logged in users.",
     "thisIsNotRealOrder": "This is not a real order. ",
-    "enterYourEmailAndIContactYou": "Enter your email and I will contact you. The price also different for each piece so we'll talk about this later.",
+    "enterYourEmailAndIContactYou": "Enter your email and I will contact you. The price is also different for each piece so we'll talk about this later.",
     "validation": {
       "required": "Required",
       "minChars": "Min {{min}} chars",

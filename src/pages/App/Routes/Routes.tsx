@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 
-import Bugs from '../../Bugs/Bugs'
+import Bugs from '../../Beetles/Beetles'
 import Cart from '../../Cart/Cart'
 import Home from '../../Home/Home'
 import NotFoundPage from '../../NotFoundPage'

@@ -25,7 +25,10 @@ import {
 } from './ProductDetail.styled'
 
 const ProductDetail = () => {
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation()
   const { productId } = useParams<{ productId: string }>()
   const [response] = useFirestoreDoc<IProduct>(`/products/${productId}`)
   const [mainImage, setMainImage] = useState('')
@@ -36,6 +39,7 @@ const ProductDetail = () => {
 
   const product = response.data
   const isOutOfStock = product.numberInStock === 0
+  const description = language === 'sk' ? product.descriptionSK : product.description
 
   const handleAddOrRemoveFromCart = () => {
     if (isInCart(productId)) removeProduct(productId)
@@ -58,10 +62,10 @@ const ProductDetail = () => {
         </ImagesContainer>
 
         <ProductInfo>
-          {product.description && (
+          {description && (
             <Section>
               <SectionTitle>INFO:</SectionTitle>
-              <SectionBody>{product.description}</SectionBody>
+              <SectionBody>{description}</SectionBody>
             </Section>
           )}
 

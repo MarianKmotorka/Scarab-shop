@@ -19,7 +19,7 @@ const Home = () => {
           </StyledLink>
 
           <StyledLink to='/bugs'>
-            <LinkText>{t('scarabeus.bugs')}</LinkText>
+            <LinkText>{t('scarabeus.beetles')}</LinkText>
             <Image src={beetle} />
           </StyledLink>
         </LinksContainer>

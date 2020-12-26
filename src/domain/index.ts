@@ -13,6 +13,7 @@ export interface IProduct extends IEntity {
   minPrice: number
   maxPrice: number | null
   description: string | null
+  descriptionSK: string | null // Slovak language description
   numberInStock: number
 }
 
