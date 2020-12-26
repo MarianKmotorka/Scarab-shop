@@ -3,15 +3,16 @@ import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
+export const LOCAL_STORAGE_LANGUAGE_KEY = 'scarabeus.language'
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    // Standard language used
+    lng: localStorage.getItem(LOCAL_STORAGE_LANGUAGE_KEY) || '',
     fallbackLng: 'en',
     debug: process.env.NODE_ENV !== 'production',
-    //Detects and caches a cookie from the language provided
     detection: {
       order: ['queryString', 'cookie'],
       cache: ['cookie'],

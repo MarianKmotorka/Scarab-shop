@@ -82,12 +82,12 @@ const Navbar = () => {
     <ProductLinks>
       <StyledLink to='/butterflies' onClick={() => close()}>
         <GiButterfly />
-        {t('scarabeus.butterflies')}
+        <p> {t('scarabeus.butterflies')}</p>
       </StyledLink>
 
       <StyledLink to='/bugs' onClick={() => close()}>
         <FaBug />
-        {t('scarabeus.bugs')}
+        <p>{t('scarabeus.bugs')}</p>
       </StyledLink>
 
       <StyledLink to='/cart' onClick={() => close()}>
@@ -97,7 +97,7 @@ const Navbar = () => {
           </Badge>
         </Center>
 
-        {t('scarabeus.cart')}
+        <p>{t('scarabeus.cart')}</p>
       </StyledLink>
     </ProductLinks>
   )

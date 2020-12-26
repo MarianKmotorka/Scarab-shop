@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  background: ${({ theme }) => theme.black3};
+  background: ${({ theme }) => theme.black2};
   height: 250px;
   color: white;
-  padding: 20px 0 30px;
+  padding: 35px 0 50px;
 `
 
 export const LangButtonContainer = styled.div`
@@ -19,7 +19,7 @@ export const StyledButton = styled.button<{ selected: boolean }>`
   cursor: pointer;
 
   transition: all 0.3s;
-  border: 2px solid ${({ theme }) => theme.white};
-  background-color: ${({ theme, selected }) => (selected ? theme.white : theme.black3)};
-  color: ${({ theme, selected }) => (selected ? theme.black3 : theme.white)};
+  border: 1px solid ${({ theme }) => theme.white};
+  background-color: ${({ theme, selected }) => (selected ? theme.white : theme.black2)};
+  color: ${({ theme, selected }) => (selected ? theme.black2 : theme.white)};
 `
