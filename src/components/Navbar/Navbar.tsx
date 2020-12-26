@@ -25,6 +25,7 @@ import {
   AuthLinksContainer,
   ProductLinks,
   UserName,
+  LoginButton,
 } from './Navbar.styled'
 
 const Navbar = () => {
@@ -47,9 +48,9 @@ const Navbar = () => {
     <AuthLinksContainer>
       {!auth.isLoggedIn && (
         <>
-          <Button reversed onClick={() => close(() => history.push('/login'))}>
+          <LoginButton reversed onClick={() => close(() => history.push('/login'))}>
             {t('scarabeus.login')}
-          </Button>
+          </LoginButton>
 
           <Button
             colorInverted
@@ -105,10 +106,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Container>
-        <Logo onClick={() => history.push('/')}>
-          <h1>scarabeus</h1>
-          <BsFillCaretDownFill />
-        </Logo>
+        <Logo onClick={() => history.push('/')}>scarabeus</Logo>
 
         {!isLessThanMD && productLinks}
         {!isLessThanLG && authLinks}

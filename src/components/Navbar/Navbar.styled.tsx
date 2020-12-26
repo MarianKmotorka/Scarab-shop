@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { LG, MD, SM } from '../../utils/theme'
+import Button from '../Button/Button'
 
 export const NAVBAR_HEIGHT = 70
 export const NAVBAR_HEIGHT_STRING = `${NAVBAR_HEIGHT}px`
@@ -25,23 +26,14 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-
-  h1 {
-    color: ${({ theme }) => theme.primary};
-    font-weight: 500;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-right: 3px;
-  }
-
-  svg {
-    color: ${({ theme }) => theme.white};
-  }
+export const Logo = styled.h1`
+  color: ${({ theme }) => theme.primary};
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 3px;
 
   @media screen and (max-width: ${SM}px) {
     font-size: 1.2rem;
@@ -174,5 +166,11 @@ export const UserName = styled(NavLink)`
 
   :hover {
     text-decoration: underline;
+  }
+`
+
+export const LoginButton = styled(Button)`
+  :hover {
+    border: solid 2px ${({ theme }) => theme.white};
   }
 `
