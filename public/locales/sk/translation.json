@@ -1,0 +1,36 @@
+{
+  "scarabeus": {
+    "butterflies": "Motýle",
+    "bugs": "Chrobáky",
+    "cart": "Košík",
+    "thisIsNotRealOrder": "Toto nie je reálna objednávka. ",
+    "enterYourEmailAndIContactYou": "Zadajte svoj email a ja sa Vám ozvem. Cena taktiež závisí od jednotlivého kusu, takže na tej sa tiež ešte dohodneme.",
+    "pcs": "ks",
+    "name": "Meno",
+    "email": "Email",
+    "password": "Heslo",
+    "message": "Správa",
+    "makeOrder": "Objednaj",
+    "remove": "Odstrániť",
+    "login": "Prihlásiť sa",
+    "register": "Registruj sa",
+    "logout": "Odhlásiť sa",
+    "nothingFound": "Nič nenájdené",
+    "from": "od",
+    "to": "do",
+    "price": "Cena",
+    "addToCart": "Do košíka",
+    "youAreNotLoggedIn": "Nie ste prihlásený.",
+    "ordersAreSavedToHistoryForLoggedinUsers": "Objednávky sa ukladajú do histórie len pre prihlásených používateľov.",
+    "validation": {
+      "required": "Povinné",
+      "minChars": "Min {{min}} znakov",
+      "maxChars": "Max {{max}} znakov",
+      "invalidEmail": "Neplatný email",
+      "wrongPassword": "Nesprávne heslo",
+      "userNotFound": "Používateľ neexistuje",
+      "emailAlreadyInUser": "Email sa už používa",
+      "weakPassword": "Slabé heslo"
+    }
+  }
+}

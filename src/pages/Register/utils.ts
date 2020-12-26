@@ -7,13 +7,13 @@ export const firebaseErrorToFieldError = ({
 }: firebase.FirebaseError): ISubmitError<IRegisterFormData> => {
   switch (code) {
     case 'auth/email-already-in-use':
-      return { field: 'email', error: 'Email sa už používa.' }
+      return { field: 'email', error: 'scarabeus.validation.emailAlreadyInUser' }
 
     case 'auth/weak-password':
-      return { field: 'password', error: 'Slabé heslo.' }
+      return { field: 'password', error: 'scarabeus.validation.weakPassword' }
 
     case 'auth/invalid-email':
-      return { field: 'email', error: 'Neplatný email.' }
+      return { field: 'email', error: 'scarabeus.validation.invalidEmail' }
 
     default:
       return { field: 'email', error: code }

@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import Button from '../../components/Button/Button'
 import { projectAuth } from '../../firebase/config'
@@ -19,6 +20,7 @@ export interface IRegisterFormData {
 
 // TODO: VERIFY EMAIL ADDRESS
 const Register = () => {
+  const { t } = useTranslation()
   const history = useHistory()
   const { setError } = useApiError()
 
@@ -46,32 +48,35 @@ const Register = () => {
         <HookForm<IRegisterFormData> handleSubmit={handleRegister}>
           {({ submitting }) => (
             <>
-              <FormTitle>REGISTRUJ SA</FormTitle>
+              <FormTitle>{t('scarabeus.register')}</FormTitle>
 
               <HookFormInput
                 name='name'
-                label='Meno'
+                label={t('scarabeus.name')}
                 options={{
-                  minLength: { value: 3, message: 'Minimalne 3 znaky.' },
-                  required: 'Povinne.',
+                  minLength: {
+                    value: 3,
+                    message: t('scarabeus.validation.minChars', { min: 3 }),
+                  },
+                  required: t('scarabeus.validation.required') as string,
                 }}
               />
 
               <HookFormInput
                 name='email'
-                label='Email'
-                options={{ required: 'Povinne.' }}
+                label={t('scarabeus.email')}
+                options={{ required: t('scarabeus.validation.required') as string }}
               />
 
               <HookFormInput
                 name='password'
-                label='Heslo'
+                label={t('scarabeus.password')}
                 type='password'
-                options={{ required: 'Povinne.' }}
+                options={{ required: t('scarabeus.validation.required') as string }}
               />
 
               <Button type='submit' isLoading={submitting} reversed>
-                REGISTROVAŤ SA
+                {t('scarabeus.register')}
               </Button>
             </>
           )}

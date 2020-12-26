@@ -10,8 +10,10 @@ import { IProduct, ProductCategory } from '../../domain'
 import ProductCard from '../../components/ProductCard/ProductCard'
 
 import { Grid, Wrapper } from './Bugs.styled'
+import { useTranslation } from 'react-i18next'
 
 const Bugs = () => {
+  const { t } = useTranslation()
   const bugCategory: ProductCategory = 'bug'
   const [bugs, loading, error] = useFirestoreQuery<IProduct>(
     useCallback(
@@ -28,9 +30,9 @@ const Bugs = () => {
   return (
     <Wrapper>
       <Container>
-        <PageTitle>Chrobáky</PageTitle>
+        <PageTitle>{t('scarabeus.bugs')}</PageTitle>
 
-        {!loading && bugs.length === 0 && <p>Nothing found</p>}
+        {!loading && bugs.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
 
         <Grid>
           {bugs.map(x => (

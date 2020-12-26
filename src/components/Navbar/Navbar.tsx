@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { GiButterfly } from 'react-icons/gi'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { AnimatePresence } from 'framer-motion'
 import { FaBug, FaShoppingCart, FaTimes } from 'react-icons/fa'
+import { BsFillCaretDownFill } from 'react-icons/bs'
 
 import Badge from '../Badge'
 import Button from '../Button/Button'
@@ -29,6 +31,7 @@ const Navbar = () => {
   const auth = useAuth()
   const { count } = useCart()
   const history = useHistory()
+  const { t } = useTranslation()
   const { width } = useWindowSize()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -45,7 +48,7 @@ const Navbar = () => {
       {!auth.isLoggedIn && (
         <>
           <Button reversed onClick={() => close(() => history.push('/login'))}>
-            PRIHLÁS SA
+            {t('scarabeus.login')}
           </Button>
 
           <Button
@@ -53,14 +56,14 @@ const Navbar = () => {
             reversed
             onClick={() => close(() => history.push('/register'))}
           >
-            REGISTRUJ SA
+            {t('scarabeus.register')}
           </Button>
         </>
       )}
 
       {auth.isLoggedIn && (
         <>
-          <UserName to='profile' onClick={() => close()}>
+          <UserName to='/profile' onClick={() => close()}>
             {auth.currentUser.email}
           </UserName>
           <Button
@@ -68,7 +71,7 @@ const Navbar = () => {
             reversed
             onClick={() => close(() => history.push('/logout'))}
           >
-            ODHLÁS SA
+            {t('scarabeus.logout')}
           </Button>
         </>
       )}
@@ -79,12 +82,12 @@ const Navbar = () => {
     <ProductLinks>
       <StyledLink to='/butterflies' onClick={() => close()}>
         <GiButterfly />
-        <p>Motýle</p>
+        {t('scarabeus.butterflies')}
       </StyledLink>
 
       <StyledLink to='/bugs' onClick={() => close()}>
         <FaBug />
-        <p>Chrobáky</p>
+        {t('scarabeus.bugs')}
       </StyledLink>
 
       <StyledLink to='/cart' onClick={() => close()}>
@@ -94,7 +97,7 @@ const Navbar = () => {
           </Badge>
         </Center>
 
-        <p>Košík</p>
+        {t('scarabeus.cart')}
       </StyledLink>
     </ProductLinks>
   )
@@ -102,7 +105,10 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Container>
-        <Logo onClick={() => history.push('/')}>scarabeus</Logo>
+        <Logo onClick={() => history.push('/')}>
+          <h1>scarabeus</h1>
+          <BsFillCaretDownFill />
+        </Logo>
 
         {!isLessThanMD && productLinks}
         {!isLessThanLG && authLinks}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { theme } from './utils/theme'
 import CartProvider from './contextProviders/CartProvider'
 import ApiErrorProvider from './contextProviders/ApiErrorProvider'
 import AuthProvider from './contextProviders/AuthProvider'
+import './i18n/i18nSetup'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +17,9 @@ ReactDOM.render(
         <ApiErrorProvider>
           <AuthProvider>
             <CartProvider>
-              <App />
+              <Suspense fallback={<div>Loading...</div>}>
+                <App />
+              </Suspense>
             </CartProvider>
           </AuthProvider>
         </ApiErrorProvider>

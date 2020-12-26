@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 
@@ -24,6 +25,7 @@ import {
 } from './ProductDetail.styled'
 
 const ProductDetail = () => {
+  const { t } = useTranslation()
   const { productId } = useParams<{ productId: string }>()
   const [response] = useFirestoreDoc<IProduct>(`/products/${productId}`)
   const [mainImage, setMainImage] = useState('')
@@ -64,21 +66,25 @@ const ProductDetail = () => {
           )}
 
           <Section>
-            <SectionTitle>CENA:</SectionTitle>
+            <SectionTitle>{t('scarabeus.price')}:</SectionTitle>
             <SectionBody>
               <Price product={product} />
             </SectionBody>
 
             <SectionBody spaceBetween>
               {isOutOfStock ? (
-                <p style={{ color: 'red' }}>Vypredané</p>
+                <p style={{ color: 'red' }}>{t('scarabeus.soldOut')}</p>
               ) : (
-                <p>{product.numberInStock} ks</p>
+                <p>
+                  {product.numberInStock} {t('scarabeus.pcs')}
+                </p>
               )}
 
               {!isOutOfStock && (
                 <Button onClick={handleAddOrRemoveFromCart}>
-                  {isInCart(product.id) ? 'ODOBRAT' : 'DO KOŠÍKA'}
+                  {isInCart(product.id)
+                    ? t('scarabeus.remove')
+                    : t('scarabeus.addToCart')}
                 </Button>
               )}
             </SectionBody>

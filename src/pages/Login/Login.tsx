@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import Button from '../../components/Button/Button'
 import { projectAuth } from '../../firebase/config'
@@ -15,6 +16,7 @@ export interface ILoginFormData {
 }
 
 const Login = () => {
+  const { t } = useTranslation()
   const history = useHistory()
   const returnUrl = history.location?.state && (history.location.state as any).returnUrl
 
@@ -36,13 +38,17 @@ const Login = () => {
         <HookForm<ILoginFormData> handleSubmit={handleLogin}>
           {({ submitting }) => (
             <>
-              <FormTitle>PRIHLÁS SA</FormTitle>
+              <FormTitle>{t('scarabeus.login')}</FormTitle>
 
-              <HookFormInput name='email' label='Email' />
-              <HookFormInput name='password' label='Heslo' type='password' />
+              <HookFormInput name='email' label={t('scarabeus.email')} />
+              <HookFormInput
+                name='password'
+                label={t('scarabeus.password')}
+                type='password'
+              />
 
               <Button type='submit' isLoading={submitting} reversed>
-                PRIHLÁSIŤ SA
+                {t('scarabeus.login')}
               </Button>
             </>
           )}

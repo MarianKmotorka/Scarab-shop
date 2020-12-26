@@ -25,13 +25,23 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Logo = styled.h1`
-  color: ${({ theme }) => theme.primary};
-  font-weight: 500;
-  font-size: 1.5rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  cursor: pointer;
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+
+  h1 {
+    color: ${({ theme }) => theme.primary};
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 3px;
+  }
+
+  svg {
+    color: ${({ theme }) => theme.white};
+  }
 
   @media screen and (max-width: ${SM}px) {
     font-size: 1.2rem;

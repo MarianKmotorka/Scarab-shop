@@ -7,13 +7,13 @@ export const firebaseErrorToFieldError = ({
 }: firebase.FirebaseError): ISubmitError<ILoginFormData> => {
   switch (code) {
     case 'auth/wrong-password':
-      return { field: 'password', error: 'Zle heslo.' }
+      return { field: 'password', error: 'scarabeus.validation.wrongPassword' }
 
     case 'auth/user-not-found':
-      return { field: 'email', error: 'Použivateľ neexistuje.' }
+      return { field: 'email', error: 'scarabeus.validation.userNotFound' }
 
     case 'auth/invalid-email':
-      return { field: 'email', error: 'Neplatný email.' }
+      return { field: 'email', error: 'scarabeus.validation.invalidEmail' }
 
     default:
       return { field: 'email', error: code }

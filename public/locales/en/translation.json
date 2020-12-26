@@ -1,0 +1,36 @@
+{
+  "scarabeus": {
+    "butterflies": "Butterflies",
+    "bugs": "Bugs",
+    "cart": "Cart",
+    "pcs": "pcs",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "message": "Message",
+    "makeOrder": "Make order",
+    "remove": "Remove",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "nothingFound": "Nothing found",
+    "from": "from",
+    "to": "to",
+    "price": "Price",
+    "addToCart": "Add to cart",
+    "youAreNotLoggedIn": "You are not logged in.",
+    "ordersAreSavedToHistoryForLoggedinUsers": "Orders are saved to history only for logged in users.",
+    "thisIsNotRealOrder": "This is not a real order. ",
+    "enterYourEmailAndIContactYou": "Enter your email and I will contact you. The price also different for each piece so we'll talk about this later.",
+    "validation": {
+      "required": "Required",
+      "minChars": "Min {{min}} chars",
+      "maxChars": "Max {{max}} chars",
+      "invalidEmail": "Invalid email",
+      "wrongPassword": "Wrong password",
+      "userNotFound": "User not found",
+      "emailAlreadyInUser": "Email already in use",
+      "weakPassword": "Weak password"
+    }
+  }
+}

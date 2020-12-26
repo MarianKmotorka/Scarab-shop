@@ -21,6 +21,7 @@ export const Wrapper = styled.div`
       margin-left: auto;
       margin-top: 30px;
       display: block;
+      text-transform: uppercase;
     }
 
     @media screen and (max-width: ${SM}px) {

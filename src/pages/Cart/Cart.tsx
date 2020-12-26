@@ -1,4 +1,6 @@
 import { useCallback, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import ErrorPage from '../ErrorPage'
 import { IProduct } from '../../domain'
@@ -9,8 +11,9 @@ import { FieldPath } from '../../firebase/config'
 import Loader from '../../components/Loader/Loader'
 import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
-import { useCart } from '../../contextProviders/CartProvider'
 import { createOrder } from '../../services/OrderService'
+import { useCart } from '../../contextProviders/CartProvider'
+import { useAuth } from '../../contextProviders/AuthProvider'
 import { useApiError } from '../../contextProviders/ApiErrorProvider'
 import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
@@ -22,8 +25,6 @@ import {
   StyledButton,
   SuccessMessage,
 } from './Cart.styled'
-import { useAuth } from '../../contextProviders/AuthProvider'
-import { Link } from 'react-router-dom'
 
 interface IOrderFormData {
   name: string
@@ -32,6 +33,7 @@ interface IOrderFormData {
 }
 
 const Cart = () => {
+  const { t } = useTranslation()
   const { productIds, products, removeAll } = useCart()
   const [success, setSuccess] = useState(false)
   const { setError: setApiError } = useApiError()
@@ -80,7 +82,7 @@ const Cart = () => {
   if (success)
     return (
       <Container>
-        <SuccessMessage>ODOSLANÉ</SuccessMessage>
+        <SuccessMessage>{t('scarabeus.orderSent')}</SuccessMessage>
       </Container>
     )
 
@@ -90,7 +92,7 @@ const Cart = () => {
 
       {loading && !isCartEmpty && <Loader />}
 
-      {isCartEmpty && <p>Košík je prázdny.</p>}
+      {isCartEmpty && <p>{t('scarabeus.cartIsEmpty')}</p>}
 
       {filteredProducts.map(x => (
         <CartItem key={x.id} product={x} />
@@ -98,10 +100,10 @@ const Cart = () => {
 
       {!auth.isLoggedIn && (
         <Directions>
-          <strong>Nie ste prihlásený/á. </strong> Prihláseným používateľom sa ukladá
-          história objednávok.
+          <strong>{t('scarabeus.youAreNotLoggedIn')} </strong>{' '}
+          {t('scarabeus.ordersAreSavedToHistoryForLoggedinUsers')}
           <Link to={{ pathname: '/login', state: { returnUrl: '/cart' } }}>
-            PRIHLÁSIŤ SA
+            {t('scarabeus.login')}
           </Link>
         </Directions>
       )}
@@ -109,31 +111,39 @@ const Cart = () => {
       {!isCartEmpty && (
         <>
           <Directions>
-            <strong>Toto nie je reálna objednávka. </strong>Zadajte svoj email a ja sa Vám
-            ozvem. Cena taktiež závisí od jednotlivého kusu, takže na tej sa tiež ešte
-            dohodneme.
+            <strong>{t('scarabeus.thisIsNotRealOrder')}</strong>
+            {t('scarabeus.enterYourEmailAndIContactYou')}
           </Directions>
 
           <HookForm handleSubmit={handleSubmitted} defaultValues={formDefaultValues}>
             {({ submitting }) => (
               <InputsContainer>
-                <StyledInput name='name' label='Meno' />
+                <StyledInput name='name' label={t('scarabeus.name')} />
 
                 <StyledInput
                   name='email'
-                  label='Email'
-                  options={{ validate: x => isValidEmail(x) || 'Neplatný email.' }}
+                  label={t('scarabeus.email')}
+                  options={{
+                    validate: x =>
+                      isValidEmail(x) ||
+                      (t('scarabeus.validation.invalidEmail') as string),
+                  }}
                 />
 
                 <StyledTextArea
                   name='message'
-                  label='Poznamka'
+                  label={t('scarabeus.message')}
                   rows={4}
-                  options={{ maxLength: { value: 300, message: 'Max 300 znakov.' } }}
+                  options={{
+                    maxLength: {
+                      value: 300,
+                      message: t('scarabeus.validation.maxChars', { max: 300 }),
+                    },
+                  }}
                 />
 
                 <StyledButton isLoading={submitting} reversed type='submit'>
-                  ODOSLAŤ
+                  {t('scarabeus.makeOrder')}
                 </StyledButton>
               </InputsContainer>
             )}

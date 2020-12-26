@@ -67,6 +67,7 @@ export const Section = styled.section`
 `
 
 export const SectionTitle = styled.p`
+  text-transform: uppercase;
   color: ${({ theme }) => theme.black};
   padding: 20px 30px;
   background-color: ${({ theme }) => theme.white3};

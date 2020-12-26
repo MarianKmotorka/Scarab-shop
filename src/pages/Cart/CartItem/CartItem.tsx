@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import Button from '../../../components/Button/Button'
 import { useCart } from '../../../contextProviders/CartProvider'
 import { IProduct } from '../../../domain'
@@ -9,6 +10,7 @@ interface ICartItemProps {
 
 const CartItem = ({ product }: ICartItemProps) => {
   const { addOrUpdateProduct, removeProduct, products } = useCart()
+  const { t } = useTranslation()
 
   const { id } = product
   const amountInCart = products[id]
@@ -28,7 +30,8 @@ const CartItem = ({ product }: ICartItemProps) => {
 
       <Controls>
         <p style={{ marginRight: 10 }}>
-          {amountInCart} ks / {product.numberInStock} ks
+          {amountInCart} {t('scarabeus.pcs')} / {product.numberInStock}{' '}
+          {t('scarabeus.pcs')}
         </p>
 
         <Button
@@ -44,7 +47,7 @@ const CartItem = ({ product }: ICartItemProps) => {
         </Button>
 
         <Button scale={0.9} reversed onClick={() => removeProduct(id)}>
-          ZMAZAŤ
+          {t('scarabeus.remove')}
         </Button>
       </Controls>
     </Wrapper>

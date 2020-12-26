@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import ErrorPage from '../ErrorPage'
 import { propertyOf } from '../../utils/utils'
@@ -12,6 +13,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import { Grid, Wrapper } from './Butterflies.styled'
 
 const Butterflies = () => {
+  const { t } = useTranslation()
   const butterflyCategory: ProductCategory = 'butterfly'
   const [butterflies, loading, error] = useFirestoreQuery<IProduct>(
     useCallback(
@@ -28,9 +30,9 @@ const Butterflies = () => {
   return (
     <Wrapper>
       <Container>
-        <PageTitle>Motýle</PageTitle>
+        <PageTitle>{t('scarabeus.butterflies')}</PageTitle>
 
-        {!loading && butterflies.length === 0 && <p>Nothing found</p>}
+        {!loading && butterflies.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
 
         <Grid>
           {butterflies.map(x => (

@@ -47,4 +47,8 @@ export const Controls = styled.div`
   padding-left: 10px;
   display: flex;
   align-items: center;
+
+  button {
+    text-transform: uppercase;
+  }
 `

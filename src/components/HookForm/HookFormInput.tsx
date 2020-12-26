@@ -1,4 +1,5 @@
 import { RegisterOptions, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import Input, { IInputProps } from '../Input/Input'
 
 interface IProps extends IInputProps {
@@ -7,10 +8,16 @@ interface IProps extends IInputProps {
 }
 
 const HookFormInput = ({ name, options, ...rest }: IProps) => {
+  const { t } = useTranslation()
   const { errors, register } = useFormContext()
 
   return (
-    <Input {...rest} name={name} error={errors[name]?.message} ref={register(options)} />
+    <Input
+      {...rest}
+      name={name}
+      error={t(errors[name]?.message)}
+      ref={register(options)}
+    />
   )
 }
 
