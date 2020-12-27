@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
 import Button from '../../components/Button/Button'
+import { useHistory, useParams } from 'react-router-dom'
 
-import { Container } from '../../components/Container'
-import { FullPageLoader } from '../../components/Loader/Loader'
-import { PageTitle } from '../../components/PageTitle'
-import { useCart } from '../../contextProviders/CartProvider'
-import { IProduct } from '../../domain'
-import { useFirestoreDoc } from '../../hooks'
-import ErrorPage from '../ErrorPage'
 import Price from './Price'
+import { IProduct } from '../../domain'
+import ErrorPage from '../ErrorPage'
+import { useFirestoreDoc } from '../../hooks'
+import { PageTitle } from '../../components/PageTitle'
+import { Container } from '../../components/Container'
+import { useCart } from '../../contextProviders/CartProvider'
+import { useAuth } from '../../contextProviders/AuthProvider'
+import { FullPageLoader } from '../../components/Loader/Loader'
 
 import {
   SectionBody,
@@ -29,6 +30,8 @@ const ProductDetail = () => {
     t,
     i18n: { language },
   } = useTranslation()
+  const auth = useAuth()
+  const history = useHistory()
   const { productId } = useParams<{ productId: string }>()
   const [response] = useFirestoreDoc<IProduct>(`/products/${productId}`)
   const [mainImage, setMainImage] = useState('')
@@ -39,6 +42,7 @@ const ProductDetail = () => {
 
   const product = response.data
   const isOutOfStock = product.numberInStock === 0
+  const isAdmin = auth.isLoggedIn && auth.currentUser.isAdmin
   const description = language === 'sk' ? product.descriptionSK : product.description
 
   const handleAddOrRemoveFromCart = () => {
@@ -93,6 +97,20 @@ const ProductDetail = () => {
               )}
             </SectionBody>
           </Section>
+
+          {isAdmin && (
+            <Section>
+              <SectionTitle>Admin</SectionTitle>
+              <SectionBody>
+                <Button
+                  onClick={() => history.push(`/admin/products/${product.id}/edit`)}
+                >
+                  Edit
+                </Button>
+                <Button>Delete</Button>
+              </SectionBody>
+            </Section>
+          )}
         </ProductInfo>
       </Wrapper>
     </Container>

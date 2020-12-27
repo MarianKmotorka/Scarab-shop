@@ -1,19 +1,21 @@
 import { Route, Switch } from 'react-router-dom'
 
-import Bugs from '../../Beetles/Beetles'
 import Cart from '../../Cart/Cart'
 import Home from '../../Home/Home'
+import AuthRoute from './AuthRoute'
+import Login from '../../Login/Login'
+import Admin from '../../Admin/Admin'
+import NoAuthRoute from './NoAuthRoute'
+import Logout from '../../Login/Logout'
+import Bugs from '../../Beetles/Beetles'
+import Profile from '../../Profile/Profile'
 import NotFoundPage from '../../NotFoundPage'
+import Register from '../../Register/Register'
+import Orders from '../../Admin/Orders/Orders'
 import Butterflies from '../../Butterflies/Butterflies'
 import ProductDetail from '../../ProductDetail/ProductDetail'
-import NoAuthRoute from './NoAuthRoute'
-import Login from '../../Login/Login'
-import Register from '../../Register/Register'
-import AuthRoute from './AuthRoute'
-import Logout from '../../Login/Logout'
-import Profile from '../../Profile/Profile'
-import Admin from '../../Admin/Admin'
-import Orders from '../../Admin/Orders/Orders'
+import EditProduct from '../../Admin/Product/Edit/EditProduct'
+import CreateProduct from '../../Admin/Product/Create/CreateProduct'
 import OrderDetail from '../../Admin/Orders/OrderDetail/OrderDetail'
 
 const Routes = () => (
@@ -32,6 +34,13 @@ const Routes = () => (
     <AuthRoute path='/admin' exact adminRoute component={Admin} />
     <AuthRoute path='/admin/orders' exact adminRoute component={Orders} />
     <AuthRoute path='/admin/orders/:orderId' exact adminRoute component={OrderDetail} />
+    <AuthRoute path='/admin/products/create' exact adminRoute component={CreateProduct} />
+    <AuthRoute
+      path='/admin/products/:productId/edit'
+      exact
+      adminRoute
+      component={EditProduct}
+    />
 
     <Route path='/' exact component={Home} />
     <Route path='/' component={NotFoundPage} />

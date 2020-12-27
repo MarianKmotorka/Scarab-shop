@@ -7,8 +7,8 @@ const Admin = () => {
     <Container>
       <Wrapper>
         <LinksContainer>
-          <StyledLink to='/admin/products'>
-            Manage products <FaChevronRight />
+          <StyledLink to='/admin/products/create'>
+            Create product <FaChevronRight />
           </StyledLink>
 
           <StyledLink to='/admin/orders'>

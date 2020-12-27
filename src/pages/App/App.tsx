@@ -1,10 +1,10 @@
 import Routes from './Routes/Routes'
 import ErrorPage from '../ErrorPage'
 import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
 import { useApiError } from '../../contextProviders/ApiErrorProvider'
 
 import { GlobalStyles } from './App.styled'
-import Footer from '../../components/Footer/Footer'
 
 const App = () => {
   const { error, removeError } = useApiError()

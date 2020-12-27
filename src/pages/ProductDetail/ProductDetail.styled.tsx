@@ -78,6 +78,10 @@ export const SectionBody = styled.div<{ spaceBetween?: boolean }>`
   padding: 30px;
   white-space: pre-line;
 
+  > button + button {
+    margin-left: 5px;
+  }
+
   ${({ spaceBetween }) =>
     spaceBetween &&
     css`

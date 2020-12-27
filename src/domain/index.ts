@@ -34,7 +34,7 @@ export interface IOrder extends IEntity {
 export interface IUser extends IEntity {
   name: string
   email: string
-  isAdmin: boolean // TODO: set firebase rule -> reject create user with isAdmin:true
+  isAdmin: boolean
   registered: firebase.firestore.Timestamp
   lastLogin: firebase.firestore.Timestamp
 }
