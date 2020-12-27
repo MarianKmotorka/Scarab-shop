@@ -68,10 +68,12 @@ const Cart = () => {
     await createOrder(
       {
         products,
-        cutomerName: name,
-        customerEmail: email,
-        customerMessage: message,
+        cutomerName: name.trim(),
+        customerEmail: email.trim(),
+        customerMessage: message.trim(),
         userId: auth.isLoggedIn ? auth.currentUser.id : null,
+        resolved: false,
+        isNew: true,
       },
       setApiError
     )
@@ -83,7 +85,9 @@ const Cart = () => {
   if (success)
     return (
       <Container>
-        <SuccessMessage>{t('scarabeus.orderSent')}</SuccessMessage>
+        <PageMinHeightWrapper>
+          <SuccessMessage>{t('scarabeus.orderSent')}</SuccessMessage>
+        </PageMinHeightWrapper>
       </Container>
     )
 

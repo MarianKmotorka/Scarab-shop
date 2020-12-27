@@ -22,6 +22,7 @@
     "yes": "Yes",
     "no": "No",
     "cartIsEmpty": "Cart is empty",
+    "orderSent": "Order was succesfully sent",
     "addToCart": "Add to cart",
     "youAreNotLoggedIn": "You are not logged in.",
     "ordersAreSavedToHistoryForLoggedinUsers": "Orders are saved to history only for logged in users.",

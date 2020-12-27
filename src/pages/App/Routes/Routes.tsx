@@ -13,6 +13,8 @@ import AuthRoute from './AuthRoute'
 import Logout from '../../Login/Logout'
 import Profile from '../../Profile/Profile'
 import Admin from '../../Admin/Admin'
+import Orders from '../../Admin/Orders/Orders'
+import OrderDetail from '../../Admin/Orders/OrderDetail/OrderDetail'
 
 const Routes = () => (
   <Switch>
@@ -26,7 +28,10 @@ const Routes = () => (
 
     <AuthRoute path='/logout' exact component={Logout} />
     <AuthRoute path='/profile' exact component={Profile} />
+
     <AuthRoute path='/admin' exact adminRoute component={Admin} />
+    <AuthRoute path='/admin/orders' exact adminRoute component={Orders} />
+    <AuthRoute path='/admin/orders/:orderId' exact adminRoute component={OrderDetail} />
 
     <Route path='/' exact component={Home} />
     <Route path='/' component={NotFoundPage} />

@@ -24,6 +24,7 @@
     "yes": "Áno",
     "no": "Nie",
     "addToCart": "Do košíka",
+    "orderSent": "Objednávka bola úspešne odoslaná",
     "cartIsEmpty": "Košík je prázdny",
     "youAreNotLoggedIn": "Nie ste prihlásený.",
     "ordersAreSavedToHistoryForLoggedinUsers": "Objednávky sa ukladajú do histórie len pre prihlásených používateľov.",
