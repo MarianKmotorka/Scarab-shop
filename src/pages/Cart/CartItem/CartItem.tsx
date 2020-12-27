@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next'
+
+import { IProduct } from '../../../domain'
 import Button from '../../../components/Button/Button'
 import { useCart } from '../../../contextProviders/CartProvider'
-import { IProduct } from '../../../domain'
+
 import { Image, Wrapper, ProductName, Controls } from './CartItem.styled'
 
 interface ICartItemProps {
