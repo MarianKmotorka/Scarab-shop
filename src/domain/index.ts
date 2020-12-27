@@ -1,6 +1,6 @@
 import firebase from 'firebase/app'
 
-export type ProductCategory = 'bug' | 'butterfly'
+export type ProductCategory = 'beetle' | 'butterfly'
 
 export interface IEntity {
   id: string

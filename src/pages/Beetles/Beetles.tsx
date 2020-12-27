@@ -15,13 +15,13 @@ import { Grid } from './Beetles.styled'
 
 const Bugs = () => {
   const { t } = useTranslation()
-  const bugCategory: ProductCategory = 'bug'
-  const [bugs, loading, error] = useFirestoreQuery<IProduct>(
+  const beetleCategory: ProductCategory = 'beetle'
+  const [beetles, loading, error] = useFirestoreQuery<IProduct>(
     useCallback(
       x =>
         x
           .collection('products')
-          .where(propertyOf<IProduct>('category'), '==', bugCategory),
+          .where(propertyOf<IProduct>('category'), '==', beetleCategory),
       []
     )
   )
@@ -33,10 +33,10 @@ const Bugs = () => {
       <Container>
         <PageTitle>{t('scarabeus.beetles')}</PageTitle>
 
-        {!loading && bugs.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
+        {!loading && beetles.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
 
         <Grid>
-          {bugs.map(x => (
+          {beetles.map(x => (
             <ProductCard key={x.id} product={x} />
           ))}
         </Grid>

@@ -3,6 +3,8 @@ import { NAVBAR_HEIGHT_STRING } from './Navbar/Navbar.styled'
 
 export const PageMinHeightWrapper = styled.div<{ center?: boolean }>`
   min-height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+  padding-bottom: 40px;
+
   ${({ center }) =>
     center &&
     css`

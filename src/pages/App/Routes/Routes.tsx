@@ -14,8 +14,7 @@ import Register from '../../Register/Register'
 import Orders from '../../Admin/Orders/Orders'
 import Butterflies from '../../Butterflies/Butterflies'
 import ProductDetail from '../../ProductDetail/ProductDetail'
-import EditProduct from '../../Admin/Product/Edit/EditProduct'
-import CreateProduct from '../../Admin/Product/Create/CreateProduct'
+import EditProduct from '../../Admin/CreateOrEditProduct/CreateOrEditProduct'
 import OrderDetail from '../../Admin/Orders/OrderDetail/OrderDetail'
 
 const Routes = () => (
@@ -34,7 +33,7 @@ const Routes = () => (
     <AuthRoute path='/admin' exact adminRoute component={Admin} />
     <AuthRoute path='/admin/orders' exact adminRoute component={Orders} />
     <AuthRoute path='/admin/orders/:orderId' exact adminRoute component={OrderDetail} />
-    <AuthRoute path='/admin/products/create' exact adminRoute component={CreateProduct} />
+    <AuthRoute path='/admin/products/create' exact adminRoute component={EditProduct} />
     <AuthRoute
       path='/admin/products/:productId/edit'
       exact
