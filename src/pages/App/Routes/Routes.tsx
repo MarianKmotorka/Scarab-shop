@@ -12,6 +12,7 @@ import Register from '../../Register/Register'
 import AuthRoute from './AuthRoute'
 import Logout from '../../Login/Logout'
 import Profile from '../../Profile/Profile'
+import Admin from '../../Admin/Admin'
 
 const Routes = () => (
   <Switch>
@@ -25,6 +26,7 @@ const Routes = () => (
 
     <AuthRoute path='/logout' exact component={Logout} />
     <AuthRoute path='/profile' exact component={Profile} />
+    <AuthRoute path='/admin' exact adminRoute component={Admin} />
 
     <Route path='/' exact component={Home} />
     <Route path='/' component={NotFoundPage} />

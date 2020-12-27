@@ -4,6 +4,7 @@ import { GiButterfly } from 'react-icons/gi'
 import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence } from 'framer-motion'
+import { RiAdminFill } from 'react-icons/ri'
 import { FaBug, FaShoppingCart, FaTimes } from 'react-icons/fa'
 
 import Badge from '../Badge'
@@ -37,6 +38,7 @@ const Navbar = () => {
 
   const isLessThanMD = width <= MD
   const isLessThanLG = width <= LG
+  const isAdmin = auth.isLoggedIn && auth.currentUser.isAdmin
 
   const close = (callback?: () => void) => {
     setIsOpen(false)
@@ -80,6 +82,13 @@ const Navbar = () => {
 
   const productLinks = (
     <ProductLinks>
+      {isAdmin && (
+        <StyledLink to='/admin' onClick={() => close()}>
+          <RiAdminFill />
+          <p>Admin</p>
+        </StyledLink>
+      )}
+
       <StyledLink to='/butterflies' onClick={() => close()}>
         <GiButterfly />
         <p> {t('scarabeus.butterflies')}</p>

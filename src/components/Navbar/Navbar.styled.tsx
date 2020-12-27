@@ -86,12 +86,12 @@ export const StyledLink = styled(NavLink)`
 
     > svg,
     > span {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       width: 80px;
     }
 
     p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       text-align: start;
       width: 28%;
     }
@@ -111,7 +111,7 @@ export const Menu = styled(motion.div)`
     top: ${NAVBAR_HEIGHT_STRING};
     bottom: 0;
     right: 0;
-    padding-top: 100px;
+    padding-top: 80px;
     background-color: ${({ theme }) => theme.black};
   }
 `
