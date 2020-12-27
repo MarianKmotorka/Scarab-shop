@@ -8,12 +8,12 @@ import { ProductCategory, IProduct } from '../../../domain'
 import HookForm from '../../../components/HookForm/HookForm'
 import { FullPageLoader } from '../../../components/Loader/Loader'
 import HookFormInput from '../../../components/HookForm/HookFormInput'
+import { useApiError } from '../../../contextProviders/ApiErrorProvider'
 import HookFormSelect from '../../../components/HookForm/HookFormSelect'
 import HookFormTextArea from '../../../components/HookForm/HookFormTextArea'
+import { createProduct, editProduct } from '../../../services/ProductService'
 
 import { Directions, SectionTitle, Wrapper } from './CreateOrEditProduct.styled.'
-import { useApiError } from '../../../contextProviders/ApiErrorProvider'
-import { createProduct, editProduct } from '../../../services/ProductService'
 
 interface IFormValues {
   name: string
@@ -33,11 +33,12 @@ const CreateOrEditProduct = () => {
     startFetching: !!productId,
   })
 
-  if (response.loading && productId) return <FullPageLoader />
+  const isEdit = !!productId
+
+  if (response.loading && isEdit) return <FullPageLoader />
   if (response.loading === false && response.error)
     return <ErrorPage error={response.error} />
 
-  const isEdit = !!productId
   const defaultValues = !response.loading
     ? {
         ...response.data,
@@ -56,8 +57,10 @@ const CreateOrEditProduct = () => {
       imageUrls: !response.loading ? response.data.imageUrls : [],
     }
 
-    if (productId) await editProduct({ ...product, id: productId }, setError)
-    else {
+    if (productId) {
+      await editProduct({ ...product, id: productId }, setError)
+      history.push(`/products/${productId}`)
+    } else {
       const id = await createProduct(product, setError)
       history.push(`/admin/products/${id}/edit`)
     }

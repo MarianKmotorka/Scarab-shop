@@ -3,6 +3,10 @@ import { PageMinHeightWrapper } from '../../../components/PageMinHeightWrapper'
 
 export const Wrapper = styled(PageMinHeightWrapper)`
   form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
     > * + * {
       margin-top: 10px;
     }
