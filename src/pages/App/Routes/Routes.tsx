@@ -18,6 +18,7 @@ import ProductDetail from '../../ProductDetail/ProductDetail'
 import OrderDetail from '../../Admin/Orders/OrderDetail/OrderDetail'
 import EditProduct from '../../Admin/CreateOrEditProduct/CreateOrEditProduct'
 import UserOrderDetail from '../../UserOrders/UserOrderDetail/UserOrderDetail'
+import ProductStatistics from '../../Admin/Statisctics/ProductStatisctics'
 
 const Routes = () => (
   <Switch>
@@ -36,6 +37,7 @@ const Routes = () => (
 
     <AuthRoute path='/admin' exact adminRoute component={Admin} />
     <AuthRoute path='/admin/orders' exact adminRoute component={Orders} />
+    <AuthRoute path='/admin/statistics' exact adminRoute component={ProductStatistics} />
     <AuthRoute path='/admin/orders/:orderId' exact adminRoute component={OrderDetail} />
     <AuthRoute path='/admin/products/create' exact adminRoute component={EditProduct} />
     <AuthRoute

@@ -15,7 +15,7 @@ const Admin = () => {
             Orders <FaChevronRight />
           </StyledLink>
 
-          <StyledLink to='/admin/stats'>
+          <StyledLink to='/admin/statistics'>
             Statisctics <FaChevronRight />
           </StyledLink>
         </LinksContainer>
