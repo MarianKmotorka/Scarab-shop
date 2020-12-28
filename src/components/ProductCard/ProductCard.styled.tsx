@@ -16,7 +16,7 @@ export const Wrapper = styled(Link)`
 `
 
 export const Image = styled.img<{ isOutOfStock: boolean }>`
-  max-height: 250px;
+  height: 250px;
   width: 100%;
   object-fit: cover;
   display: block;

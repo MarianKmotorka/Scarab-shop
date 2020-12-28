@@ -49,7 +49,8 @@ const PicturesEditor = ({ product }: IProps) => {
     if (!file) return
     setValidationError(undefined)
 
-    if (!file.type.startsWith('image/')) setValidationError('You can upload only images.')
+    if (!file.type.startsWith('image/'))
+      return setValidationError('You can upload images only.')
 
     setPicture(file)
   }
