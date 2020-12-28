@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { MD } from '../../../../utils/theme'
+import { MD, SM } from '../../../../utils/theme'
 
 export const MarginBottom = styled.div`
   margin-bottom: 40px;
@@ -26,6 +26,12 @@ export const Row = styled.div`
 
   button:first-of-type {
     margin-left: auto;
+  }
+
+  @media screen and (max-width: ${SM}px) {
+    button {
+      margin-top: 10px;
+    }
   }
 `
 

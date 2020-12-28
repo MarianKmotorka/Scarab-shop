@@ -60,6 +60,7 @@ const PicturesEditor = ({ product }: IProps) => {
 
     if (deleteActive) {
       await deleteImagesFromStorage([url])
+      setDeleteActive(false)
     } else {
       // Note: if delete is NOT active -> set image as primary
       newUrls = [url, ...newUrls]
@@ -80,8 +81,9 @@ const PicturesEditor = ({ product }: IProps) => {
       <ImagesContainer>
         {product.imageUrls.map(x => (
           <Image
-            deleteActive={deleteActive}
+            key={x}
             src={x}
+            deleteActive={deleteActive}
             onClick={async () => await handleImageClicked(x)}
           />
         ))}

@@ -31,5 +31,10 @@ export const deleteProduct = async (product: IProduct, setError: SetError) => {
 
 export const deleteImagesFromStorage = async (urls: string[]) => {
   const promises = urls.map(x => projectStorage.refFromURL(x).delete())
-  await Promise.all(promises)
+
+  try {
+    await Promise.all(promises)
+  } catch (err) {
+    // Pass
+  }
 }
