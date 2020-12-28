@@ -12,10 +12,12 @@ import Profile from '../../Profile/Profile'
 import NotFoundPage from '../../NotFoundPage'
 import Register from '../../Register/Register'
 import Orders from '../../Admin/Orders/Orders'
+import UserOrders from '../../UserOrders/UsersOrders'
 import Butterflies from '../../Butterflies/Butterflies'
 import ProductDetail from '../../ProductDetail/ProductDetail'
-import EditProduct from '../../Admin/CreateOrEditProduct/CreateOrEditProduct'
 import OrderDetail from '../../Admin/Orders/OrderDetail/OrderDetail'
+import EditProduct from '../../Admin/CreateOrEditProduct/CreateOrEditProduct'
+import UserOrderDetail from '../../UserOrders/UserOrderDetail/UserOrderDetail'
 
 const Routes = () => (
   <Switch>
@@ -29,6 +31,8 @@ const Routes = () => (
 
     <AuthRoute path='/logout' exact component={Logout} />
     <AuthRoute path='/profile' exact component={Profile} />
+    <AuthRoute path='/orders' exact component={UserOrders} />
+    <AuthRoute path='/orders/:orderId' exact component={UserOrderDetail} />
 
     <AuthRoute path='/admin' exact adminRoute component={Admin} />
     <AuthRoute path='/admin/orders' exact adminRoute component={Orders} />

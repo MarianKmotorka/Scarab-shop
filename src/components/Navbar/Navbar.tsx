@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiMenu } from 'react-icons/fi'
+import { FiMenu, FiPackage } from 'react-icons/fi'
 import { GiButterfly } from 'react-icons/gi'
 import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -86,6 +86,13 @@ const Navbar = () => {
         <StyledLink to='/admin' onClick={() => close()}>
           <RiAdminFill />
           <p>Admin</p>
+        </StyledLink>
+      )}
+
+      {auth.isLoggedIn && !isAdmin && (
+        <StyledLink to='/orders' onClick={() => close()}>
+          <FiPackage />
+          <p>{t('scarabeus.orders')}</p>
         </StyledLink>
       )}
 

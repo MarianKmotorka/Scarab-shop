@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   position: relative;
 
   button {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     height: 75px;
     display: block;
   }
