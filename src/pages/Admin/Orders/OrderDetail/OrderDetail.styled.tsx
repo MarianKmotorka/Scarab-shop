@@ -9,6 +9,7 @@ export const MarginBottom = styled.div`
 export const Row = styled.div`
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding: 20px;
 
   :nth-of-type(odd) {
@@ -23,7 +24,7 @@ export const Row = styled.div`
     margin-right: 15px;
   }
 
-  button {
+  button:first-of-type {
     margin-left: auto;
   }
 `
@@ -68,8 +69,9 @@ export const ProductImage = styled.img`
   height: 70px;
   object-fit: cover;
   display: block;
-
+  border-radius: 3px;
   margin-right: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 `
 
 export const ProductName = styled(Link)`

@@ -10,7 +10,7 @@ export const NAVBAR_HEIGHT_STRING = `${NAVBAR_HEIGHT}px`
 export const Wrapper = styled.div`
   height: ${NAVBAR_HEIGHT_STRING};
   background-color: ${({ theme }) => theme.black};
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 50;
 
   position: sticky;

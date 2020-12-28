@@ -31,6 +31,20 @@ export interface IOrder extends IEntity {
   isNew: boolean
 }
 
+/**
+ * Stored under /users/id/ordersHistory
+ */
+export interface IUserOrder extends IEntity {
+  placed: firebase.firestore.Timestamp
+  /**
+   * { productId: amount}
+   */
+  products: Record<string, number>
+  cutomerName: string
+  customerEmail: string
+  customerMessage: string
+}
+
 export interface IUser extends IEntity {
   name: string
   email: string
