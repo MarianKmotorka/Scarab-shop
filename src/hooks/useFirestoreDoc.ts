@@ -6,7 +6,7 @@ type Snapshot = firebase.firestore.DocumentReference<firebase.firestore.Document
 type FirestoreError = firebase.firestore.FirestoreError
 type Actions = { refresh: () => void }
 type Config = { realTime?: boolean; startFetching?: boolean }
-type Data<T> =
+export type Data<T> =
   | { loading: true }
   | { loading: false; error: FirestoreError }
   | { loading: false; error: undefined; data: T; fetching: boolean } // loading is TRUE only once, fetching is also TRUE when refreshing

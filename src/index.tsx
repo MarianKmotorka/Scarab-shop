@@ -9,6 +9,7 @@ import Loader from './components/Loader/Loader'
 import CartProvider from './contextProviders/CartProvider'
 import AuthProvider from './contextProviders/AuthProvider'
 import ApiErrorProvider from './contextProviders/ApiErrorProvider'
+import UserIpAddressProvider from './contextProviders/UserIpAddressProvider'
 import './i18n/i18nSetup'
 
 ReactDOM.render(
@@ -17,11 +18,13 @@ ReactDOM.render(
       <Router>
         <ApiErrorProvider>
           <AuthProvider>
-            <CartProvider>
-              <Suspense fallback={<Loader />}>
-                <App />
-              </Suspense>
-            </CartProvider>
+            <UserIpAddressProvider>
+              <CartProvider>
+                <Suspense fallback={<Loader />}>
+                  <App />
+                </Suspense>
+              </CartProvider>
+            </UserIpAddressProvider>
           </AuthProvider>
         </ApiErrorProvider>
       </Router>

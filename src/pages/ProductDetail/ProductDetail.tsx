@@ -6,15 +6,16 @@ import { useHistory, useParams } from 'react-router-dom'
 import Price from './Price'
 import ErrorPage from '../ErrorPage'
 import { IProduct } from '../../domain'
-import { useFirestoreDoc } from '../../hooks'
 import Modal from '../../components/Modal/Modal'
 import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
 import { useCart } from '../../contextProviders/CartProvider'
 import { useAuth } from '../../contextProviders/AuthProvider'
-import { FullPageLoader } from '../../components/Loader/Loader'
 import { deleteProduct } from '../../services/ProductService'
+import { FullPageLoader } from '../../components/Loader/Loader'
+import { useFirestoreDoc, useProductVisitCount } from '../../hooks'
 import { useApiError } from '../../contextProviders/ApiErrorProvider'
+import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
 import {
   SectionBody,
@@ -27,12 +28,11 @@ import {
   Wrapper,
   Section,
 } from './ProductDetail.styled'
-import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
 const ProductDetail = () => {
   const auth = useAuth()
-  const { setError } = useApiError()
   const history = useHistory()
+  const { setError } = useApiError()
   const { t, i18n } = useTranslation()
   const [mainImage, setMainImage] = useState('')
   const [deleteModal, setDeleteModal] = useState(false)
@@ -40,6 +40,8 @@ const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addOrUpdateProduct, isInCart, removeProduct } = useCart()
   const [response] = useFirestoreDoc<IProduct>(`/products/${productId}`)
+
+  useProductVisitCount(response)
 
   if (response.loading) return <FullPageLoader />
   if (response.error) return <ErrorPage error={response.error} />

@@ -52,3 +52,11 @@ export interface IUser extends IEntity {
   registered: firebase.firestore.Timestamp
   lastLogin: firebase.firestore.Timestamp
 }
+
+export interface IProductStatistics extends IEntity {
+  /**
+   * ID of a product
+   */
+  id: string
+  viewedByIps: string[]
+}

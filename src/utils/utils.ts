@@ -5,6 +5,11 @@ export const propertyOf = <T extends object>(name: keyof T) => name
 export const isValidEmail = (email: string) =>
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
 
+export const isValidIp = (ip: string) =>
+  /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
+    ip
+  )
+
 export const mergeRefs = <T>(...refs: Array<Ref<T>>) => (ref: T) => {
   refs.forEach(resolvableRef => {
     if (typeof resolvableRef === 'function') {
