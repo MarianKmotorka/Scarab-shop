@@ -37,6 +37,7 @@ export const SmallImage = styled.img`
   cursor: pointer;
   transition: transform 0.3s;
   border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
   :hover {
     transform: scale(1.05);
@@ -56,6 +57,7 @@ export const MainImage = styled.img`
   object-fit: contain;
   margin-bottom: 5px;
   border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 `
 
 export const ProductInfo = styled.div`
@@ -64,7 +66,7 @@ export const ProductInfo = styled.div`
 `
 
 export const Section = styled.section`
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
   border-radius: 3px;
   overflow: hidden;
@@ -73,13 +75,14 @@ export const Section = styled.section`
 export const SectionTitle = styled.p`
   text-transform: uppercase;
   color: ${({ theme }) => theme.black};
-  padding: 20px 30px;
-  background-color: ${({ theme }) => theme.white3};
+  padding: 15px 20px;
   font-size: 0.9rem;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  background-color: ${({ theme }) => theme.white2};
 `
 
 export const SectionBody = styled.div<{ spaceBetween?: boolean }>`
-  padding: 30px;
+  padding: 20px;
   white-space: pre-line;
 
   > button + button {

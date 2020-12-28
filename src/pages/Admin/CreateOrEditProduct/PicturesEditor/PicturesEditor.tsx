@@ -105,6 +105,7 @@ const PicturesEditor = ({ product }: IProps) => {
 
       <HiddenFileInput
         type='file'
+        accept='image/*'
         id='picture_editor_file_input'
         onChange={handleInputChanged}
       />
