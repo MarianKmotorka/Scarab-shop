@@ -20,6 +20,7 @@ export const Wrapper = styled(PageMinHeightWrapper)`
 `
 
 export const SectionTitle = styled.h1`
+  display: flex;
   font-weight: 400;
   font-size: 1.7rem;
   margin: 50px 0;

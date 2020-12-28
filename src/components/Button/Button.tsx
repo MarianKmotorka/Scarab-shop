@@ -3,7 +3,6 @@ import Spinner from '../Loader/Spinner'
 import { IStyledButtonProps, LoadingProgress, StyledPrimaryButton } from './Button.styled'
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>, IStyledButtonProps {
-  icon?: JSX.Element
   disabled?: boolean
   isLoading?: boolean
   loadingProgress?: number
@@ -13,7 +12,6 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>, IStyledButtonP
 const Button: React.FC<IProps> = ({
   children,
   isLoading,
-  icon,
   disabled,
   loadingProgress,
   ...rest

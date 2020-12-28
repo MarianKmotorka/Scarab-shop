@@ -36,6 +36,7 @@ export const SmallImage = styled.img`
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s;
+  border-radius: 3px;
 
   :hover {
     transform: scale(1.05);
@@ -54,6 +55,7 @@ export const MainImage = styled.img`
   max-height: 600px;
   object-fit: contain;
   margin-bottom: 5px;
+  border-radius: 3px;
 `
 
 export const ProductInfo = styled.div`
@@ -64,6 +66,8 @@ export const ProductInfo = styled.div`
 export const Section = styled.section`
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
+  border-radius: 3px;
+  overflow: hidden;
 `
 
 export const SectionTitle = styled.p`

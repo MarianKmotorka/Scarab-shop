@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa'
 import { NAVBAR_HEIGHT_STRING } from '../components/Navbar/Navbar.styled'
 
 interface IErrorPageProps {
-  error: firebase.firestore.FirestoreError
+  error: firebase.firestore.FirestoreError | firebase.storage.FirebaseStorageError
   removeError?: () => void
 }
 

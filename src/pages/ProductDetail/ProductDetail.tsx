@@ -55,10 +55,10 @@ const ProductDetail = () => {
   }
 
   const handleDeleteProduct = async () => {
+    setDeleteModal(false)
     setDeleteProductLoading(true)
     await deleteProduct(product, setError)
     setDeleteProductLoading(false)
-    setDeleteModal(false)
     history.goBack()
   }
 

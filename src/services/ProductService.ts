@@ -20,10 +20,16 @@ export const deleteProduct = async (product: IProduct, setError: SetError) => {
   try {
     const promises = product.imageUrls.map(url => projectStorage.refFromURL(url).delete())
     await Promise.all(promises)
+    await deleteImagesFromStorage(product.imageUrls)
   } catch (err) {
     // Pass for now
     console.log('DELETE image error: ', JSON.stringify(err, null, 2))
   }
 
   await projectFirestore.doc(`/products/${product.id}`).delete().catch(setError)
+}
+
+export const deleteImagesFromStorage = async (urls: string[]) => {
+  const promises = urls.map(x => projectStorage.refFromURL(x).delete())
+  await Promise.all(promises)
 }

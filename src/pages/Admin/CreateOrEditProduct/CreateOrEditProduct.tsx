@@ -6,6 +6,7 @@ import Button from '../../../components/Button/Button'
 import { Container } from '../../../components/Container'
 import { ProductCategory, IProduct } from '../../../domain'
 import HookForm from '../../../components/HookForm/HookForm'
+import PicturesEditor from './PicturesEditor/PicturesEditor'
 import { FullPageLoader } from '../../../components/Loader/Loader'
 import HookFormInput from '../../../components/HookForm/HookFormInput'
 import { useApiError } from '../../../contextProviders/ApiErrorProvider'
@@ -69,8 +70,6 @@ const CreateOrEditProduct = () => {
   return (
     <Container>
       <Wrapper>
-        {isEdit && <SectionTitle>Edit pictures</SectionTitle>}
-
         <SectionTitle>{isEdit ? 'Edit fields' : 'Create product'}</SectionTitle>
         <HookForm<IFormValues> defaultValues={defaultValues} handleSubmit={handleSubmit}>
           {({ submitting }) => (
@@ -126,6 +125,13 @@ const CreateOrEditProduct = () => {
             </>
           )}
         </HookForm>
+
+        {!response.loading && (
+          <>
+            <SectionTitle>Edit pictures</SectionTitle>
+            <PicturesEditor product={response.data} />
+          </>
+        )}
       </Wrapper>
     </Container>
   )

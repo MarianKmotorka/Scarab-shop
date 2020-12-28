@@ -1,5 +1,5 @@
 export { default as useScroll } from './useScroll'
-// export { default as useStorage } from './useStorage'
+export { default as useStorage } from './useStorage'
 export { default as useObserver } from './useObserver'
 export { default as useDebounce } from './useDebounce'
 export { default as useWindowSize } from './useWindowSize'
