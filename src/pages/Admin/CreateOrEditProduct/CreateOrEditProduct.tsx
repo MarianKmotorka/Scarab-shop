@@ -51,7 +51,7 @@ const CreateOrEditProduct = () => {
   const handleSubmit = async (values: IFormValues) => {
     const product: Omit<IProduct, 'id'> = {
       ...values,
-      minPrice: parseInt('10.5'),
+      minPrice: parseInt(values.minPrice),
       maxPrice: parseInt(values.maxPrice),
       numberInStock: parseInt(values.numberInStock),
       imageUrls: !response.loading ? response.data.imageUrls : [],

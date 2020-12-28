@@ -10,7 +10,6 @@ export const Row = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 20px;
-  font-size: 1.1rem;
 
   :nth-of-type(odd) {
     background-color: ${({ theme }) => theme.white2};
