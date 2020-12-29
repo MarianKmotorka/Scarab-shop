@@ -7,13 +7,12 @@ import Login from '../../Login/Login'
 import Admin from '../../Admin/Admin'
 import NoAuthRoute from './NoAuthRoute'
 import Logout from '../../Login/Logout'
-import Bugs from '../../Beetles/Beetles'
+import Bugs from '../../Products/Products'
 import Profile from '../../Profile/Profile'
 import NotFoundPage from '../../NotFoundPage'
 import Register from '../../Register/Register'
 import Orders from '../../Admin/Orders/Orders'
 import UserOrders from '../../UserOrders/UsersOrders'
-import Butterflies from '../../Butterflies/Butterflies'
 import ProductDetail from '../../ProductDetail/ProductDetail'
 import OrderDetail from '../../Admin/Orders/OrderDetail/OrderDetail'
 import EditProduct from '../../Admin/CreateOrEditProduct/CreateOrEditProduct'
@@ -22,9 +21,8 @@ import ProductStatistics from '../../Admin/Statisctics/ProductStatisctics'
 
 const Routes = () => (
   <Switch>
-    <Route path='/bugs' exact component={Bugs} />
     <Route path='/cart' exact component={Cart} />
-    <Route path='/butterflies' exact component={Butterflies} />
+    <Route path='/products' exact component={Bugs} />
     <Route path='/products/:productId' exact component={ProductDetail} />
 
     <NoAuthRoute path='/login' exact component={Login} />

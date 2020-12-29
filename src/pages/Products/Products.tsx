@@ -2,28 +2,20 @@ import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import ErrorPage from '../ErrorPage'
-import { propertyOf } from '../../utils/utils'
+import { IProduct } from '../../domain'
 import { useFirestoreQuery } from '../../hooks'
 import Loader from '../../components/Loader/Loader'
 import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
-import { IProduct, ProductCategory } from '../../domain'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
-import { Grid } from './Butterflies.styled'
+import { Grid } from './Products.styled'
 
-const Butterflies = () => {
+const Products = () => {
   const { t } = useTranslation()
-  const butterflyCategory: ProductCategory = 'butterfly'
-  const [butterflies, loading, error] = useFirestoreQuery<IProduct>(
-    useCallback(
-      x =>
-        x
-          .collection('products')
-          .where(propertyOf<IProduct>('category'), '==', butterflyCategory),
-      []
-    )
+  const [products, loading, error] = useFirestoreQuery<IProduct>(
+    useCallback(x => x.collection('products'), [])
   )
 
   if (error) return <ErrorPage error={error} />
@@ -31,12 +23,12 @@ const Butterflies = () => {
   return (
     <PageMinHeightWrapper>
       <Container>
-        <PageTitle>{t('scarabeus.butterflies')}</PageTitle>
+        <PageTitle>{t('scarabeus.products')}</PageTitle>
 
-        {!loading && butterflies.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
+        {!loading && products.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
 
         <Grid>
-          {butterflies.map(x => (
+          {products.map(x => (
             <ProductCard key={x.id} product={x} />
           ))}
         </Grid>
@@ -47,4 +39,4 @@ const Butterflies = () => {
   )
 }
 
-export default Butterflies
+export default Products

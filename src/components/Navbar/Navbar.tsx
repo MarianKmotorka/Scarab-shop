@@ -101,14 +101,9 @@ const Navbar = () => {
         </StyledLink>
       )}
 
-      <StyledLink to='/butterflies' onClick={() => close()}>
-        <GiButterfly />
-        <p> {t('scarabeus.butterflies')}</p>
-      </StyledLink>
-
-      <StyledLink to='/bugs' onClick={() => close()}>
+      <StyledLink to='/products' onClick={() => close()}>
         <FaBug />
-        <p>{t('scarabeus.beetles')}</p>
+        <p>{t('scarabeus.products')}</p>
       </StyledLink>
 
       <StyledLink to='/cart' onClick={() => close()}>
