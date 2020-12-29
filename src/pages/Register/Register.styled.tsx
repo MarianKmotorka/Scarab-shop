@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
   form {
     padding: 30px;
-    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 100%;
 

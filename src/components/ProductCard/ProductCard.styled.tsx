@@ -5,9 +5,10 @@ import { MD } from '../../utils/theme'
 export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   overflow: hidden;
+  background-color: ${({ theme }) => theme.white};
 
   @media screen and (min-width: ${MD}px) {
     transition: transform 0.3s;

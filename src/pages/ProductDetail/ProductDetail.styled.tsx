@@ -1,21 +1,22 @@
 import styled, { css } from 'styled-components'
-import { SM } from '../../utils/theme'
+import { LG, SM } from '../../utils/theme'
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
-  gap: 30px;
+  gap: 15px;
+
+  @media screen and (max-width: ${LG}px) {
+    flex-direction: column;
+  }
 `
 
 export const ImagesContainer = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-
-  max-width: 595px;
   width: 100%;
   min-width: 300px;
-
   margin-bottom: 30px;
 `
 
@@ -51,11 +52,10 @@ export const SmallImage = styled.img`
 
 export const MainImage = styled.img`
   display: block;
-  max-width: 600px;
   width: 100%;
-  max-height: 600px;
+  max-height: 700px;
   object-fit: contain;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   border-radius: 3px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 `
@@ -63,17 +63,17 @@ export const MainImage = styled.img`
 export const ProductInfo = styled.div`
   flex: 1;
   min-width: 300px;
+  width: 100%;
 `
 
 export const Section = styled.section`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-radius: 3px;
   overflow: hidden;
 `
 
 export const SectionTitle = styled.p`
-  text-transform: uppercase;
   color: ${({ theme }) => theme.black};
   padding: 15px 20px;
   font-size: 0.9rem;

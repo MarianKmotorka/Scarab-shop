@@ -23,7 +23,7 @@ const Card = styled.div`
   width: 80%;
   padding: 50px;
   position: relative;
-  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
   svg {
     top: 10px;

@@ -37,8 +37,8 @@ const ProductDetail = () => {
   const [mainImage, setMainImage] = useState('')
   const [deleteModal, setDeleteModal] = useState(false)
   const [deleteProductLoading, setDeleteProductLoading] = useState(false)
-  const { productId } = useParams<{ productId: string }>()
   const { addOrUpdateProduct, isInCart, removeProduct } = useCart()
+  const { productId } = useParams<{ productId: string }>()
   const [response] = useFirestoreDoc<IProduct>(`/products/${productId}`)
 
   useProductVisitCount(response)
@@ -83,13 +83,13 @@ const ProductDetail = () => {
           <ProductInfo>
             {description && (
               <Section>
-                <SectionTitle>INFO:</SectionTitle>
+                <SectionTitle>{t('scarabeus.description')}</SectionTitle>
                 <SectionBody>{description}</SectionBody>
               </Section>
             )}
 
             <Section>
-              <SectionTitle>{t('scarabeus.price')}:</SectionTitle>
+              <SectionTitle>{t('scarabeus.price')}</SectionTitle>
               <SectionBody>
                 <Price product={product} />
               </SectionBody>

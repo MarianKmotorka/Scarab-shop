@@ -30,6 +30,7 @@
     "orders": "Objednávky",
     "myOrdersHistory": "Moje objednávky",
     "orderSent": "Objednávka bola úspešne odoslaná.",
+    "description": "Popis",
     "cartIsEmpty": "Košík je prázdny",
     "youAreNotLoggedIn": "Nie ste prihlásený.",
     "ordersAreSavedToHistoryForLoggedinUsers": "Objednávky sa ukladajú do histórie len pre prihlásených používateľov.",
