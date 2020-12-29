@@ -48,10 +48,10 @@ const ProductStatistics = () => {
   }
 
   return (
-    <Container>
-      <Wrapper>
-        <PageTitle>Product statistics</PageTitle>
+    <Wrapper>
+      <PageTitle>Product statistics</PageTitle>
 
+      <Container>
         {getViewModels().map(x => (
           <Row key={x.productId}>
             <img src={x.productImage} alt='product' />
@@ -59,8 +59,8 @@ const ProductStatistics = () => {
             <p>{x.viewCount}</p>
           </Row>
         ))}
-      </Wrapper>
-    </Container>
+      </Container>
+    </Wrapper>
   )
 }
 

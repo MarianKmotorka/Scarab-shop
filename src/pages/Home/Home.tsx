@@ -31,7 +31,7 @@ const Home = () => {
     <Wrapper>
       <Hero>
         <HeroBg src={heroBg} />
-        <Heading>Get insect you always wanted</Heading>
+        <Heading>Get the insects you always wanted</Heading>
         <SubHeading>... or never knew existed</SubHeading>
       </Hero>
 
@@ -45,7 +45,7 @@ const Home = () => {
       <SecondHero>
         <SecondHeroBg src={secondHeroBg} />
         <SecondHeroHeading ref={secondHeadingRef} isSeen={secondHeadingSeen}>
-          Take a detailed look at nature
+          Take a detailed look at the nature
         </SecondHeroHeading>
       </SecondHero>
     </Wrapper>

@@ -1,5 +1,8 @@
 import styled, { keyframes } from 'styled-components'
-import { NAVBAR_HEIGHT_STRING } from '../../components/Navbar/Navbar.styled'
+import {
+  NAVBAR_HEIGHT,
+  NAVBAR_HEIGHT_STRING,
+} from '../../components/Navbar/Navbar.styled'
 import { LG, MD, SM } from '../../utils/theme'
 
 export const Wrapper = styled.div``
@@ -97,12 +100,6 @@ export const SecondHero = styled.div`
   @media screen and (max-width: ${LG}px) {
     flex-direction: column-reverse;
     height: 150%;
-
-    img {
-      max-width: 100%;
-      height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
-      margin: 0;
-    }
   }
 `
 
@@ -111,6 +108,12 @@ export const SecondHeroBg = styled.img`
   max-width: 600px;
   object-fit: cover;
   display: block;
+
+  @media screen and (max-width: ${LG}px) {
+    height: 60vh;
+    max-width: 100%;
+    margin: 0;
+  }
 `
 
 export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
@@ -126,7 +129,7 @@ export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
   ${({ isSeen }) => isSeen && 'transform:translateX(0px);'}
 
   @media screen and (max-width: ${LG}px) {
-    height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+    height: 40vh;
     display: flex;
     align-items: center;
   }
@@ -156,12 +159,6 @@ export const ThirdHero = styled.div`
   @media screen and (max-width: ${LG}px) {
     flex-direction: column;
     height: 150%;
-
-    img {
-      max-width: 100%;
-      height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
-      margin: 0;
-    }
   }
 `
 
@@ -170,6 +167,12 @@ export const ThirdHeroBG = styled.img`
   width: calc(100vh - ${NAVBAR_HEIGHT_STRING});
   object-fit: cover;
   display: block;
+
+  @media screen and (max-width: ${LG}px) {
+    max-height: 60%;
+    max-width: 100%;
+    margin: 0;
+  }
 `
 
 export const ThirdHeroHeading = styled.h1<{ isSeen: boolean }>`
@@ -184,7 +187,7 @@ export const ThirdHeroHeading = styled.h1<{ isSeen: boolean }>`
   ${({ isSeen }) => isSeen && 'transform:translateX(0px);'}
 
   @media screen and (max-width: ${LG}px) {
-    height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+    height: 40vh;
     display: flex;
     align-items: center;
   }

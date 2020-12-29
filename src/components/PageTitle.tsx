@@ -7,12 +7,13 @@ export const PageTitle = styled.h1`
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 
   @media screen and (max-width: ${MD}px) {
-    padding: 7px 5%;
+    padding: 10px 5%;
+    font-size: 1.9rem;
   }
 
   margin-bottom: 50px;
   font-size: 2.2rem;
-  font-weight: 500;
+  font-weight: 400;
 
   background-color: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.white};
