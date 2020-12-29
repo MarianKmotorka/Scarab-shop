@@ -17,7 +17,7 @@ export const Wrapper = styled.div<IProps>`
   background-color: ${({ theme }) => theme.black};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 50;
-  transition: background-color 0.3s;
+  transition: background-color 0.8s;
 
   position: sticky;
   top: 0;

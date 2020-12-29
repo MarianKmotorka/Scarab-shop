@@ -17,6 +17,7 @@ a, p{
 #root{
   height:100vh;
   overflow:auto;
+  overflow-x:hidden;
   background-color:${({ theme }) => theme.white};
 
   @media screen and (min-width: ${MD}px){

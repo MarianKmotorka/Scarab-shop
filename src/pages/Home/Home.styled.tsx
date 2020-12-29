@@ -113,12 +113,75 @@ export const SecondHeroBg = styled.img`
   display: block;
 `
 
-export const SecondHeroHeading = styled.h1`
+export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
+  font-weight: 500;
   font-size: 3.5rem;
   min-width: 400px;
   color: ${({ theme }) => theme.white};
-  text-shadow: 3px -5px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 3px -3px 3px rgba(0, 0, 0, 0.4);
   text-align: center;
+
+  transition: 2.5s ease;
+  transform: translateX(150px);
+  ${({ isSeen }) => isSeen && 'transform:translateX(0px);'}
+
+  @media screen and (max-width: ${LG}px) {
+    height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: ${MD}px) {
+    font-size: 2.5rem;
+    min-width: 0;
+  }
+`
+
+export const ThirdHero = styled.div`
+  height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+  background: ${({ theme }) => theme.white2};
+  display: flex;
+  align-items: center;
+
+  > * {
+    width: 100%;
+    max-width: 80%;
+    margin: 20px auto;
+
+    @media screen and (max-width: ${MD}px) {
+      max-width: 90%;
+    }
+  }
+
+  @media screen and (max-width: ${LG}px) {
+    flex-direction: column;
+    height: 150%;
+
+    img {
+      max-width: 100%;
+      height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+      margin: 0;
+    }
+  }
+`
+
+export const ThirdHeroBG = styled.img`
+  height: 100%;
+  width: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+  object-fit: cover;
+  display: block;
+`
+
+export const ThirdHeroHeading = styled.h1<{ isSeen: boolean }>`
+  font-size: 3.5rem;
+  min-width: 400px;
+  color: ${({ theme }) => theme.white};
+  text-shadow: 2px -2px 1px rgba(0, 0, 0, 0.4);
+  text-align: center;
+
+  transition: 2.5s ease;
+  transform: translateX(-150px);
+  ${({ isSeen }) => isSeen && 'transform:translateX(0px);'}
 
   @media screen and (max-width: ${LG}px) {
     height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
