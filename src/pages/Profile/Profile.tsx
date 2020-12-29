@@ -11,9 +11,9 @@ const Profile = () => {
 
   return (
     <PageMinHeightWrapper>
-      <Container>
-        <PageTitle>{t('scarabeus.profil')}</PageTitle>
+      <PageTitle>{t('scarabeus.profil')}</PageTitle>
 
+      <Container>
         <Row>
           <label>{t('scarabeus.name')}:</label>
           <p>{currentUser.name}</p>

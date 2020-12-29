@@ -48,10 +48,10 @@ const UserOrderDetail = () => {
   const order = orderResponse.data
 
   return (
-    <Container>
-      <PageMinHeightWrapper>
-        <PageTitle>{t('scarabeus.orderDetail')}</PageTitle>
+    <PageMinHeightWrapper>
+      <PageTitle>{t('scarabeus.orderDetail')}</PageTitle>
 
+      <Container>
         <MarginBottom>
           <Row>
             <span>Id:</span>
@@ -84,8 +84,8 @@ const UserOrderDetail = () => {
         {products.map(x => (
           <Product key={x.id} product={x} amount={order.products[x.id]} />
         ))}
-      </PageMinHeightWrapper>
-    </Container>
+      </Container>
+    </PageMinHeightWrapper>
   )
 }
 

@@ -22,9 +22,9 @@ const Products = () => {
 
   return (
     <PageMinHeightWrapper>
-      <Container>
-        <PageTitle>{t('scarabeus.products')}</PageTitle>
+      <PageTitle>{t('scarabeus.products')}</PageTitle>
 
+      <Container>
         {!loading && products.length === 0 && <p>{t('scarabeus.nothingFound')}</p>}
 
         <Grid>

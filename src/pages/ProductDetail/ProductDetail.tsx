@@ -66,9 +66,9 @@ const ProductDetail = () => {
 
   return (
     <PageMinHeightWrapper>
-      <Container>
-        <PageTitle>{product.name}</PageTitle>
+      <PageTitle>{product.name}</PageTitle>
 
+      <Container>
         <Wrapper>
           <ImagesContainer>
             <MainImage src={mainImage || product.imageUrls[0]} />

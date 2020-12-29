@@ -30,10 +30,10 @@ const UserOrders = () => {
   if (error) return <ErrorPage error={error} />
 
   return (
-    <Container>
-      <PageMinHeightWrapper>
-        <PageTitle>{t('scarabeus.myOrdersHistory')}</PageTitle>
+    <PageMinHeightWrapper>
+      <PageTitle>{t('scarabeus.myOrdersHistory')}</PageTitle>
 
+      <Container>
         {loading && <Loader />}
 
         {orders.map(o => (
@@ -45,8 +45,8 @@ const UserOrders = () => {
             </p>
           </OrderLink>
         ))}
-      </PageMinHeightWrapper>
-    </Container>
+      </Container>
+    </PageMinHeightWrapper>
   )
 }
 

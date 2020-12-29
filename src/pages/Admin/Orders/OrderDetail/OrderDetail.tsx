@@ -72,10 +72,10 @@ const OrderDetail = () => {
   }
 
   return (
-    <Container>
-      <PageMinHeightWrapper>
-        <PageTitle>Order</PageTitle>
+    <PageMinHeightWrapper>
+      <PageTitle>Order</PageTitle>
 
+      <Container>
         <MarginBottom>
           <Row>
             <span>Id:</span>
@@ -130,7 +130,7 @@ const OrderDetail = () => {
             <Product key={x.id} product={x} amount={order.products[x.id]} />
           ))}
         </MarginBottom>
-      </PageMinHeightWrapper>
+      </Container>
 
       <Modal
         text='Are you sure you want to delete this order ?'
@@ -138,7 +138,7 @@ const OrderDetail = () => {
         onConfirm={handleDeleted}
         visible={deleteDialog}
       />
-    </Container>
+    </PageMinHeightWrapper>
   )
 }
 

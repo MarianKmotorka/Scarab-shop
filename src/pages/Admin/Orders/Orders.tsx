@@ -22,10 +22,10 @@ const Orders = () => {
   if (error) return <ErrorPage error={error} />
 
   return (
-    <Container>
-      <PageMinHeightWrapper>
-        <PageTitle>Orders</PageTitle>
+    <PageMinHeightWrapper>
+      <PageTitle>Orders</PageTitle>
 
+      <Container>
         {loading && <Loader />}
 
         {orders.map(o => (
@@ -35,8 +35,8 @@ const Orders = () => {
             {o.resolved ? <ResolvedIcon /> : <PendingIcon />}
           </OrderLink>
         ))}
-      </PageMinHeightWrapper>
-    </Container>
+      </Container>
+    </PageMinHeightWrapper>
   )
 }
 
