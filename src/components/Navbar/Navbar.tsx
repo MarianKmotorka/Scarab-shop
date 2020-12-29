@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { FiMenu, FiPackage } from 'react-icons/fi'
 import { GiButterfly } from 'react-icons/gi'
-import { useHistory } from 'react-router-dom'
+import { RiAdminFill } from 'react-icons/ri'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence } from 'framer-motion'
-import { RiAdminFill } from 'react-icons/ri'
+import { useHistory, useLocation } from 'react-router-dom'
 import { FaBug, FaShoppingCart, FaTimes } from 'react-icons/fa'
 
 import Badge from '../Badge'
@@ -12,6 +12,7 @@ import Button from '../Button/Button'
 import { Container } from '../Container'
 import { LG, MD } from '../../utils/theme'
 import { useWindowSize } from '../../hooks'
+import { useNavbarStyles } from './useNavbarStyles'
 import { useCart } from '../../contextProviders/CartProvider'
 import { useAuth } from '../../contextProviders/AuthProvider'
 
@@ -32,13 +33,17 @@ const Navbar = () => {
   const auth = useAuth()
   const { count } = useCart()
   const history = useHistory()
+  const location = useLocation()
   const { t } = useTranslation()
   const { width } = useWindowSize()
   const [isOpen, setIsOpen] = useState(false)
 
+  const isLandingPage = location.pathname === '/'
   const isLessThanMD = width <= MD
   const isLessThanLG = width <= LG
   const isAdmin = auth.isLoggedIn && auth.currentUser.isAdmin
+
+  const [viewHeightScrolled] = useNavbarStyles(!isLandingPage)
 
   const close = (callback?: () => void) => {
     setIsOpen(false)
@@ -119,7 +124,7 @@ const Navbar = () => {
   )
 
   return (
-    <Wrapper>
+    <Wrapper isLandingPage={isLandingPage} transparent={!viewHeightScrolled && !isOpen}>
       <Container>
         <Logo onClick={() => history.push('/')}>scarabeus</Logo>
 

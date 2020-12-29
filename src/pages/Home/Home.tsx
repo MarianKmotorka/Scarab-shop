@@ -1,29 +1,30 @@
-import { useTranslation } from 'react-i18next'
+import heroBg from '../../images/scarab-bg.jpg'
+import secondHeroBg from '../../images/bug-head.jpg'
 
-import { Container } from '../../components/Container'
-import butterfly from '../../images/framed-butterfly.jpg'
-import beetle from '../../images/framed-beetle.jpg'
-
-import { Image, LinksContainer, LinkText, StyledLink, Wrapper } from './Home.styled'
+import {
+  HeroBg,
+  Heading,
+  Wrapper,
+  SubHeading,
+  Hero,
+  SecondHero,
+  SecondHeroHeading,
+  SecondHeroBg,
+} from './Home.styled'
 
 const Home = () => {
-  const { t } = useTranslation()
-
   return (
     <Wrapper>
-      <Container>
-        <LinksContainer>
-          <StyledLink to='/butterflies'>
-            <LinkText>{t('scarabeus.butterflies')}</LinkText>
-            <Image src={butterfly} />
-          </StyledLink>
+      <Hero>
+        <HeroBg src={heroBg} />
+        <Heading>Get insect you always wanted</Heading>
+        <SubHeading>... or never knew existed</SubHeading>
+      </Hero>
 
-          <StyledLink to='/bugs'>
-            <LinkText>{t('scarabeus.beetles')}</LinkText>
-            <Image src={beetle} />
-          </StyledLink>
-        </LinksContainer>
-      </Container>
+      <SecondHero>
+        <SecondHeroBg src={secondHeroBg} />
+        <SecondHeroHeading>See details you've never seen</SecondHeroHeading>
+      </SecondHero>
     </Wrapper>
   )
 }

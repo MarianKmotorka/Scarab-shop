@@ -21,18 +21,16 @@ a, p{
 
   @media screen and (min-width: ${MD}px){
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 5px;
         background: transparent;
       }
 
       ::-webkit-scrollbar-thumb {
-        background: #bababa;
-        border-radius:300px;
+        background:${({ theme }) => theme.black};
       }
 
       ::-webkit-scrollbar-track {
-        background: ${({ theme }) => theme.white};
-        border-radius: 5px;
+        background: ${({ theme }) => theme.white2};
     }
   }
 }

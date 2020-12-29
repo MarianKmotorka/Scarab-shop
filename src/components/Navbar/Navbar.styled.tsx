@@ -1,23 +1,47 @@
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { LG, MD, SM } from '../../utils/theme'
 import Button from '../Button/Button'
 
 export const NAVBAR_HEIGHT = 70
 export const NAVBAR_HEIGHT_STRING = `${NAVBAR_HEIGHT}px`
 
-export const Wrapper = styled.div`
+interface IProps {
+  isLandingPage: boolean
+  transparent: boolean
+}
+
+export const Wrapper = styled.div<IProps>`
   height: ${NAVBAR_HEIGHT_STRING};
   background-color: ${({ theme }) => theme.black};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 50;
+  transition: background-color 0.3s;
 
   position: sticky;
   top: 0;
+  width: 100%;
 
   display: flex;
   align-items: center;
+
+  ${({ isLandingPage, transparent, theme }) =>
+    isLandingPage &&
+    css`
+      position: absolute;
+      background-color: ${transparent ? 'transparent' : theme.black};
+      button {
+        background: transparent;
+
+        :first-of-type {
+          border: solid 2px transparent;
+          :hover {
+            border-color: ${({ theme }) => theme.white};
+          }
+        }
+      }
+    `}
 
   > div {
     display: flex;
