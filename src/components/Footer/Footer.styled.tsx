@@ -7,12 +7,13 @@ export const Wrapper = styled.div`
   padding: 35px 0 50px;
 `
 
-export const LangButtonContainer = styled.div`
+export const Content = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `
 
-export const StyledButton = styled.button<{ selected: boolean }>`
+export const LangButton = styled.button<{ selected: boolean }>`
   padding: 10px 15px;
   outline: none;
   border: none;
@@ -22,4 +23,31 @@ export const StyledButton = styled.button<{ selected: boolean }>`
   border: 1px solid ${({ theme }) => theme.white};
   background-color: ${({ theme, selected }) => (selected ? theme.white : theme.black)};
   color: ${({ theme, selected }) => (selected ? theme.black : theme.white)};
+`
+
+export const InstaLink = styled.a`
+  color: ${({ theme }) => theme.white};
+  margin-right: 20px;
+
+  svg {
+    font-size: 2.7rem;
+    display: block;
+    transition: all 0.2s;
+
+    :hover {
+      color: ${({ theme }) => theme.primary};
+      transform: scale(1.1);
+    }
+  }
+`
+
+export const PoliciesLink = styled.a`
+  color: ${({ theme }) => theme.white};
+  margin-right: 20px;
+  font-size: 1.15rem;
+  font-weight: 300;
+
+  :hover {
+    text-decoration: underline;
+  }
 `

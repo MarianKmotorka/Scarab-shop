@@ -82,6 +82,10 @@ export const StyledLink = styled(NavLink)`
   align-items: center;
   justify-content: center;
 
+  svg {
+    display: block;
+  }
+
   p {
     color: ${({ theme }) => theme.white};
     font-weight: 400;
