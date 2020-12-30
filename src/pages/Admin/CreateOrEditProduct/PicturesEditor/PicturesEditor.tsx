@@ -27,7 +27,7 @@ const PicturesEditor = ({ product }: IProps) => {
   const [deleteActive, setDeleteActive] = useState(false)
   const [validationError, setValidationError] = useState<string>()
   const [picture, setPicture] = useState<File>()
-  const fileName = `product_images/${picture?.name}_${new Date().toDateString()}`
+  const fileName = `product_images/${new Date().toISOString()}_${picture?.name}`
 
   const { progress, url, error: uploadError } = useStorage(fileName, picture, () =>
     setPicture(undefined)

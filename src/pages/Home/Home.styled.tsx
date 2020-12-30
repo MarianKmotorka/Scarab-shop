@@ -78,7 +78,7 @@ export const HeroBg = styled.img`
   filter: grayscale(100%) opacity(0.4);
 `
 
-export const SecondHero = styled.div`
+export const ThirdHero = styled.div`
   height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
   background: ${({ theme }) => theme.primary};
   display: flex;
@@ -100,7 +100,7 @@ export const SecondHero = styled.div`
   }
 `
 
-export const SecondHeroBg = styled.img`
+export const ThirdHeroBg = styled.img`
   height: 100%;
   max-width: 600px;
   object-fit: cover;
@@ -113,7 +113,7 @@ export const SecondHeroBg = styled.img`
   }
 `
 
-export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
+export const ThirdHeroHeading = styled.h1<{ isSeen: boolean }>`
   font-weight: 500;
   font-size: 3.5rem;
   min-width: 400px;
@@ -137,7 +137,7 @@ export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
   }
 `
 
-export const ThirdHero = styled.div`
+export const SecondHero = styled.div`
   height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
   background: ${({ theme }) => theme.white2};
   display: flex;
@@ -159,7 +159,7 @@ export const ThirdHero = styled.div`
   }
 `
 
-export const ThirdHeroBG = styled.img`
+export const SecondHeroBG = styled.img`
   height: 100%;
   width: calc(100vh - ${NAVBAR_HEIGHT_STRING});
   object-fit: cover;
@@ -172,7 +172,7 @@ export const ThirdHeroBG = styled.img`
   }
 `
 
-export const ThirdHeroHeading = styled.h1<{ isSeen: boolean }>`
+export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
   font-size: 3.5rem;
   min-width: 400px;
   color: ${({ theme }) => theme.white};
@@ -192,5 +192,70 @@ export const ThirdHeroHeading = styled.h1<{ isSeen: boolean }>`
   @media screen and (max-width: ${MD}px) {
     font-size: 2.5rem;
     min-width: 0;
+  }
+`
+
+export const Articles = styled.div`
+  min-height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
+  background: ${({ theme }) => theme.black3};
+  padding: 30px 30px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 1100px) {
+    article {
+      transform: translateY(50px);
+      margin: 30px;
+    }
+
+    article:nth-of-type(2) {
+      transform: translateY(-50px);
+    }
+  }
+
+  @media screen and (max-width: 1099px) {
+    flex-wrap: wrap;
+
+    article {
+      margin-top: 120px;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    padding: 50px 0;
+  }
+`
+
+export const Article = styled.article`
+  padding: 90px 30px 50px;
+  color: rgba(255, 255, 255, 0.8);
+  width: 310px;
+  margin: 20px;
+
+  border-radius: 5px;
+  position: relative;
+  background: ${({ theme }) => theme.primary};
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
+  img {
+    height: 140px;
+    width: 140px;
+    display: block;
+    border-radius: 3px;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    line-height: 1.35rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 300;
+    font-size: 1.05rem;
   }
 `
