@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { FiMenu, FiPackage } from 'react-icons/fi'
-import { GiButterfly } from 'react-icons/gi'
 import { RiAdminFill } from 'react-icons/ri'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence } from 'framer-motion'
+import { FiMenu, FiPackage } from 'react-icons/fi'
 import { useHistory, useLocation } from 'react-router-dom'
 import { FaBug, FaShoppingCart, FaTimes } from 'react-icons/fa'
 

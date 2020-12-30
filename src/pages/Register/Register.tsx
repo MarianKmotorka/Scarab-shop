@@ -13,7 +13,7 @@ import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
 import { firebaseErrorToFieldError } from './utils'
 import { Bg, FormTitle, Wrapper } from './Register.styled'
-import bg from '../../images/bug-on-white.jpg'
+import bg from '../../images/scarab-on-branch.jpg'
 
 export interface IRegisterFormData {
   name: string
@@ -87,7 +87,7 @@ const Register = () => {
               <Button
                 type='submit'
                 isLoading={submitting}
-                colorInverted
+                colorInverted={isSmall}
                 reversed={isSmall}
               >
                 {t('scarabeus.register')}

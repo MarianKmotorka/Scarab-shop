@@ -60,7 +60,7 @@ const Login = () => {
               <Button
                 type='submit'
                 isLoading={submitting}
-                colorInverted
+                colorInverted={isSmall}
                 reversed={isSmall}
               >
                 {t('scarabeus.login')}
