@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
+import { SM } from '../../utils/theme'
+import { useWindowSize } from '../../hooks'
 import Button from '../../components/Button/Button'
 import { projectAuth } from '../../firebase/config'
 import { Container } from '../../components/Container'
@@ -10,7 +12,8 @@ import { useApiError } from '../../contextProviders/ApiErrorProvider'
 import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
 import { firebaseErrorToFieldError } from './utils'
-import { FormTitle, Wrapper } from './Register.styled'
+import { Bg, FormTitle, Wrapper } from './Register.styled'
+import bg from '../../images/bug-on-white.jpg'
 
 export interface IRegisterFormData {
   name: string
@@ -22,7 +25,10 @@ export interface IRegisterFormData {
 const Register = () => {
   const { t } = useTranslation()
   const history = useHistory()
+  const { width } = useWindowSize()
   const { setError } = useApiError()
+
+  const isSmall = width <= SM
 
   const handleRegister: IHookFormProps<IRegisterFormData>['handleSubmit'] = async ({
     name,
@@ -43,8 +49,8 @@ const Register = () => {
   }
 
   return (
-    <Container>
-      <Wrapper>
+    <Wrapper>
+      <Container>
         <HookForm<IRegisterFormData> handleSubmit={handleRegister}>
           {({ submitting }) => (
             <>
@@ -60,12 +66,14 @@ const Register = () => {
                   },
                   required: t('scarabeus.validation.required') as string,
                 }}
+                colorInverted={isSmall}
               />
 
               <HookFormInput
                 name='email'
                 label={t('scarabeus.email')}
                 options={{ required: t('scarabeus.validation.required') as string }}
+                colorInverted={isSmall}
               />
 
               <HookFormInput
@@ -73,16 +81,24 @@ const Register = () => {
                 label={t('scarabeus.password')}
                 type='password'
                 options={{ required: t('scarabeus.validation.required') as string }}
+                colorInverted={isSmall}
               />
 
-              <Button type='submit' isLoading={submitting} reversed>
+              <Button
+                type='submit'
+                isLoading={submitting}
+                colorInverted
+                reversed={isSmall}
+              >
                 {t('scarabeus.register')}
               </Button>
             </>
           )}
         </HookForm>
-      </Wrapper>
-    </Container>
+      </Container>
+
+      <Bg src={bg} />
+    </Wrapper>
   )
 }
 

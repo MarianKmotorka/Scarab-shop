@@ -1,8 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import {
-  NAVBAR_HEIGHT,
-  NAVBAR_HEIGHT_STRING,
-} from '../../components/Navbar/Navbar.styled'
+import { NAVBAR_HEIGHT_STRING } from '../../components/Navbar/Navbar.styled'
 import { LG, MD, SM } from '../../utils/theme'
 
 export const Wrapper = styled.div``
