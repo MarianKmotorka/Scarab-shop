@@ -198,7 +198,7 @@ export const SecondHeroHeading = styled.h1<{ isSeen: boolean }>`
 export const Articles = styled.div`
   min-height: calc(100vh - ${NAVBAR_HEIGHT_STRING});
   background: ${({ theme }) => theme.black3};
-  padding: 30px 30px 50px;
+  padding: 110px 30px 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,6 +216,7 @@ export const Articles = styled.div`
 
   @media screen and (max-width: 1099px) {
     flex-wrap: wrap;
+    padding-top: 30px;
 
     article {
       margin-top: 120px;
