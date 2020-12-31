@@ -60,3 +60,11 @@ export interface IProductStatistics extends IEntity {
   id: string
   viewedByIps: string[]
 }
+
+export interface IDailyVisitors extends IEntity {
+  /**
+   * Date
+   */
+  id: string
+  visitorIps: string[]
+}
