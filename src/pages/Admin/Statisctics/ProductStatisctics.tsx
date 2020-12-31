@@ -19,8 +19,7 @@ interface IProductStatViewModel {
 
 const ProductStatistics = () => {
   const [productStats, statsLoading, statsError] = useFirestoreQuery<IProductStatistics>(
-    useCallback(db => db.collection('productStatistics'), []),
-    { realTime: false }
+    useCallback(db => db.collection('productStatistics'), [])
   )
   const [products, productsLoading, productsError] = useFirestoreQuery<IProduct>(
     useCallback(db => db.collection('products'), []),
