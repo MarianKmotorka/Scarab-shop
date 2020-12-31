@@ -6,6 +6,7 @@ import HookFormTextArea from '../../components/HookForm/HookFormTextArea'
 export const Directions = styled.p`
   margin-top: 50px;
   line-height: 1.4rem;
+  border-radius: 3px;
   padding: 30px;
   background-color: ${({ theme }) => theme.white2};
 

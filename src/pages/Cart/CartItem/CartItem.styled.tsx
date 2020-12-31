@@ -26,6 +26,7 @@ export const Wrapper = styled.li`
 export const Image = styled.img`
   width: 70px;
   height: 70px;
+  border-radius: 3px;
   object-fit: cover;
   display: block;
 

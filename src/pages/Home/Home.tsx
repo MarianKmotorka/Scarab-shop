@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router-dom'
 import { useObserver } from '../../hooks'
+
+import Button from '../../components/Button/Button'
 import heroBg from '../../images/scarab-bg.jpg'
 import thirdHeroBg from '../../images/framed-butterfly.jpg'
 import yellowButterfly from '../../images/framed-yellow-butterfly.jpg'
-import stagBeet from '../../images/stag-beet.jpg'
-import bugOnHand from '../../images/bug-on-hand.jpg'
+import bugsOnHand from '../../images/bugs-on-hand.jpg'
+import bugOnHand from '../../images/golias.jpg'
 
 import {
   HeroBg,
@@ -18,8 +22,11 @@ import {
   Articles,
   Article,
 } from './Home.styled'
+import { FaChevronRight } from 'react-icons/fa'
 
 const Home = () => {
+  const history = useHistory()
+  const { t } = useTranslation()
   const [thirdHeadingSeen, setThirdHeadingSeen] = useState(false)
   const thirdHeadingRef = useObserver<HTMLHeadingElement>(() => setThirdHeadingSeen(true))
 
@@ -47,31 +54,35 @@ const Home = () => {
 
       <Articles>
         <Article>
-          <img src={stagBeet} alt='huge beetle' />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem perspiciatis
-            ipsam facilis quisquam ea cumque, modi laboriosam. Quasi aspernatur nostrum
-            debitis officia nemo eius autem iste iusto impedit laudantium libero
-            consequuntur amet est id, ea praesentium corrupti voluptates sequi quam ipsa
-          </p>
+          <img src={bugOnHand} alt='huge beetle' />
+          <p>{t('scarabeus.wePickExquisiteSpecimensArticle')}</p>
+          <Button reversed onClick={() => history.push('/products')}>
+            {t('scarabeus.checkProducts')}
+            <FaChevronRight />
+          </Button>
         </Article>
+
         <Article>
           <img src={yellowButterfly} alt='huge beetle' />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem perspiciatis
-            ipsam facilis quisquam ea cumque, modi laboriosam. Quasi aspernatur nostrum
-            debitis officia nemo eius autem iste iusto impedit laudantium libero
-            consequuntur amet est id, ea praesentium corrupti voluptates sequi quam ipsa
-          </p>
+          <p>{t('scarabeus.twoSheetsOfUvBlockingGlassesArticle')}</p>
+          <Button reversed onClick={() => history.push('/products')}>
+            {t('scarabeus.checkProducts')}
+            <FaChevronRight />
+          </Button>
         </Article>
+
         <Article>
-          <img src={bugOnHand} alt='huge beetle' />
+          <img src={bugsOnHand} alt='huge beetle' />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem perspiciatis
-            ipsam facilis quisquam ea cumque, modi laboriosam. Quasi aspernatur nostrum
-            debitis officia nemo eius autem iste iusto impedit laudantium libero
-            consequuntur amet est id, ea praesentium corrupti voluptates sequi quam ipsa
+            {t('scarabeus.typicalOrUnusualArtical')}{' '}
+            <a href='mailto: scarabeus.team@gmail.com'>
+              <strong>scarabeus.team@gmail.com</strong>
+            </a>
           </p>
+          <Button reversed onClick={() => history.push('/products')}>
+            {t('scarabeus.checkProducts')}
+            <FaChevronRight />
+          </Button>
         </Article>
       </Articles>
     </Wrapper>

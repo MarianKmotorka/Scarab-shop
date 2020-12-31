@@ -32,10 +32,16 @@
     "orders": "Objednávky",
     "myOrdersHistory": "Moje objednávky",
     "orderSent": "Objednávka bola úspešne odoslaná.",
+    "checkProducts": "K produktom",
+    "contactUs": "Napíšte nám",
     "description": "Popis",
     "cartIsEmpty": "Košík je prázdny",
     "youAreNotLoggedIn": "Nie ste prihlásený.",
     "ordersAreSavedToHistoryForLoggedinUsers": "Objednávky sa ukladajú do histórie len pre prihlásených používateľov.",
+    "wePickExquisiteSpecimensArticle": "Vyberáme len tie najlepšie kúsky s dôrazom na detail, aby s nimi boli spokojní aj tí najvyberavejší!",
+    "twoSheetsOfUvBlockingGlassesArticle": "UV blokujúce sklo spredu aj zozadu vsadené do kvalitného dubového alebo bukového dreva je kombinácia ktorá spestrí váš domov svojím unikátnym a zároveň minimalistickým vzhľadom.",
+    "typicalOrUnusualArtical": "Klasiky alebo rarity, máme všetko na čo si môžte spomenúť. Ak máte nejaké otázky alebo by ste chceli rámik podľa vlastných predstáv, neváhajte nás kontaktovať na",
+
     "validation": {
       "required": "Povinné",
       "minChars": "Min {{min}} znakov",

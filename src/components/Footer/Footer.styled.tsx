@@ -11,6 +11,12 @@ export const Content = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+`
+
+export const LangButtonsContainer = styled.div`
+  margin-left: auto;
 `
 
 export const LangButton = styled.button<{ selected: boolean }>`
@@ -18,6 +24,7 @@ export const LangButton = styled.button<{ selected: boolean }>`
   outline: none;
   border: none;
   cursor: pointer;
+  margin-left: auto;
 
   transition: all 0.3s;
   border: 1px solid ${({ theme }) => theme.white};
@@ -27,7 +34,6 @@ export const LangButton = styled.button<{ selected: boolean }>`
 
 export const InstaLink = styled.a`
   color: ${({ theme }) => theme.white};
-  margin-right: 20px;
 
   svg {
     font-size: 2.7rem;
@@ -41,10 +47,9 @@ export const InstaLink = styled.a`
   }
 `
 
-export const PoliciesLink = styled.a`
+export const StyledAnchor = styled.a`
   color: ${({ theme }) => theme.white};
-  margin-right: 20px;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 300;
 
   :hover {

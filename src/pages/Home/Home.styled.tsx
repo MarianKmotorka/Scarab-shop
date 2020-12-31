@@ -229,7 +229,7 @@ export const Articles = styled.div`
 `
 
 export const Article = styled.article`
-  padding: 90px 30px 50px;
+  padding: 100px 30px 50px;
   color: rgba(255, 255, 255, 0.8);
   width: 310px;
   margin: 20px;
@@ -254,9 +254,32 @@ export const Article = styled.article`
   }
 
   p {
-    line-height: 1.35rem;
-    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
     font-weight: 300;
     font-size: 1.05rem;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    margin: 45px auto 0;
+    background-color: ${({ theme }) => theme.black3};
+    border-color: ${({ theme }) => theme.black3};
+
+    :hover {
+      background-color: transparent;
+      color: white;
+      border-color: white;
+    }
+
+    svg {
+      display: block;
+      margin-left: 5px;
+    }
   }
 `

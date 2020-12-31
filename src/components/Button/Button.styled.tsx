@@ -28,11 +28,12 @@ export const StyledPrimaryButton = styled.button<IStyledButtonProps>`
     return css`
       outline: none;
       border: 2px solid ${colorInverted ? theme.white : theme.black};
+      border-radius: 3px;
 
       font-size: 1rem;
       cursor: ${disabled ? 'auto' : 'pointer'};
       transform: scale(${scale});
-      transition: background-color 0.2s, color 0.2s;
+      transition: all 0.2s, color 0.2s;
 
       padding: 8px 18px;
       background: ${bgHex};

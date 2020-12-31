@@ -28,6 +28,7 @@ export const SectionTitle = styled.h1`
 `
 
 export const Directions = styled.p`
+  border-radius: 3px;
   padding: 25px 30px;
   background-color: ${({ theme }) => theme.white2};
   margin-bottom: 20px;

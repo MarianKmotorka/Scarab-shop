@@ -14,6 +14,7 @@ export const Wrapper = styled.div<{ colorInverted?: boolean }>`
 export const StyledInput = styled.input<{ colorInverted?: boolean }>`
   width: 100%;
   padding: 5px;
+  border-radius: 3px;
   border: 2px solid
     ${({ theme, colorInverted }) => (colorInverted ? theme.white : theme.black3)};
 

@@ -159,6 +159,7 @@ export const AuthLinksContainer = styled.div`
     max-width: 120px;
     margin: 10px 0;
     text-transform: uppercase;
+    border-radius: 0px;
   }
 
   @media screen and (max-width: ${LG}px) {
