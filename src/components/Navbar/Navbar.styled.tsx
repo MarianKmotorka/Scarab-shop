@@ -29,7 +29,7 @@ export const Wrapper = styled.div<IProps>`
   ${({ isLandingPage, transparent, theme }) =>
     isLandingPage &&
     css`
-      position: absolute;
+      position: fixed;
       background-color: ${transparent ? 'transparent' : theme.black};
       button {
         background: transparent;

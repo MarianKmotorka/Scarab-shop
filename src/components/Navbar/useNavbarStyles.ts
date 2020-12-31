@@ -9,16 +9,14 @@ export const useNavbarStyles = (disabled: boolean) => {
   useEffect(() => {
     if (disabled) return
 
-    const root = document.getElementById('root')!
-
     const handler = () =>
-      root.scrollTop + NAVBAR_HEIGHT > height
+      window.scrollY + NAVBAR_HEIGHT > height
         ? setViewHeightScrolled(true)
         : setViewHeightScrolled(false)
 
-    root.addEventListener('scroll', handler)
+    window.addEventListener('scroll', handler)
 
-    return () => root.removeEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
   }, [height, disabled])
 
   return [viewHeightScrolled]

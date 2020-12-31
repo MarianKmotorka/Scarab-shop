@@ -14,7 +14,7 @@ a, p{
   color:${({ theme }) => theme.black};
 }
 
-#root{
+body{
   height:100vh;
   overflow:auto;
   overflow-x:hidden;

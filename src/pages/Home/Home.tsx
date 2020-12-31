@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useObserver } from '../../hooks'
 import heroBg from '../../images/scarab-bg.jpg'
-import secondHeroBg from '../../images/bug-head.jpg'
 import thirdHeroBg from '../../images/framed-butterfly.jpg'
 import yellowButterfly from '../../images/framed-yellow-butterfly.jpg'
 import stagBeet from '../../images/stag-beet.jpg'
@@ -13,9 +12,6 @@ import {
   Wrapper,
   SubHeading,
   Hero,
-  ThirdHero,
-  ThirdHeroHeading,
-  ThirdHeroBg,
   SecondHero,
   SecondHeroBG,
   SecondHeroHeading,
@@ -25,12 +21,7 @@ import {
 
 const Home = () => {
   const [thirdHeadingSeen, setThirdHeadingSeen] = useState(false)
-  const [secondHeadingSeen, setSecondHeadingSeen] = useState(false)
-
   const thirdHeadingRef = useObserver<HTMLHeadingElement>(() => setThirdHeadingSeen(true))
-  const secondHeadingRef = useObserver<HTMLHeadingElement>(() =>
-    setSecondHeadingSeen(true)
-  )
 
   return (
     <Wrapper>
