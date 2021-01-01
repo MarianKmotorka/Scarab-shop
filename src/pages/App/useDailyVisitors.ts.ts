@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import moment from 'moment'
 import { IDailyVisitors } from '../../domain'
 import { propertyOf } from '../../utils/utils'
 import { FieldValue, projectFirestore } from '../../firebase/config'
@@ -10,8 +11,7 @@ export const useDailyVisitors = () => {
   useEffect(() => {
     if (!ip) return
 
-    const date = new Date()
-    const docId = `${date.getDay()}_${date.getMonth()}_${date.getFullYear()}`
+    const docId = moment(new Date()).format('DD_MM_YYYY')
 
     projectFirestore
       .doc(`/dailyVisitors/${docId}`)
