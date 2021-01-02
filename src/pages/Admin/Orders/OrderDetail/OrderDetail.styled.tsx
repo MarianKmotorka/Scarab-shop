@@ -33,6 +33,14 @@ export const Row = styled.div`
       margin-top: 10px;
     }
   }
+
+  a {
+    text-decoration: underline;
+
+    :hover {
+      font-weight: 500;
+    }
+  }
 `
 
 export const Message = styled.p`

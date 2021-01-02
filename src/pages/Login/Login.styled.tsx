@@ -46,7 +46,10 @@ export const FormTitle = styled.h1`
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 30px;
-  color: ${({ theme }) => theme.primary};
+
+  @media screen and (max-width: ${SM}px) {
+    color: ${({ theme }) => theme.white};
+  }
 `
 
 export const Bg = styled.img`

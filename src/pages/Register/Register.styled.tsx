@@ -46,7 +46,10 @@ export const FormTitle = styled.h1`
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 30px;
-  color: ${({ theme }) => theme.primary};
+
+  @media screen and (max-width: ${SM}px) {
+    color: ${({ theme }) => theme.white};
+  }
 `
 
 export const Bg = styled.img`
@@ -56,5 +59,5 @@ export const Bg = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  filter: grayscale(100%) opacity(90%);
+  filter: grayscale(100%) opacity(60%);
 `

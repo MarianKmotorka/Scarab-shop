@@ -94,7 +94,7 @@ const OrderDetail = () => {
 
           <Row>
             <span>Email:</span>
-            {order.customerEmail}
+            <a href={`mailto: ${order.customerEmail}`}>{order.customerEmail}</a>
           </Row>
 
           <Row>
