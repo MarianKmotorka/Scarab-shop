@@ -21,13 +21,13 @@ import {
   SectionBody,
   ImagesContainer,
   SectionTitle,
-  MainImage,
   ProductInfo,
   SmallImage,
   SmallImagesGrid,
   Wrapper,
   Section,
 } from './ProductDetail.styled'
+import ImageWithZoom from './ImageWithZoom'
 
 const ProductDetail = () => {
   const auth = useAuth()
@@ -40,7 +40,6 @@ const ProductDetail = () => {
   const { addOrUpdateProduct, isInCart, removeProduct } = useCart()
   const { productId } = useParams<{ productId: string }>()
   const [response] = useFirestoreDoc<IProduct>(`/products/${productId}`)
-
   useProductVisitCount(response)
 
   if (response.loading) return <FullPageLoader />
@@ -71,7 +70,7 @@ const ProductDetail = () => {
       <Container>
         <Wrapper>
           <ImagesContainer>
-            <MainImage src={mainImage || product.imageUrls[0]} />
+            <ImageWithZoom src={mainImage || product.imageUrls[0]} />
 
             <SmallImagesGrid>
               {product.imageUrls.map(x => (

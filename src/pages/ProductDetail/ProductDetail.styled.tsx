@@ -50,16 +50,6 @@ export const SmallImage = styled.img`
   }
 `
 
-export const MainImage = styled.img`
-  display: block;
-  width: 100%;
-  max-height: 700px;
-  object-fit: contain;
-  margin-bottom: 8px;
-  border-radius: 3px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-`
-
 export const ProductInfo = styled.div`
   flex: 1;
   min-width: 300px;
