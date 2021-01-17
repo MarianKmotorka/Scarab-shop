@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { FaChevronRight } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
-import { useObserver } from '../../hooks'
 
+import { useObserver } from '../../hooks'
 import Button from '../../components/Button/Button'
-import heroBg from '../../images/scarab-bg.jpg'
+
+import heroBg from '../../images/scarab-bg-min.jpg'
+import bugOnHand from '../../images/golias.jpg'
+import bugsOnHand from '../../images/bugs-on-hand.jpg'
 import thirdHeroBg from '../../images/framed-butterfly.jpg'
 import yellowButterfly from '../../images/framed-yellow-butterfly.jpg'
-import bugsOnHand from '../../images/bugs-on-hand.jpg'
-import bugOnHand from '../../images/golias.jpg'
 
 import {
   HeroBg,
@@ -22,7 +24,6 @@ import {
   Articles,
   Article,
 } from './Home.styled'
-import { FaChevronRight } from 'react-icons/fa'
 
 const Home = () => {
   const history = useHistory()

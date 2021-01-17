@@ -1,17 +1,17 @@
 import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
+import { SM } from '../../utils/theme'
+import { useWindowSize } from '../../hooks'
+import { firebaseErrorToFieldError } from './utils'
 import Button from '../../components/Button/Button'
 import { projectAuth } from '../../firebase/config'
 import { Container } from '../../components/Container'
 import HookFormInput from '../../components/HookForm/HookFormInput'
 import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
-import { firebaseErrorToFieldError } from './utils'
+import bg from '../../images/green-bug-min.jpg'
 import { Bg, FormTitle, Wrapper } from './Login.styled'
-import bg from '../../images/green-bug.jpg'
-import { useWindowSize } from '../../hooks'
-import { SM } from '../../utils/theme'
 export interface ILoginFormData {
   email: string
   password: string

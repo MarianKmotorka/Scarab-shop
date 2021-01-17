@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { SM } from '../../utils/theme'
 import { useWindowSize } from '../../hooks'
+import { firebaseErrorToFieldError } from './utils'
 import Button from '../../components/Button/Button'
 import { projectAuth } from '../../firebase/config'
 import { Container } from '../../components/Container'
@@ -11,9 +12,8 @@ import HookFormInput from '../../components/HookForm/HookFormInput'
 import { useApiError } from '../../contextProviders/ApiErrorProvider'
 import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
-import { firebaseErrorToFieldError } from './utils'
 import { Bg, FormTitle, Wrapper } from './Register.styled'
-import bg from '../../images/scarab-on-branch.jpg'
+import bg from '../../images/scarab-on-branch-min.jpg'
 
 export interface IRegisterFormData {
   name: string
