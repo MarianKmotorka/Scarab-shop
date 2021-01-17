@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import CoolImg from 'react-cool-img'
 import { LG, SM } from '../../utils/theme'
 
 export const Wrapper = styled.div`
@@ -31,7 +32,7 @@ export const SmallImagesGrid = styled.div`
   }
 `
 
-export const SmallImage = styled.img`
+export const SmallImage = styled(CoolImg)`
   height: 95px;
   width: 95px;
   object-fit: cover;
@@ -50,7 +51,7 @@ export const SmallImage = styled.img`
   }
 `
 
-export const MainImage = styled.img`
+export const MainImage = styled(CoolImg)`
   display: block;
   width: 100%;
   max-height: 700px;

@@ -7,6 +7,7 @@ import Price from './Price'
 import ErrorPage from '../ErrorPage'
 import { IProduct } from '../../domain'
 import Modal from '../../components/Modal/Modal'
+import imageLoader from '../../images/img-loader.svg'
 import { PageTitle } from '../../components/PageTitle'
 import { Container } from '../../components/Container'
 import { useCart } from '../../contextProviders/CartProvider'
@@ -71,11 +72,21 @@ const ProductDetail = () => {
       <Container>
         <Wrapper>
           <ImagesContainer>
-            <MainImage src={mainImage || product.imageUrls[0]} />
+            <MainImage
+              src={mainImage || product.imageUrls[0]}
+              placeholder={imageLoader}
+              debounce={0}
+            />
 
             <SmallImagesGrid>
               {product.imageUrls.map(x => (
-                <SmallImage key={x} src={x} onClick={() => setMainImage(x)} />
+                <SmallImage
+                  key={x}
+                  src={x}
+                  onClick={() => setMainImage(x)}
+                  placeholder={imageLoader}
+                  debounce={0}
+                />
               ))}
             </SmallImagesGrid>
           </ImagesContainer>

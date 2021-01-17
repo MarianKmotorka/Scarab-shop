@@ -7,7 +7,7 @@ import Login from '../../Login/Login'
 import Admin from '../../Admin/Admin'
 import NoAuthRoute from './NoAuthRoute'
 import Logout from '../../Login/Logout'
-import Bugs from '../../Products/Products'
+import Products from '../../Products/Products'
 import Profile from '../../Profile/Profile'
 import NotFoundPage from '../../NotFoundPage'
 import Register from '../../Register/Register'
@@ -22,13 +22,13 @@ import ProductStatistics from '../../Admin/Statisctics/ProductStatisctics'
 const Routes = () => (
   <Switch>
     <Route path='/cart' exact component={Cart} />
-    <Route path='/products' exact component={Bugs} />
+    <Route path='/products' exact component={Products} />
     <Route path='/products/:productId' exact component={ProductDetail} />
 
     <NoAuthRoute path='/login' exact component={Login} />
+    <AuthRoute path='/logout' exact component={Logout} />
     <NoAuthRoute path='/register' exact component={Register} />
 
-    <AuthRoute path='/logout' exact component={Logout} />
     <AuthRoute path='/profile' exact component={Profile} />
     <AuthRoute path='/orders' exact component={UserOrders} />
     <AuthRoute path='/orders/:orderId' exact component={UserOrderDetail} />

@@ -1,5 +1,8 @@
 import { useTranslation } from 'react-i18next'
+
 import { IProduct } from '../../domain'
+
+import imageLoader from '../../images/img-loader.svg'
 import { Body, Image, Info, Price, Wrapper } from './ProductCard.styled'
 
 interface IProductCardProps {
@@ -12,7 +15,12 @@ const ProductCard = ({ product }: IProductCardProps) => {
 
   return (
     <Wrapper to={`/products/${product.id}`}>
-      <Image src={product.imageUrls[0]} isOutOfStock={isOutOfStock} />
+      <Image
+        src={product.imageUrls[0]}
+        isOutOfStock={isOutOfStock}
+        placeholder={imageLoader}
+        debounce={0}
+      />
 
       <Body>
         <h1>{product.name}</h1>

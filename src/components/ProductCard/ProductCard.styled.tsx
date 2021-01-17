@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CoolImg from 'react-cool-img'
 import styled from 'styled-components'
 import { MD } from '../../utils/theme'
 
@@ -18,7 +19,7 @@ export const Wrapper = styled(Link)`
   }
 `
 
-export const Image = styled.img<{ isOutOfStock: boolean }>`
+export const Image = styled(CoolImg)<{ isOutOfStock: boolean }>`
   height: 250px;
   width: 100%;
   object-fit: cover;
