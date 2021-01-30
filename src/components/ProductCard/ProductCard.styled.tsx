@@ -12,9 +12,10 @@ export const Wrapper = styled(Link)`
   background-color: ${({ theme }) => theme.white};
 
   @media screen and (min-width: ${MD}px) {
-    transition: transform 0.3s;
+    transition: all 0.3s;
     :hover {
-      transform: translateY(-7px);
+      transform: scale(1.05);
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 80px rgba(0, 0, 0, 0.3);
     }
   }
 `

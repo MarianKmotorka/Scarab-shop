@@ -15,6 +15,7 @@ import { createOrder } from '../../services/OrderService'
 import { useCart } from '../../contextProviders/CartProvider'
 import { useAuth } from '../../contextProviders/AuthProvider'
 import { useApiError } from '../../contextProviders/ApiErrorProvider'
+import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 import HookForm, { IHookFormProps } from '../../components/HookForm/HookForm'
 
 import {
@@ -25,7 +26,6 @@ import {
   StyledButton,
   SuccessMessage,
 } from './Cart.styled'
-import { PageMinHeightWrapper } from '../../components/PageMinHeightWrapper'
 
 interface IOrderFormData {
   name: string
@@ -118,7 +118,7 @@ const Cart = () => {
           <>
             <Directions>
               <strong>{t('scarabeus.thisIsNotRealOrder')}</strong>
-              {t('scarabeus.enterYourEmailAndIContactYou')}
+              {t('scarabeus.feelFreeToMakeAnOrder')}
             </Directions>
 
             <HookForm handleSubmit={handleSubmitted} defaultValues={formDefaultValues}>

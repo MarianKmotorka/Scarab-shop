@@ -46,13 +46,6 @@ const Home = () => {
         <SecondHeroBG src={thirdHeroBg} />
       </SecondHero>
 
-      {/* <ThirdHero>
-        <ThirdHeroBg src={secondHeroBg} />
-        <ThirdHeroHeading ref={secondHeadingRef} isSeen={secondHeadingSeen}>
-          Take a detailed look at the nature
-        </ThirdHeroHeading>
-      </ThirdHero> */}
-
       <Articles>
         <Article>
           <img src={bugOnHand} alt='huge beetle' />

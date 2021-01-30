@@ -13,8 +13,8 @@ import {
   LangButtonsContainer,
 } from './Footer.styled'
 
-const privacyPolicy =
-  'https://firebasestorage.googleapis.com/v0/b/makm-scarabeus-prod.appspot.com/o/Privacy-Policy-for-scarabeus.pdf?alt=media&token=6be4fd07-c256-48fc-a7f5-42f768dec9b8'
+// const privacyPolicy =
+//   'https://firebasestorage.googleapis.com/v0/b/makm-scarabeus-prod.appspot.com/o/Privacy-Policy-for-scarabeus.pdf?alt=media&token=6be4fd07-c256-48fc-a7f5-42f768dec9b8'
 
 const Footer = () => {
   const { i18n, t } = useTranslation()
@@ -28,13 +28,13 @@ const Footer = () => {
     <Wrapper>
       <Container>
         <Content>
-          <StyledAnchor href={privacyPolicy}>{t('scarabeus.policies')}</StyledAnchor>
+          <StyledAnchor href='#'>{t('scarabeus.policies')}</StyledAnchor>
 
           <StyledAnchor href='mailto: scarabeus.team@gmail.com'>
             {t('scarabeus.contactUs')}
           </StyledAnchor>
 
-          <InstaLink href='https://www.instagram.com/the.scarabeus/' target='blank'>
+          <InstaLink href='#'>
             <AiFillInstagram />
           </InstaLink>
 
