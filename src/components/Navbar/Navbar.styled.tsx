@@ -1,15 +1,15 @@
-import { motion } from 'framer-motion'
-import { NavLink } from 'react-router-dom'
-import styled, { css } from 'styled-components'
-import { LG, MD, SM } from '../../utils/theme'
-import Button from '../Button/Button'
+import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import styled, { css } from "styled-components";
+import { LG, MD, SM } from "../../utils/theme";
+import Button from "../Button/Button";
 
-export const NAVBAR_HEIGHT = 70
-export const NAVBAR_HEIGHT_STRING = `${NAVBAR_HEIGHT}px`
+export const NAVBAR_HEIGHT = 70;
+export const NAVBAR_HEIGHT_STRING = `${NAVBAR_HEIGHT}px`;
 
 interface IProps {
-  isLandingPage: boolean
-  transparent: boolean
+  isLandingPage: boolean;
+  transparent: boolean;
 }
 
 export const Wrapper = styled.div<IProps>`
@@ -30,7 +30,7 @@ export const Wrapper = styled.div<IProps>`
     isLandingPage &&
     css`
       position: fixed;
-      background-color: ${transparent ? 'transparent' : theme.black};
+      background-color: ${transparent ? "transparent" : theme.black};
       button {
         background: transparent;
 
@@ -48,7 +48,7 @@ export const Wrapper = styled.div<IProps>`
     justify-content: space-between;
     align-items: center;
   }
-`
+`;
 
 export const Logo = styled.h1`
   color: ${({ theme }) => theme.primary};
@@ -62,7 +62,7 @@ export const Logo = styled.h1`
   @media screen and (max-width: ${SM}px) {
     font-size: 1.2rem;
   }
-`
+`;
 
 export const MenuButton = styled.div`
   color: ${({ theme }) => theme.primary};
@@ -70,7 +70,7 @@ export const MenuButton = styled.div`
   cursor: pointer;
   display: grid;
   place-items: center;
-`
+`;
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
@@ -129,7 +129,7 @@ export const StyledLink = styled(NavLink)`
       background-color: ${({ theme }) => theme.primary};
     }
   }
-`
+`;
 
 export const Menu = styled(motion.div)`
   @media screen and (max-width: ${LG}px) {
@@ -142,12 +142,12 @@ export const Menu = styled(motion.div)`
     padding-top: 80px;
     background-color: ${({ theme }) => theme.black};
   }
-`
+`;
 
 export const Center = styled.span`
   display: grid;
   place-items: center;
-`
+`;
 
 export const AuthLinksContainer = styled.div`
   display: flex;
@@ -169,7 +169,7 @@ export const AuthLinksContainer = styled.div`
   @media screen and (max-width: ${MD}px) {
     margin-top: 50px;
   }
-`
+`;
 
 export const ProductLinks = styled.div`
   display: flex;
@@ -183,7 +183,7 @@ export const ProductLinks = styled.div`
   @media screen and (max-width: ${MD}px) {
     flex-direction: column;
   }
-`
+`;
 
 export const UserName = styled(NavLink)`
   color: ${({ theme }) => theme.white};
@@ -197,11 +197,11 @@ export const UserName = styled(NavLink)`
   :hover {
     text-decoration: underline;
   }
-`
+`;
 
 export const LoginButton = styled(Button)`
   transition: all 0.3s;
   :hover {
     border: solid 2px ${({ theme }) => theme.white};
   }
-`
+`;
