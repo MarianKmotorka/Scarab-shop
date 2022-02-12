@@ -1,28 +1,23 @@
 import { useState } from 'react'
 import { RiAdminFill } from 'react-icons/ri'
 import { useTranslation } from 'react-i18next'
-import { AnimatePresence } from 'framer-motion'
-import { FiMenu, FiPackage } from 'react-icons/fi'
+import { FiPackage } from 'react-icons/fi'
 import { useHistory, useLocation } from 'react-router-dom'
-import { FaBug, FaTimes } from 'react-icons/fa'
 
 import Button from '../Button/Button'
 import { Container } from '../Container'
-import { LG, MD } from '../../utils/theme'
+import { LG } from '../../utils/theme'
 import { useWindowSize } from '../../hooks'
 import { useNavbarStyles } from './useNavbarStyles'
 import { useAuth } from '../../contextProviders/AuthProvider'
 
 import {
-  Menu,
   Logo,
   Wrapper,
   StyledLink,
-  MenuButton,
   AuthLinksContainer,
   ProductLinks,
   UserName,
-  LoginButton,
 } from './Navbar.styled'
 
 const Navbar = () => {
@@ -34,7 +29,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const isLandingPage = location.pathname === '/'
-  const isLessThanMD = width <= MD
   const isLessThanLG = width <= LG
   const isAdmin = auth.isLoggedIn && auth.currentUser.isAdmin
 

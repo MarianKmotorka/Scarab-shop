@@ -6,7 +6,7 @@ export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.white};
   position: relative;
@@ -42,7 +42,7 @@ export const Body = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
 
   h1 {
     font-size: 1.2rem;
