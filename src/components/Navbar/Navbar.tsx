@@ -6,7 +6,6 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 import Button from '../Button/Button'
 import { Container } from '../Container'
-import { LG } from '../../utils/theme'
 import { useWindowSize } from '../../hooks'
 import { useNavbarStyles } from './useNavbarStyles'
 import { useAuth } from '../../contextProviders/AuthProvider'
@@ -17,7 +16,6 @@ import {
   StyledLink,
   AuthLinksContainer,
   ProductLinks,
-  UserName,
 } from './Navbar.styled'
 
 const Navbar = () => {
@@ -25,11 +23,9 @@ const Navbar = () => {
   const history = useHistory()
   const location = useLocation()
   const { t } = useTranslation()
-  const { width } = useWindowSize()
   const [isOpen, setIsOpen] = useState(false)
 
   const isLandingPage = location.pathname === '/'
-  const isLessThanLG = width <= LG
   const isAdmin = auth.isLoggedIn && auth.currentUser.isAdmin
 
   const [viewHeightScrolled] = useNavbarStyles(!isLandingPage)
@@ -42,15 +38,11 @@ const Navbar = () => {
   const authLinks = auth.isLoggedIn && (
     <AuthLinksContainer>
       <>
-        <UserName to='/profile' onClick={() => close()}>
+        {/* <UserName to='/profile' onClick={() => close()}>
           {auth.currentUser.email}
-        </UserName>
-        <Button
-          colorInverted
-          reversed
-          onClick={() => close(() => history.push('/logout'))}
-        >
-          {t('scarabeus.logout')}
+        </UserName> */}
+        <Button reversed onClick={() => close(() => history.push('/logout'))}>
+          X
         </Button>
       </>
     </AuthLinksContainer>
@@ -83,7 +75,7 @@ const Navbar = () => {
         <Logo onClick={() => history.push('/')}>scarabeus</Logo>
 
         {productLinks}
-        {!isLessThanLG && authLinks}
+        {authLinks}
       </Container>
     </Wrapper>
   )

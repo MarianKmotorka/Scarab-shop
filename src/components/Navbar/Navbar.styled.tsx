@@ -76,7 +76,7 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s, background-color 0.3s;
-  background: ${({ theme }) => theme.white3};
+  background: ${({ theme }) => theme.white};
   border-radius: 100px;
   padding: 0.5rem 1rem;
 
@@ -114,14 +114,6 @@ export const AuthLinksContainer = styled.div`
     margin: 10px 0;
     text-transform: uppercase;
     border-radius: 0px;
-  }
-
-  @media screen and (max-width: ${LG}px) {
-    padding: 0 10px;
-  }
-
-  @media screen and (max-width: ${MD}px) {
-    margin-top: 50px;
   }
 `
 
