@@ -28,13 +28,17 @@ const Footer = () => {
     <Wrapper>
       <Container>
         <Content>
-          <StyledAnchor href='#'>{t('scarabeus.policies')}</StyledAnchor>
+          <StyledAnchor href='/login'>Admin</StyledAnchor>
 
           <StyledAnchor href='mailto: scarabeus.team@gmail.com'>
             {t('scarabeus.contactUs')}
           </StyledAnchor>
 
-          <InstaLink href='#'>
+          <InstaLink
+            href='https://www.instagram.com/the.scarabeus/'
+            rel='noreferrer noopener'
+            target='_blank'
+          >
             <AiFillInstagram />
           </InstaLink>
 

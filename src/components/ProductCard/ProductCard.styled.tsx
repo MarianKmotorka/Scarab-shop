@@ -1,32 +1,40 @@
-import { Link } from "react-router-dom";
-import CoolImg from "react-cool-img";
-import styled from "styled-components";
+import { Link } from 'react-router-dom'
+import CoolImg from 'react-cool-img'
+import styled from 'styled-components'
 
 export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
+  border-radius: 10px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.white};
   position: relative;
+  aspect-ratio: 1 / 1;
 
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  @media (min-width: 1106px) {
+    :first-child {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 
   :hover img {
     transform: scale(1.3);
   }
-`;
+`
 
 export const Image = styled(CoolImg)<{ isOutOfStock: boolean }>`
-  height: 270px;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.25s;
+  transition: transform 1s;
 
-  ${({ isOutOfStock }) => isOutOfStock && "filter: grayscale(100%)"};
-`;
+  ${({ isOutOfStock }) => isOutOfStock && 'filter: grayscale(100%)'};
+`
 
 export const Body = styled.div`
   padding: 13px;
@@ -41,14 +49,14 @@ export const Body = styled.div`
     font-weight: 400;
     color: ${({ theme }) => theme.white};
   }
-`;
+`
 
 export const Info = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
-`;
+`
 
 export const Price = styled.p`
   display: flex;
@@ -61,4 +69,4 @@ export const Price = styled.p`
     font-weight: 500;
     color: ${({ theme }) => theme.primary};
   }
-`;
+`

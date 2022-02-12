@@ -5,14 +5,13 @@ import 'firebase/auth'
 import 'firebase/analytics'
 
 var firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  apiKey: 'AIzaSyCZfMPcgX-UG05jk3ibOSDlCaeU23ItnQs',
+  authDomain: 'makm-scarabeus-prod.firebaseapp.com',
+  projectId: 'makm-scarabeus-prod',
+  storageBucket: 'makm-scarabeus-prod.appspot.com',
+  messagingSenderId: '827161142551',
+  appId: '1:827161142551:web:ea4e8f6f91aeb841cb0352',
+  measurementId: 'G-H4M2P4P22N',
 }
 
 firebase.initializeApp(firebaseConfig)
